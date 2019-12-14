@@ -1,2 +1,6 @@
-/cmake-build-debug/*
-/cmake-build-debug/CMakeFiles/*
+*.o
+/home/guy/CLionProjects/Milstone1/.idea/dictionaries/guy.xml
+/home/guy/CLionProjects/Milstone1/.idea/inspectionProfiles/Project_Default.xml
+/cmake-build-debug/Milstone1
+/cmake-build-debug/CMakeFiles/Milstone1.dir/depend.internal
+/cmake-build-debug/CMakeFiles/Milstone1.dir/CXX.includecache
