@@ -12,7 +12,7 @@ int main() {
   std::cout << "Hello, World!" << std::endl;
   std::cout << "this is new branch" << std::endl;
   //a pointer to the array.
-  string* string1 = lexer("fly");
+  string* string1 = lexer("fly.txt");
 
   return 0;
 }
