@@ -3,7 +3,7 @@
 //
 
 #include "LoopCommand.h"
-LoopCommand::LoopCommand(int index) : ConditionParser(index) {}
+LoopCommand::LoopCommand() = default;
 int LoopCommand::execute() {
   //todo: implement LoopCommand::execute
   updateCondition();

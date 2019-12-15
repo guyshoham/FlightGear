@@ -3,7 +3,7 @@
 //
 
 #include "FuncCommand.h"
-FuncCommand::FuncCommand(int index) : Command(index) {}
+FuncCommand::FuncCommand() = default;
 int FuncCommand::execute() {
   //todo: implement FuncCommand::execute
   for (Command* c : _commandsList) {

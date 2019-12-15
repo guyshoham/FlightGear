@@ -3,7 +3,8 @@
 //
 
 #include "ConditionParser.h"
-ConditionParser::ConditionParser(int index) : Command(index) {}
+
+ConditionParser::ConditionParser() { _condition = false; };
 int ConditionParser::execute() {
   //todo: implement ConditionParser::execute
   return _commandsList.size() + 1;

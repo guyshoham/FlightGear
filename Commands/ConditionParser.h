@@ -13,7 +13,7 @@ class ConditionParser : public Command {
   list<Command*> _commandsList;
   bool _condition;
  public:
-  ConditionParser(int index);
+  ConditionParser();
   int execute() override;
   virtual void updateCondition();
 };

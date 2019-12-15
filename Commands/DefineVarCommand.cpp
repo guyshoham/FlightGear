@@ -3,8 +3,8 @@
 //
 
 #include "DefineVarCommand.h"
-DefineVarCommand::DefineVarCommand(int index) : Command(index) {}
+DefineVarCommand::DefineVarCommand() = default;
 int DefineVarCommand::execute() {
   //todo: implement DefineVarCommand::execute
-  return 4;
+  return 5;
 }

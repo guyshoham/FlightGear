@@ -3,7 +3,7 @@
 //
 
 #include "IfCommand.h"
-IfCommand::IfCommand(int index) : ConditionParser(index) {}
+IfCommand::IfCommand() = default;
 int IfCommand::execute() {
   //todo: implement IfCommand::execute
   updateCondition();

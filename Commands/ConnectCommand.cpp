@@ -3,7 +3,7 @@
 //
 
 #include "ConnectCommand.h"
-ConnectCommand::ConnectCommand(int index) : Command(index) {}
+ConnectCommand::ConnectCommand() = default;
 int ConnectCommand::execute() {
   //todo: implement ConnectCommand::execute
   return 3;

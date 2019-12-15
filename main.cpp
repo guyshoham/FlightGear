@@ -17,15 +17,15 @@
 using namespace std;
 
 unordered_map<string, Command*> commandTable({
-                                                 {"openDataServer", new OpenServerCommand(-1)},
-                                                 {"connectControlClient", new ConnectCommand(-1)},
-                                                 {"if", new IfCommand(-1)},
-                                                 {"while", new LoopCommand(-1)},
-                                                 {"func", new FuncCommand(-1)},
-                                                 {"Sleep", new SleepCommand(-1)},
-                                                 {"var", new DefineVarCommand(-1)},
-                                                 {"Print", new PrintCommand(-1)},
-                                                 {"assign", new AssignCommand(-1)}
+                                                 {"openDataServer", new OpenServerCommand()},
+                                                 {"connectControlClient", new ConnectCommand()},
+                                                 {"if", new IfCommand()},
+                                                 {"while", new LoopCommand()},
+                                                 {"func", new FuncCommand()},
+                                                 {"Sleep", new SleepCommand()},
+                                                 {"var", new DefineVarCommand()},
+                                                 {"Print", new PrintCommand()},
+                                                 {"assign", new AssignCommand()}
                                              });
 
 string* lexer(string fileName);
@@ -125,6 +125,7 @@ void parser(string* arr) {
     Command* c;
     c = commandTable.at(arr[index]);
     if (c != NULL) {
+      c->setIndex(index);
       index += c->execute();
     }
   }

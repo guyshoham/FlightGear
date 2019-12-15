@@ -3,7 +3,7 @@
 //
 
 #include "SleepCommand.h"
-SleepCommand::SleepCommand(int index) : Command(index) {}
+SleepCommand::SleepCommand() = default;
 int SleepCommand::execute() {
   //todo: implement SleepCommand::execute
   return 2;

@@ -12,7 +12,7 @@ using namespace std;
 class FuncCommand : public Command {
   list<Command*> _commandsList;
  public:
-  FuncCommand(int index);
+  FuncCommand();
   int execute() override;
 };
 

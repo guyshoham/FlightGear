@@ -3,7 +3,7 @@
 //
 
 #include "PrintCommand.h"
-PrintCommand::PrintCommand(int index) : Command(index) {}
+PrintCommand::PrintCommand() = default;
 int PrintCommand::execute() {
   //todo: implement PrintCommand::execute
   return 2;

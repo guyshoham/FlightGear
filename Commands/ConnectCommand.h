@@ -8,7 +8,7 @@
 #include "Command.h"
 class ConnectCommand : public Command {
  public:
-  ConnectCommand(int index);
+  ConnectCommand();
   int execute() override;
 };
 

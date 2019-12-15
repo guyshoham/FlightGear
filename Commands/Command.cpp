@@ -3,7 +3,7 @@
 //
 
 #include "Command.h"
-Command::Command(int index) { _index = index; }
+Command::Command() = default;
 Command::~Command() = default;
 void Command::setIndex(int index) {
   _index = index;

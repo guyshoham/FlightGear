@@ -3,7 +3,7 @@
 //
 
 #include "OpenServerCommand.h"
-OpenServerCommand::OpenServerCommand(int index) : Command(index) {}
+OpenServerCommand::OpenServerCommand() = default;
 int OpenServerCommand::execute() {
   //todo: implement OpenServerCommand::execute
   return 2;

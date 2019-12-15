@@ -8,7 +8,7 @@
 #include "Command.h"
 class AssignCommand : public Command {
  public:
-  AssignCommand(int index);
+  AssignCommand();
   int execute() override;
 
 };

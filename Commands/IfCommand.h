@@ -8,7 +8,7 @@
 #include "ConditionParser.h"
 class IfCommand : public ConditionParser {
  public:
-  IfCommand(int index);
+  IfCommand();
   int execute() override;
 };
 #endif //MILSTONE1_COMMANDS_IFCOMMAND_H_
