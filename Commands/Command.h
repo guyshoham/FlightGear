@@ -11,6 +11,7 @@ class Command {
  public:
   Command(int index);
   virtual int execute() = 0;
+  virtual void setIndex(int index);
   virtual ~Command();
 };
 

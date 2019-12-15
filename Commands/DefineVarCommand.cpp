@@ -6,5 +6,5 @@
 DefineVarCommand::DefineVarCommand(int index) : Command(index) {}
 int DefineVarCommand::execute() {
   //todo: implement DefineVarCommand::execute
-  return Command::execute();
+  return 4;
 }

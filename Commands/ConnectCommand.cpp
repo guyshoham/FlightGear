@@ -6,5 +6,5 @@
 ConnectCommand::ConnectCommand(int index) : Command(index) {}
 int ConnectCommand::execute() {
   //todo: implement ConnectCommand::execute
-  return Command::execute();
+  return 3;
 }

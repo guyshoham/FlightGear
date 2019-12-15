@@ -6,5 +6,5 @@
 AssignCommand::AssignCommand(int index) : Command(index) {}
 int AssignCommand::execute() {
   //todo: implement AssignCommand::execute
-  return Command::execute();
+  return 4;
 }

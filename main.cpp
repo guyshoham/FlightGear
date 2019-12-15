@@ -1,18 +1,41 @@
 #include <iostream>
 #include <string>
-#include <iostream>
 #include <fstream>
 #include <list>
+#include <unordered_map>
+#include "Commands/Command.h"
+#include "Commands/OpenServerCommand.h"
+#include "Commands/ConnectCommand.h"
+#include "Commands/IfCommand.h"
+#include "Commands/LoopCommand.h"
+#include "Commands/FuncCommand.h"
+#include "Commands/SleepCommand.h"
+#include "Commands/DefineVarCommand.h"
+#include "Commands/PrintCommand.h"
+#include "Commands/AssignCommand.h"
 
 using namespace std;
 
+unordered_map<string, Command*> commandTable({
+                                                 {"openDataServer", new OpenServerCommand(-1)},
+                                                 {"connectControlClient", new ConnectCommand(-1)},
+                                                 {"if", new IfCommand(-1)},
+                                                 {"while", new LoopCommand(-1)},
+                                                 {"func", new FuncCommand(-1)},
+                                                 {"Sleep", new SleepCommand(-1)},
+                                                 {"var", new DefineVarCommand(-1)},
+                                                 {"Print", new PrintCommand(-1)},
+                                                 {"assign", new AssignCommand(-1)}
+                                             });
+
 string* lexer(string fileName);
+void parser(string* arr);
 
 int main() {
-  std::cout << "Hello, World!" << std::endl;
-  std::cout << "this is new branch" << std::endl;
+  std::cout << "Starting Flightgear..." << std::endl;
   //a pointer to the array.
-  string* string1 = lexer("fly.txt");
+  string* arr = lexer("fly.txt");
+  parser(arr);
 
   return 0;
 }
@@ -94,4 +117,15 @@ string* lexer(string fileName) {
     iterator++;
   }
   return strArray;
+}
+
+void parser(string* arr) {
+  int index = 0;
+  while (index < arr->size()) {
+    Command* c;
+    c = commandTable.at(arr[index]);
+    if (c != NULL) {
+      index += c->execute();
+    }
+  }
 }

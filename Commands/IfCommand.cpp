@@ -12,5 +12,5 @@ int IfCommand::execute() {
       c->execute();
     }
   }
-  return ConditionParser::execute();
+  return _commandsList.size() + 1;
 }

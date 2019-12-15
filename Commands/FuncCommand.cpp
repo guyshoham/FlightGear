@@ -9,5 +9,5 @@ int FuncCommand::execute() {
   for (Command* c : _commandsList) {
     c->execute();
   }
-  return Command::execute();
+  return _commandsList.size() + 1;
 }

@@ -6,5 +6,5 @@
 OpenServerCommand::OpenServerCommand(int index) : Command(index) {}
 int OpenServerCommand::execute() {
   //todo: implement OpenServerCommand::execute
-  return Command::execute();
+  return 2;
 }

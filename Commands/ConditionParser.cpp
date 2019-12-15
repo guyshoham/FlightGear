@@ -6,7 +6,7 @@
 ConditionParser::ConditionParser(int index) : Command(index) {}
 int ConditionParser::execute() {
   //todo: implement ConditionParser::execute
-  return Command::execute();
+  return _commandsList.size() + 1;
 }
 void ConditionParser::updateCondition() {
   //todo: implement ConditionParser::updateCondition

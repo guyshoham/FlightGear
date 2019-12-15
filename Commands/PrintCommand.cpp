@@ -6,5 +6,5 @@
 PrintCommand::PrintCommand(int index) : Command(index) {}
 int PrintCommand::execute() {
   //todo: implement PrintCommand::execute
-  return Command::execute();
+  return 2;
 }
