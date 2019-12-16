@@ -8,7 +8,7 @@
 #include "Command.h"
 class PrintCommand : public Command {
  public:
-  PrintCommand(int index);
+  PrintCommand();
   int execute() override;
 
 };

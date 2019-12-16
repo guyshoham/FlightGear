@@ -8,7 +8,7 @@
 #include "ConditionParser.h"
 class LoopCommand : public ConditionParser {
  public:
-  LoopCommand(int index);
+  LoopCommand();
   int execute() override;
 };
 #endif //MILSTONE1_COMMANDS_LOOPCOMMAND_H_

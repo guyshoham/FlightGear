@@ -8,7 +8,7 @@
 #include "Command.h"
 class DefineVarCommand : public Command {
  public:
-  DefineVarCommand(int index);
+  DefineVarCommand();
   int execute() override;
 
 };

@@ -3,8 +3,9 @@
 //
 
 #include "AssignCommand.h"
-AssignCommand::AssignCommand(int index) : Command(index) {}
+
+AssignCommand::AssignCommand() = default;
 int AssignCommand::execute() {
   //todo: implement AssignCommand::execute
-  return Command::execute();
+  return 4;
 }

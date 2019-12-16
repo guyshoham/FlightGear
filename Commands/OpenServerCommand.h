@@ -8,7 +8,7 @@
 #include "Command.h"
 class OpenServerCommand : public Command {
  public:
-  OpenServerCommand(int index);
+  OpenServerCommand();
   int execute() override;
 };
 

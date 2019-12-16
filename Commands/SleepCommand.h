@@ -8,7 +8,7 @@
 #include "Command.h"
 class SleepCommand : public Command {
  public:
-  SleepCommand(int index);
+  SleepCommand();
   int execute() override;
 
 };

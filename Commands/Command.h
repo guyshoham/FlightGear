@@ -9,8 +9,9 @@ class Command {
  private:
   int _index;
  public:
-  Command(int index);
+  Command();
   virtual int execute() = 0;
+  virtual void setIndex(int index);
   virtual ~Command();
 };
 
