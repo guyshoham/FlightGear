@@ -4,12 +4,14 @@
 
 #include "IfCommand.h"
 IfCommand::IfCommand() = default;
-int IfCommand::execute() {
+int IfCommand::execute(string* textArr,
+                       unordered_map<string, Command*> commandTable,
+                       unordered_map<string, VarInfo*> symTable) {
   //todo: implement IfCommand::execute
   updateCondition();
   if (_condition) {
     for (Command* c : _commandsList) {
-      c->execute();
+      c->execute(textArr, commandTable, symTable);
     }
   }
   return _commandsList.size() + 1;

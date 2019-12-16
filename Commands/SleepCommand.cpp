@@ -4,7 +4,9 @@
 
 #include "SleepCommand.h"
 SleepCommand::SleepCommand() = default;
-int SleepCommand::execute() {
+int SleepCommand::execute(string* textArr,
+                          unordered_map<string, Command*> commandTable,
+                          unordered_map<string, VarInfo*> symTable) {
   //todo: implement SleepCommand::execute
   return 2;
 }

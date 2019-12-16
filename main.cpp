@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <list>
-#include <unordered_map>
 #include "Commands/Command.h"
 #include "Commands/OpenServerCommand.h"
 #include "Commands/ConnectCommand.h"
@@ -11,34 +10,32 @@
 #include "Commands/SleepCommand.h"
 #include "Commands/DefineVarCommand.h"
 #include "Commands/PrintCommand.h"
+#include "Data.h"
 
 using namespace std;
 
-unordered_map<string, Command*> commandTable({
-                                                 {"openDataServer", new OpenServerCommand()},
-                                                 {"connectControlClient", new ConnectCommand()},
-                                                 {"if", new IfCommand()},
-                                                 {"while", new LoopCommand()},
-                                                 {"Sleep", new SleepCommand()},
-                                                 {"var", new DefineVarCommand()},
-                                                 {"Print", new PrintCommand()},
-                                             });
-string* arr;
-int arrSize = 0;
-
-string* lexer(string fileName);
-void parser(string* arr);
+string* lexer(string fileName, Data* data);
+void parser(Data* data);
 
 int main() {
+  Data* data = new Data();
+  data->addCommand("openDataServer", new OpenServerCommand());
+  data->addCommand("connectControlClient", new ConnectCommand());
+  data->addCommand("var", new DefineVarCommand());
+  data->addCommand("if", new IfCommand());
+  data->addCommand("while", new LoopCommand());
+  data->addCommand("Sleep", new SleepCommand());
+  data->addCommand("Print", new PrintCommand());
+
   std::cout << "Starting Flightgear..." << std::endl;
   //a pointer to the array.
-  arr = lexer("fly.txt");
-  parser(arr);
+  data->textArr = lexer("fly.txt", data);
+  parser(data);
 
   return 0;
 }
 
-string* lexer(string fileName) {
+string* lexer(string fileName, Data* data) {
   list<string> strList;
   ifstream stream;
   string word, tempWord, argument1, argument2;
@@ -114,18 +111,18 @@ string* lexer(string fileName) {
     strArray[i] = *iterator;
     iterator++;
   }
-  arrSize = strList.size();
+  data->arrSize = strList.size();
   return strArray;
 }
 
-void parser(string* arr) {
+void parser(Data* data) {
   int index = 0;
-  while (index < arrSize) {
+  while (index < data->arrSize) {
     Command* c;
-    c = commandTable.at(arr[index]);
+    c = data->commandTable.at(data->textArr[index]);
     if (c != nullptr) {
       c->setIndex(index);
-      index += c->execute();
+      index += c->execute(data->textArr, data->commandTable, data->symTable);
     }
   }
 }

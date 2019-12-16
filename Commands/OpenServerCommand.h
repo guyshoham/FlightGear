@@ -3,13 +3,15 @@
 //
 
 #ifndef MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_
+#include "Command.h"
 #define MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_
 
-#include "Command.h"
 class OpenServerCommand : public Command {
  public:
   OpenServerCommand();
-  int execute() override;
+  int execute(string* textArr,
+              unordered_map<string, Command*> commandTable,
+              unordered_map<string, VarInfo*> symTable) override;
 };
 
 #endif //MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_

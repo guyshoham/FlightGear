@@ -3,14 +3,21 @@
 //
 
 #ifndef MILSTONE1_COMMANDS_COMMAND_H_
+#include <string>
+#include <unordered_map>
+#include "../VarInfo.h"
 #define MILSTONE1_COMMANDS_COMMAND_H_
 
+using namespace std;
+
 class Command {
- private:
+ protected:
   int _index;
  public:
   Command();
-  virtual int execute() = 0;
+  virtual int execute(string* textArr,
+                      unordered_map<string, Command*> commandTable,
+                      unordered_map<string, VarInfo*> symTable) = 0;
   virtual void setIndex(int index);
   virtual ~Command();
 };

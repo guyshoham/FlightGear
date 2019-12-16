@@ -5,7 +5,9 @@
 #include "AssignCommand.h"
 
 AssignCommand::AssignCommand() = default;
-int AssignCommand::execute() {
+int AssignCommand::execute(string* textArr,
+                           unordered_map<string, Command*> commandTable,
+                           unordered_map<string, VarInfo*> symTable) {
   //todo: implement AssignCommand::execute
   return 4;
 }

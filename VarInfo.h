@@ -3,20 +3,21 @@
 //
 
 #ifndef MILSTONE1__VARINFO_H_
+#include <string>
 #define MILSTONE1__VARINFO_H_
 
-#include <string>
 using namespace std;
 
 class VarInfo {
-  string _name, _sim;
+  string _name, _path, _direction;
   double _value;
 
  public:
-  VarInfo(string name, string sim);
+  VarInfo(string name, string direction, string sim);
   double getValue();
   string getName();
-  string getSim();
+  string getDirection();
+  string getPath();
 
 };
 

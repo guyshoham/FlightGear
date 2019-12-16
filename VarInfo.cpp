@@ -4,9 +4,10 @@
 
 #include "VarInfo.h"
 
-VarInfo::VarInfo(string name, string sim) {
+VarInfo::VarInfo(string name, string direction, string sim) {
   _name = name;
-  _sim = sim;
+  _direction = direction;
+  _path = sim;
   _value = 0.0;
 }
 double VarInfo::getValue() {
@@ -15,6 +16,9 @@ double VarInfo::getValue() {
 string VarInfo::getName() {
   return _name;
 }
-string VarInfo::getSim() {
-  return _sim;
+string VarInfo::getPath() {
+  return _path;
+}
+string VarInfo::getDirection() {
+  return _direction;
 }
