@@ -8,11 +8,9 @@
 #include "Commands/ConnectCommand.h"
 #include "Commands/IfCommand.h"
 #include "Commands/LoopCommand.h"
-#include "Commands/FuncCommand.h"
 #include "Commands/SleepCommand.h"
 #include "Commands/DefineVarCommand.h"
 #include "Commands/PrintCommand.h"
-#include "Commands/AssignCommand.h"
 
 using namespace std;
 
@@ -21,12 +19,12 @@ unordered_map<string, Command*> commandTable({
                                                  {"connectControlClient", new ConnectCommand()},
                                                  {"if", new IfCommand()},
                                                  {"while", new LoopCommand()},
-                                                 {"func", new FuncCommand()},
                                                  {"Sleep", new SleepCommand()},
                                                  {"var", new DefineVarCommand()},
                                                  {"Print", new PrintCommand()},
-                                                 {"assign", new AssignCommand()}
                                              });
+string* arr;
+int arrSize = 0;
 
 string* lexer(string fileName);
 void parser(string* arr);
@@ -34,7 +32,7 @@ void parser(string* arr);
 int main() {
   std::cout << "Starting Flightgear..." << std::endl;
   //a pointer to the array.
-  string* arr = lexer("fly.txt");
+  arr = lexer("fly.txt");
   parser(arr);
 
   return 0;
@@ -116,15 +114,16 @@ string* lexer(string fileName) {
     strArray[i] = *iterator;
     iterator++;
   }
+  arrSize = strList.size();
   return strArray;
 }
 
 void parser(string* arr) {
   int index = 0;
-  while (index < arr->size()) {
+  while (index < arrSize) {
     Command* c;
     c = commandTable.at(arr[index]);
-    if (c != NULL) {
+    if (c != nullptr) {
       c->setIndex(index);
       index += c->execute();
     }
