@@ -9,6 +9,8 @@
 class LoopCommand : public ConditionParser {
  public:
   LoopCommand();
-  int execute() override;
+  int execute(string* textArr,
+              unordered_map<string, Command*> commandTable,
+              unordered_map<string, VarInfo*> symTable) override;
 };
 #endif //MILSTONE1_COMMANDS_LOOPCOMMAND_H_
