@@ -12,8 +12,6 @@ add_executable(Milstone1 main.cpp
         Commands/ConnectCommand.cpp
         Commands/DefineVarCommand.h
         Commands/DefineVarCommand.cpp
-        Commands/FuncCommand.h
-        Commands/FuncCommand.cpp
         Commands/IfCommand.h
         Commands/IfCommand.cpp
         Commands/LoopCommand.h
