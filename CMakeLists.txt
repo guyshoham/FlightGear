@@ -23,4 +23,6 @@ add_executable(Milstone1 main.cpp
         Commands/AssignCommand.h
         Commands/AssignCommand.cpp
         Commands/OpenServerCommand.h
-        Commands/OpenServerCommand.cpp)
+        Commands/OpenServerCommand.cpp
+        VarInfo.cpp
+        VarInfo.h)
