@@ -5,6 +5,4 @@
 #include "Command.h"
 Command::Command() = default;
 Command::~Command() = default;
-void Command::setIndex(int index) {
-  _index = index;
-}
+void Command::setIndex(int index) { _index = index; }
