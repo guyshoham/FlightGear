@@ -15,6 +15,7 @@ class VarInfo {
  public:
   VarInfo(string name, string direction, string sim);
   double getValue();
+  void setValue(double value);
   string getName();
   string getDirection();
   string getPath();

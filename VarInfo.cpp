@@ -13,6 +13,9 @@ VarInfo::VarInfo(string name, string direction, string sim) {
 double VarInfo::getValue() {
   return _value;
 }
+void VarInfo::setValue(double value) {
+  _value = value;
+}
 string VarInfo::getName() {
   return _name;
 }
