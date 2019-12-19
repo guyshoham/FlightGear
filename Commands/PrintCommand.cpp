@@ -2,14 +2,15 @@
 // Created by guy on 13/12/2019.
 //
 #include <iostream>
+#include <sstream>
 #include "PrintCommand.h"
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
 
 PrintCommand::PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
-                          unordered_map<string, Command*> commandTable,
-                          unordered_map<string, VarInfo*> symTable) {
+                          unordered_map<string, Command*>& commandTable,
+                          unordered_map<string, VarInfo*>& symTable) {
   //todo: implement PrintCommand::execute
 
   string value = textArr[_index + 1];
@@ -19,8 +20,17 @@ int PrintCommand::execute(string* textArr,
     cout << value << endl;
   } else {
     //todo: value is a variable or an expression. need to implement
-    Interpreter* interpreter = new Interpreter();
+    auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
+
+
+    for (pair<std::string, VarInfo*> element : symTable) {
+      ostringstream temp;
+      temp << element.second->getValue();
+      string valueStr = temp.str();
+      interpreter->setVariables(element.second->getName() + "=" + valueStr);
+    }
+
     expression = interpreter->interpret(value);
     cout << expression->calculate() << endl;
   }

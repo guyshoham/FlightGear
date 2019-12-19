@@ -10,8 +10,8 @@ using namespace std;
 
 DefineVarCommand::DefineVarCommand() = default;
 int DefineVarCommand::execute(string* textArr,
-                              unordered_map<string, Command*> commandTable,
-                              unordered_map<string, VarInfo*> symTable) {
+                              unordered_map<string, Command*>& commandTable,
+                              unordered_map<string, VarInfo*>& symTable) {
   //todo: implement DefineVarCommand::execute
   string name = textArr[_index + 1];
   string direction = textArr[_index + 2];

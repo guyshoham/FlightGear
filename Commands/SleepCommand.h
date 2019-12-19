@@ -10,8 +10,8 @@ class SleepCommand : public Command {
  public:
   SleepCommand();
   int execute(string* textArr,
-              unordered_map<string, Command*> commandTable,
-              unordered_map<string, VarInfo*> symTable) override;
+              unordered_map<string, Command*>& commandTable,
+              unordered_map<string, VarInfo*>& symTable) override;
 
 };
 

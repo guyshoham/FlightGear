@@ -5,8 +5,8 @@
 #include "IfCommand.h"
 IfCommand::IfCommand() = default;
 int IfCommand::execute(string* textArr,
-                       unordered_map<string, Command*> commandTable,
-                       unordered_map<string, VarInfo*> symTable) {
+                       unordered_map<string, Command*>& commandTable,
+                       unordered_map<string, VarInfo*>& symTable) {
   //todo: implement IfCommand::execute
   updateCondition();
   if (_condition) {
