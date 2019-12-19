@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <netinet/in.h>
 
+typedef int i;
 using namespace std;
 
 OpenServerCommand::OpenServerCommand() = default;
@@ -54,8 +55,8 @@ void OpenServerCommand::openServer(int portNum) {
     }
 
     // accepting a client
-    int client_socket = accept(socketfd, (struct sockaddr *)&address,
-                               (socklen_t*)&address);
+    socklen_t size = sizeof(address);
+    int client_socket = accept(socketfd, (struct sockaddr *) &address, &size);
 
     if (client_socket == -1) {
         throw "ERROR: cannot accept client";
@@ -68,3 +69,4 @@ void OpenServerCommand::openServer(int portNum) {
     int valRead = read( client_socket , buffer, 1024);
     std::cout<<buffer<<std::endl;
 }
+
