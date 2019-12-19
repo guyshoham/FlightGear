@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(Milstone1)
+project(FlightGear)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Milstone1 main.cpp
         Commands/Command.h
@@ -27,4 +27,8 @@ add_executable(Milstone1 main.cpp
         VarInfo.cpp
         VarInfo.h
         Data.cpp
-        Data.h)
+        Data.h
+        Expressions/Expression.h
+        Expressions/Calculator.h
+        Expressions/Calculator.cpp
+        )
