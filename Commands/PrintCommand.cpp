@@ -11,7 +11,6 @@ PrintCommand::PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
                           unordered_map<string, VarInfo*>& symTable) {
-  //todo: implement PrintCommand::execute
 
   string value = textArr[_index + 1];
 
@@ -19,7 +18,6 @@ int PrintCommand::execute(string* textArr,
   if (value.at(0) == '\"') {
     cout << value << endl;
   } else {
-    //todo: value is a variable or an expression. need to implement
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
