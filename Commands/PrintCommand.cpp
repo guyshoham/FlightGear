@@ -23,7 +23,6 @@ int PrintCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-
     for (pair<std::string, VarInfo*> element : symTable) {
       ostringstream temp;
       temp << element.second->getValue();
@@ -33,6 +32,8 @@ int PrintCommand::execute(string* textArr,
 
     expression = interpreter->interpret(value);
     cout << expression->calculate() << endl;
+    delete expression;
+    delete interpreter;
   }
 
   return 2;
