@@ -3,6 +3,8 @@
 //
 #include <iostream>
 #include "PrintCommand.h"
+#include "../Expressions/Expression.h"
+#include "../Expressions/Calculator.h"
 
 PrintCommand::PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
@@ -17,6 +19,10 @@ int PrintCommand::execute(string* textArr,
     cout << value << endl;
   } else {
     //todo: value is a variable or an expression. need to implement
+    Interpreter* interpreter = new Interpreter();
+    Expression* expression = nullptr;
+    expression = interpreter->interpret(value);
+    cout << expression->calculate() << endl;
   }
 
   return 2;
