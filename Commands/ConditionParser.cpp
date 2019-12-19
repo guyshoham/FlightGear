@@ -6,8 +6,8 @@
 
 ConditionParser::ConditionParser() { _condition = false; };
 int ConditionParser::execute(string* textArr,
-                             unordered_map<string, Command*> commandTable,
-                             unordered_map<string, VarInfo*> symTable) {
+                             unordered_map<string, Command*>& commandTable,
+                             unordered_map<string, VarInfo*>& symTable) {
   //todo: implement ConditionParser::execute
   return _commandsList.size() + 1;
 }

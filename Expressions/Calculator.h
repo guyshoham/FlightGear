@@ -1,141 +1,144 @@
-//
-// Created by Tsand on 11/7/2019.
-//
-
-#ifndef UNTITLED_EX1_H
-#include <iostream>
+#ifndef EX1__EX1_H_
+#include <string>
 #include <stack>
+#include <queue>
+#include <typeinfo>
 #include "Expression.h"
-#define UNTITLED_EX1_H
+#define EX1__EX1_H_
+using namespace std;
 
 class Value : public Expression {
-  const double value;
+
+  const double _value;
+
  public:
-  explicit Value(double value);
-  virtual ~Value();
+  Value(double value);
   double calculate();
+  virtual string getType();
+
 };
 
 class Variable : public Expression {
-  string name;
-  double value;
+  string _name;
+
+  double _value;
+
  public:
-  Variable(string name1, double value1);
-  virtual ~Variable();
+  Variable(string name, double value);
   double calculate();
+  Variable& operator++();
+  Variable& operator--();
+  Variable& operator+=(double num);
+  Variable& operator-=(double num);
+  Variable& operator++(int);
+  Variable& operator--(int);
+  virtual string getType();
   string getName();
   double getValue();
+  void setValue(double value);
 
-  Variable& operator++();
-
-  Variable& operator--();
-
-  Variable& operator+=(double e);
-
-  Variable& operator-=(double e);
-
-  Variable& operator++(int e);
-
-  Variable& operator--(int e);
-
-};
-
-class UnaryOperator : public Expression {
-  Expression* expression;
- protected:
-  UnaryOperator(Expression* expression1);
-
- public:
-  double calculate();
-  virtual ~UnaryOperator();
-};
-
-class UPlus : public UnaryOperator {
-  Expression* expression;
- public:
-  UPlus(Expression* expression1);
-  double calculate();
-  virtual ~UPlus();
-};
-class UMinus : public UnaryOperator {
-  Expression* expression;
- public:
-  UMinus(Expression* expression1);
-  double calculate();
-  virtual ~UMinus();
 };
 
 class BinaryOperator : public Expression {
  protected:
-  Expression* right;
-  Expression* left;
- public:
-  BinaryOperator(Expression* rValue, Expression* lValue);
-  virtual ~BinaryOperator();
+  Expression* _left, * _right;
 
-  double calculate();
+ public:
+  BinaryOperator(Expression* left, Expression* right);
+  virtual ~BinaryOperator();
+};
+
+class UnaryOperator : public Expression {
+ protected:
+  Expression* _expression;
+
+ public:
+  UnaryOperator(Expression* expression);
+  virtual ~UnaryOperator();
 };
 
 class Plus : public BinaryOperator {
-  Expression* right;
-  Expression* left;
+
  public:
-  Plus(Expression* rValue, Expression* lValue);
+  Plus(Expression* left, Expression* right);
   double calculate();
   virtual ~Plus();
+  virtual string getType();
 
 };
+
 class Minus : public BinaryOperator {
-  Expression* right;
-  Expression* left;
+
  public:
-  Minus(Expression* rValue, Expression* lValue);
+  Minus(Expression* left, Expression* right);
   double calculate();
   virtual ~Minus();
+  virtual string getType();
 
 };
+
 class Mul : public BinaryOperator {
-  Expression* right;
-  Expression* left;
+
  public:
-  Mul(Expression* rValue, Expression* lValue);
+  Mul(Expression* left, Expression* right);
   double calculate();
   virtual ~Mul();
+  virtual string getType();
 
 };
+
 class Div : public BinaryOperator {
-  Expression* right;
-  Expression* left;
+
  public:
-  Div(Expression* rValue, Expression* lValue);
+  Div(Expression* left, Expression* right);
   double calculate();
+  virtual string getType();
   virtual ~Div();
+};
+
+class UPlus : public UnaryOperator {
+
+ public:
+  UPlus(Expression* expression);
+  double calculate();
+  virtual ~UPlus();
+  virtual string getType();
+
+};
+
+class UMinus : public UnaryOperator {
+
+ public:
+  UMinus(Expression* expression);
+  double calculate();
+  virtual ~UMinus();
+  virtual string getType();
 
 };
 
 class Interpreter {
-  Variable* variables[10];
-  int size;
+  Variable* _variables[10] = {nullptr};
+
  public:
   Interpreter();
-  Expression* interpret(string expression);
-
-  void setVariables(string expression);
-
-  string switchVariables(string expression);
-  int findLastDigit(int i, string expression);
-
-// Function to verify whether an operator has higher precedence over other
-  int HasHigherPrecedence(char operator1, char operator2);
-
-// Function to verify whether a character is operator symbol or not.
-  bool IsOperator(char C);
-
-// Function to verify whether a character is alphanumeric character (letter or numeric digit) or not.
-  bool IsOperand(char C);
-
-  int GetOperatorWeight(char op);
+  Expression* interpret(string input);
+  void setVariables(string input);
   virtual ~Interpreter();
+  static bool isOperand(const char& c);
+  static bool isOperator(const char& c);
+  static bool hasHigherPrec(const char& top, const char& c);
+  static bool isOpeningParentheses(const char c);
+  static bool isClosingParentheses(const char c);
+  void addToArr(Variable* variable);
+  static void replaceAll(string& str, const string& from, const string& to);
+  static Value* getWholeValue(string input, int pos, int* posAfter);
+  static Expression* createExpressionFromStack(stack<char>* stack);
+  queue<Expression*> infixToPostfix(string input);
+  static Expression* integrateExpressions(queue<Expression*> output);
+  static bool validateMathExpression(const string expression);
+  static bool validateVariableExpression(const string expression, const char symbol);
+  static bool validateVariableName(const string name);
+  static bool validateVariableValue(const string value);
 };
 
-#endif //UNTITLED_EX1_H
+#endif //EX1__EX1_H_

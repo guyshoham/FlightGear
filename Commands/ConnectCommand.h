@@ -10,8 +10,8 @@ class ConnectCommand : public Command {
  public:
   ConnectCommand();
   int execute(string* textArr,
-              unordered_map<string, Command*> commandTable,
-              unordered_map<string, VarInfo*> symTable) override;
+              unordered_map<string, Command*>& commandTable,
+              unordered_map<string, VarInfo*>& symTable) override;
 };
 
 #endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_

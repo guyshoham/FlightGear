@@ -6,8 +6,8 @@
 
 AssignCommand::AssignCommand() = default;
 int AssignCommand::execute(string* textArr,
-                           unordered_map<string, Command*> commandTable,
-                           unordered_map<string, VarInfo*> symTable) {
+                           unordered_map<string, Command*>& commandTable,
+                           unordered_map<string, VarInfo*>& symTable) {
   //todo: implement AssignCommand::execute
 
   //todo: add expressions classes and use here
