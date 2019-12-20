@@ -7,4 +7,3 @@ CXX_FLAGS = -pthread -g   -std=gnu++14
 CXX_DEFINES = 
 
 CXX_INCLUDES = 
-

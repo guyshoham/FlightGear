@@ -16,8 +16,8 @@ using namespace std;
 OpenServerCommand::OpenServerCommand() = default;
 
 int OpenServerCommand::execute(string* textArr,
-                               unordered_map<string, Command*> commandTable,
-                               unordered_map<string, VarInfo*> symTable) {
+                               unordered_map<string, Command*>& commandTable,
+                               unordered_map<string, VarInfo*>& symTable) {
   textArr++;
   int portNum = stoi(*textArr);
   try {
