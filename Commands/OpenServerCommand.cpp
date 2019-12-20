@@ -21,6 +21,7 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, VarInfo*>& symTable) {
   textArr++;
   int portNum = stoi(*textArr);
+  textArr--;
   try {
     thread newServer(openServer, portNum, symTable);
     newServer.join();
@@ -68,12 +69,12 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
 
   //reading from client
 
-  while (true) {
+  /*while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
     cout << buffer << endl;
     parseSimulatorInput(buffer, symTable);
-  }
+  }*/
 }
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symtable) {
   const char* delimiter = ",";
