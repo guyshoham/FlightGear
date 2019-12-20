@@ -8,8 +8,6 @@ int LoopCommand::execute(string* textArr,
                          unordered_map<string, Command*>& commandTable,
                          unordered_map<string, VarInfo*>& symTableUser,
                          unordered_map<string, VarInfo*>& symTableSimulator) {
-  //todo: implement LoopCommand::execute
-
   //set _start and _end
   setStart(_index + 5);
   int temp = _index;
