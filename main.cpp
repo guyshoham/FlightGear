@@ -16,9 +16,23 @@ using namespace std;
 
 string* lexer(string fileName, Data* data);
 void parser(Data* data);
+void initSymTable(Data* data);
+void initCommandTable(Data* data);
 
 int main() {
   Data* data = new Data();
+  initCommandTable(data);
+  initSymTable(data);
+
+  cout << "Starting Flightgear..." << endl;
+  //a pointer to the array.
+  data->textArr = lexer("fly.txt", data);
+  parser(data);
+
+  return 0;
+}
+
+void initCommandTable(Data* data) {
   data->addCommand("openDataServer", new OpenServerCommand());
   data->addCommand("connectControlClient", new ConnectCommand());
   data->addCommand("var", new DefineVarCommand());
@@ -26,13 +40,16 @@ int main() {
   data->addCommand("while", new LoopCommand());
   data->addCommand("Sleep", new SleepCommand());
   data->addCommand("Print", new PrintCommand());
+}
 
-  std::cout << "Starting Flightgear..." << std::endl;
-  //a pointer to the array.
-  data->textArr = lexer("fly.txt", data);
-  parser(data);
+void initSymTable(Data* data) {
+  data->addVariable("airspeed-indicator_indicated-speed-kt",
+                    "airspeed-indicator_indicated-speed-kt",
+                    false,
+                    "/instrumentation/airspeed-indicator/indicated-speed-kt");
 
-  return 0;
+  //todo: init all variables
+
 }
 
 string* lexer(string fileName, Data* data) {

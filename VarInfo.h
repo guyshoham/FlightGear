@@ -9,15 +9,16 @@
 using namespace std;
 
 class VarInfo {
-  string _name, _path, _direction;
+  string _name, _path;
+  bool _direction; //"<-": 0, "->": 1
   double _value;
 
  public:
-  VarInfo(string name, string direction, string sim);
+  VarInfo(string name, bool direction, string sim);
   double getValue();
   void setValue(double value);
   string getName();
-  string getDirection();
+  bool getDirection();
   string getPath();
 
 };
