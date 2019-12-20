@@ -21,7 +21,7 @@ int PrintCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-    for (pair<std::string, VarInfo*> element : symTable) {
+    for (pair<string, VarInfo*> element : symTable) {
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();
