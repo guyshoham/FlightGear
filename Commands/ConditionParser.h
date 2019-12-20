@@ -12,11 +12,14 @@ class ConditionParser : public Command {
  protected:
   list<Command*> _commandsList;
   bool _condition;
+  int _start, _end; //start and end indexes, represent sub-array of commands inside '{}'
  public:
   ConditionParser();
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTable) override;
-  virtual void updateCondition();
+  virtual void updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTable);
+  virtual void setStart(int index);
+  virtual void setEnd(int index);
 };
 #endif //MILSTONE1_COMMANDS_CONDITIONPARSER_H_
