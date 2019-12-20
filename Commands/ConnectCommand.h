@@ -11,7 +11,8 @@ class ConnectCommand : public Command {
   ConnectCommand();
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTable) override;
+              unordered_map<string, VarInfo*>& symTableUser,
+              unordered_map<string, VarInfo*>& symTableSimulator) override;
 };
 
 #endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_

@@ -10,13 +10,16 @@
 using namespace std;
 class ConditionParser : public Command {
  protected:
-  list<Command*> _commandsList;
   bool _condition;
+  int _start, _end; //start and end indexes, represent sub-array of commands inside '{}'
  public:
   ConditionParser();
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTable) override;
-  virtual void updateCondition();
+              unordered_map<string, VarInfo*>& symTableUser,
+              unordered_map<string, VarInfo*>& symTableSimulator) override;
+  virtual void updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser);
+  virtual void setStart(int index);
+  virtual void setEnd(int index);
 };
 #endif //MILSTONE1_COMMANDS_CONDITIONPARSER_H_

@@ -16,7 +16,8 @@ class Data {
   string* textArr;
   int arrSize;
   unordered_map<string, Command*> commandTable;
-  unordered_map<string, VarInfo*> symTable;
+  unordered_map<string, VarInfo*> symTableUser;
+  unordered_map<string, VarInfo*> symTableSimulator;
   ~Data() = default;
   Data() = default;
   void addCommand(string key, Command* value) {
@@ -25,12 +26,12 @@ class Data {
 
   void addVariable(string key, string name, bool direction, string path) {
     auto* v = new VarInfo(name, direction, path);
-    symTable[key] = v;
+    symTableUser[key] = v;
   }
 
   void addVariable(string key, bool direction, string path) {
     auto* v = new VarInfo(key, direction, path);
-    symTable[key] = v;
+    symTableSimulator[key] = v;
   }
 
 };
