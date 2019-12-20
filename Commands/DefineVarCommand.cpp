@@ -11,7 +11,8 @@ using namespace std;
 DefineVarCommand::DefineVarCommand() = default;
 int DefineVarCommand::execute(string* textArr,
                               unordered_map<string, Command*>& commandTable,
-                              unordered_map<string, VarInfo*>& symTable) {
+                              unordered_map<string, VarInfo*>& symTableUser,
+                              unordered_map<string, VarInfo*>& symTableSimulator) {
   string name = textArr[_index + 1];
   string arrow = textArr[_index + 2];
   string path = textArr[_index + 4];
@@ -23,8 +24,8 @@ int DefineVarCommand::execute(string* textArr,
   //adding variable to commandTable
   commandTable[name] = new AssignCommand();
 
-  //adding variable to symTable
-  symTable[name] = info;
+  //adding variable to symTableUser
+  symTableUser[name] = info;
 
   return 5;
 }

@@ -6,7 +6,8 @@
 ConnectCommand::ConnectCommand() = default;
 int ConnectCommand::execute(string* textArr,
                             unordered_map<string, Command*>& commandTable,
-                            unordered_map<string, VarInfo*>& symTable) {
+                            unordered_map<string, VarInfo*>& symTableUser,
+                            unordered_map<string, VarInfo*>& symTableSimulator) {
   //todo: implement ConnectCommand::execute
   return 3;
 }

@@ -11,9 +11,10 @@ class OpenServerCommand : public Command {
   OpenServerCommand();
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTable) override;
-  static void openServer(int portNum, unordered_map<string, VarInfo*> symTable);
-  static void parseSimulatorInput(char buffer[1024], unordered_map<string, VarInfo*> symTable);
+              unordered_map<string, VarInfo*>& symTableUser,
+              unordered_map<string, VarInfo*>& symTableSimulator) override;
+  static void openServer(int portNum, unordered_map<string, VarInfo*> symTableSimulator);
+  static void parseSimulatorInput(char buffer[1024], unordered_map<string, VarInfo*> symtableSimulator);
 };
 
 #endif //MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_

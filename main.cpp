@@ -16,13 +16,13 @@ using namespace std;
 
 string* lexer(string fileName, Data* data);
 void parser(Data* data);
-void initSymTable(Data* data);
+void initSymTableSimulator(Data* data);
 void initCommandTable(Data* data);
 
 int main() {
   Data* data = new Data();
   initCommandTable(data);
-  initSymTable(data);
+  initSymTableSimulator(data);
 
   cout << "Starting Flightgear..." << endl;
   //a pointer to the array.
@@ -42,7 +42,7 @@ void initCommandTable(Data* data) {
   data->addCommand("Print", new PrintCommand());
 }
 
-void initSymTable(Data* data) {
+void initSymTableSimulator(Data* data) {
   //todo: make function more generic (in case the xml will be changed)
   data->addVariable("airspeed-indicator_indicated-speed-kt",
                     false,
@@ -277,7 +277,7 @@ void parser(Data* data) {
     c = data->commandTable.at(data->textArr[index]);
     if (c != nullptr) {
       c->setIndex(index);
-      index += c->execute(data->textArr, data->commandTable, data->symTable);
+      index += c->execute(data->textArr, data->commandTable, data->symTableUser, data->symTableSimulator);
     }
   }
 }

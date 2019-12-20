@@ -6,7 +6,8 @@
 LoopCommand::LoopCommand() = default;
 int LoopCommand::execute(string* textArr,
                          unordered_map<string, Command*>& commandTable,
-                         unordered_map<string, VarInfo*>& symTable) {
+                         unordered_map<string, VarInfo*>& symTableUser,
+                         unordered_map<string, VarInfo*>& symTableSimulator) {
   //todo: implement LoopCommand::execute
 
   //set _start and _end
@@ -17,7 +18,7 @@ int LoopCommand::execute(string* textArr,
   }
   setEnd(temp - 1);
 
-  updateCondition(textArr, symTable);
+  updateCondition(textArr, symTableUser);
   while (_condition) {
     int index = _start;
     while (index < _end) {
@@ -25,10 +26,10 @@ int LoopCommand::execute(string* textArr,
       c = commandTable.at(textArr[index]);
       if (c != nullptr) {
         c->setIndex(index);
-        index += c->execute(textArr, commandTable, symTable);
+        index += c->execute(textArr, commandTable, symTableUser, symTableSimulator);
       }
     }
-    updateCondition(textArr, symTable);
+    updateCondition(textArr, symTableUser);
   }
-  return 5 + (_end - _start + 1);
+  return 6 + (_end - _start + 1);
 }
