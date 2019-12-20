@@ -20,11 +20,7 @@ int DefineVarCommand::execute(string* textArr,
   //todo: apply sim() on path, and put it in varInfo
 
   bool direction;
-  if (arrow == "<-") {
-    direction = false;
-  } else {
-    direction = true;
-  }
+  direction = arrow == "->";
   auto* info = new VarInfo(name, direction, path);
 
   //adding variable to commandTable
