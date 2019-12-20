@@ -28,6 +28,11 @@ class Data {
     symTable[key] = v;
   }
 
+  void addVariable(string key, bool direction, string path) {
+    auto* v = new VarInfo(key, direction, path);
+    symTable[key] = v;
+  }
+
 };
 
 #endif //MILSTONE1__DATA_H_

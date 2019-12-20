@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <cstring>
+#define XML_SIZE 36
 
 typedef int i;
 using namespace std;
@@ -77,14 +78,50 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symtable) {
   const char* delimiter = ",";
   char* element;
-  string vars[] = {"airspeed-indicator_indicated-speed-kt", "time_warp"}; //todo: fill array (from xml)
+  string vars[] = {"airspeed-indicator_indicated-speed-kt",
+                   "time_warp",
+                   "switches_magnetos",
+                   "heading-indicator_offset-deg",
+                   "altimeter_indicated-altitude-ft",
+                   "altimeter_pressure-alt-ft",
+                   "attitude-indicator_indicated-pitch-deg",
+                   "attitude-indicator_indicated-roll-deg",
+                   "attitude-indicator_internal-pitch-deg",
+                   "attitude-indicator_internal-roll-deg",
+                   "encoder_indicated-altitude-ft",
+                   "encoder_pressure-alt-ft",
+                   "gps_indicated-altitude-ft",
+                   "gps_indicated-ground-speed-kt",
+                   "gps_indicated-vertical-speed",
+                   "indicated-heading-deg",
+                   "magnetic-compass_indicated-heading-deg",
+                   "slip-skid-ball_indicated-slip-skid",
+                   "turn-indicator_indicated-turn-rate",
+                   "vertical-speed-indicator_indicated-speed-fpm",
+                   "flight_aileron",
+                   "flight_elevator",
+                   "flight_rudder",
+                   "flight_flaps",
+                   "engine_throttle",
+                   "current-engine_throttle",
+                   "switches_master-avionics",
+                   "switches_starter",
+                   "active-engine_auto-start",
+                   "flight_speedbrake",
+                   "c172p_brake-parking",
+                   "engine_primer",
+                   "current-engine_mixture",
+                   "switches_master-bat",
+                   "switches_master-alt",
+                   "engine_rpm",
+  };
 
   element = strtok(buffer, delimiter);
   VarInfo* v = symtable.at(vars[0]);
   v->setValue(stod(element));
 
-  for (int i = 1; i < 36; i++) {
-    element = strtok(NULL, delimiter);
+  for (int i = 1; i < XML_SIZE; i++) {
+    element = strtok(nullptr, delimiter);
     v = symtable.at(vars[i]);
     v->setValue(stod(element));
   }
