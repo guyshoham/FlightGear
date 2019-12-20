@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o"
   "CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o"
   "CMakeFiles/Milstone1.dir/Data.cpp.o"
+  "CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o"
   "CMakeFiles/Milstone1.dir/VarInfo.cpp.o"
   "CMakeFiles/Milstone1.dir/main.cpp.o"
   "Milstone1"
