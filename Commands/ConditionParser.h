@@ -10,7 +10,6 @@
 using namespace std;
 class ConditionParser : public Command {
  protected:
-  list<Command*> _commandsList;
   bool _condition;
   int _start, _end; //start and end indexes, represent sub-array of commands inside '{}'
  public:

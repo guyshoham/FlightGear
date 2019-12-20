@@ -10,9 +10,9 @@ int IfCommand::execute(string* textArr,
   //todo: implement IfCommand::execute
   updateCondition(textArr, symTable);
   if (_condition) {
-    for (Command* c : _commandsList) {
+    /*for (Command* c : _commandsList) {
       c->execute(textArr, commandTable, symTable);
-    }
+    }*/
   }
-  return _commandsList.size() + 1;
+  return 5 + (_end - _start + 1);
 }

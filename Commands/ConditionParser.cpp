@@ -12,7 +12,7 @@ ConditionParser::ConditionParser() { _condition = false; }
 //todo: implement ConditionParser::execute
 int ConditionParser::execute(string* textArr,
                              unordered_map<string, Command*>& commandTable,
-                             unordered_map<string, VarInfo*>& symTable) { return _commandsList.size() + 1; }
+                             unordered_map<string, VarInfo*>& symTable) { return 5 + (_end - _start + 1); }
 
 //todo: implement ConditionParser::updateCondition
 void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTable) {
