@@ -15,7 +15,8 @@ ConnectCommand::ConnectCommand() = default;
 
 int ConnectCommand::execute(string *textArr,
                             unordered_map<string, Command *> &commandTable,
-                            unordered_map<string, VarInfo *> &symTable) {
+                            unordered_map<string, VarInfo *> &symTable,
+                             unordered_map<string, VarInfo*> &symTableSimulator) {
     textArr++;
     const char *ip = (*textArr).c_str();
     textArr++;
@@ -51,5 +52,4 @@ void ConnectCommand::openClientServer(const char *ip, int port) {
     } else {
         std::cout<<"Client is now connected to server" <<std::endl;
     }
-
 }

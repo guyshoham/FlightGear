@@ -18,12 +18,13 @@ OpenServerCommand::OpenServerCommand() = default;
 
 int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
-                               unordered_map<string, VarInfo*>& symTable) {
+                               unordered_map<string, VarInfo*>& symTableUser,
+                               unordered_map<string, VarInfo*>& symTableSimulator) {
   textArr++;
   int portNum = stoi(*textArr);
   textArr--;
   try {
-    thread newServer(openServer, portNum, symTable);
+    thread newServer(openServer, portNum, symTableSimulator);
     newServer.join();
   } catch (string message) {
     cout << message << endl;
@@ -32,7 +33,7 @@ int OpenServerCommand::execute(string* textArr,
   return 2;
 }
 
-void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> symTable) {
+void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> symTableSimulator) {
   //create socket
   int socketfd = socket(AF_INET, SOCK_STREAM, 0);
   if (socketfd == -1) {
@@ -69,14 +70,14 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
 
   //reading from client
 
-  /*while (true) {
+    while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
     cout << buffer << endl;
-    parseSimulatorInput(buffer, symTable);
-  }*/
+    parseSimulatorInput(buffer, symTableSimulator);
+  }
 }
-void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symtable) {
+void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symtableSimulator) {
   const char* delimiter = ",";
   char* element;
   string vars[] = {"airspeed-indicator_indicated-speed-kt",
@@ -118,12 +119,12 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
   };
 
   element = strtok(buffer, delimiter);
-  VarInfo* v = symtable.at(vars[0]);
+  VarInfo* v = symtableSimulator.at(vars[0]);
   v->setValue(stod(element));
 
   for (int i = 1; i < XML_SIZE; i++) {
     element = strtok(nullptr, delimiter);
-    v = symtable.at(vars[i]);
+    v = symtableSimulator.at(vars[i]);
     v->setValue(stod(element));
   }
 }

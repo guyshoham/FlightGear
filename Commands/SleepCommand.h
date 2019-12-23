@@ -11,7 +11,8 @@ class SleepCommand : public Command {
   SleepCommand();
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTable) override;
+              unordered_map<string, VarInfo*>& symTableTable,
+              unordered_map<string, VarInfo*>& symTableSimulator) override;
 
 };
 

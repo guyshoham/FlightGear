@@ -9,15 +9,14 @@
 #define MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
 
 class ConnectCommand : public Command {
-public:
-    ConnectCommand();
-
-    int execute(string *textArr,
-                unordered_map<string, Command *> &commandTable,
-                unordered_map<string, VarInfo *> &symTable) override;
-
-    static void openClientServer(const char *ip,int port);
-
+ public:
+  ConnectCommand();
+  int execute(string* textArr,
+              unordered_map<string, Command*>& commandTable,
+              unordered_map<string, VarInfo*>& symTableUser,
+              unordered_map<string, VarInfo*>& symTableSimulator) override;
+  
+  static void openClientServer(const char *ip,int port);
 };
 
 #endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_

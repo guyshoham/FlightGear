@@ -10,7 +10,8 @@
 PrintCommand::PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
-                          unordered_map<string, VarInfo*>& symTable) {
+                          unordered_map<string, VarInfo*>& symTableUser,
+                          unordered_map<string, VarInfo*>& symTableSimulator) {
 
   string value = textArr[_index + 1];
 
@@ -21,7 +22,7 @@ int PrintCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-    for (pair<string, VarInfo*> element : symTable) {
+    for (pair<string, VarInfo*> element : symTableUser) {
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();

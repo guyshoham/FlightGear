@@ -17,7 +17,8 @@ class Command {
   Command();
   virtual int execute(string* textArr,
                       unordered_map<string, Command*>& commandTable,
-                      unordered_map<string, VarInfo*>& symTable) = 0;
+                      unordered_map<string, VarInfo*>& symTableUser,
+                      unordered_map<string, VarInfo*>& symTableSimulator) = 0;
   virtual void setIndex(int index);
   virtual ~Command();
 };
