@@ -43,10 +43,10 @@ RM = /opt/clion-2019.2.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/tom5012/CLionProjects/Milestone1
+CMAKE_SOURCE_DIR = /home/guy/CLionProjects/FlightGear
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/tom5012/CLionProjects/Milestone1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/guy/CLionProjects/FlightGear/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Milstone1.dir/depend.make
@@ -59,185 +59,185 @@ include CMakeFiles/Milstone1.dir/flags.make
 
 CMakeFiles/Milstone1.dir/main.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Milstone1.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/main.cpp.o -c /home/tom5012/CLionProjects/Milestone1/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Milstone1.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/main.cpp.o -c /home/guy/CLionProjects/FlightGear/main.cpp
 
 CMakeFiles/Milstone1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/main.cpp > CMakeFiles/Milstone1.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/main.cpp > CMakeFiles/Milstone1.dir/main.cpp.i
 
 CMakeFiles/Milstone1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/main.cpp -o CMakeFiles/Milstone1.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/main.cpp -o CMakeFiles/Milstone1.dir/main.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/Command.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/Command.cpp.o: ../Commands/Command.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Milstone1.dir/Commands/Command.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/Command.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/Command.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Milstone1.dir/Commands/Command.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/Command.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/Command.cpp
 
 CMakeFiles/Milstone1.dir/Commands/Command.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/Command.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/Command.cpp > CMakeFiles/Milstone1.dir/Commands/Command.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/Command.cpp > CMakeFiles/Milstone1.dir/Commands/Command.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/Command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/Command.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/Command.cpp -o CMakeFiles/Milstone1.dir/Commands/Command.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/Command.cpp -o CMakeFiles/Milstone1.dir/Commands/Command.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Commands/ConditionParser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/ConditionParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/ConditionParser.cpp
 
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/ConditionParser.cpp > CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/ConditionParser.cpp > CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/ConditionParser.cpp -o CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/ConditionParser.cpp -o CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o: ../Commands/ConnectCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/ConnectCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/ConnectCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/ConnectCommand.cpp > CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/ConnectCommand.cpp > CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/ConnectCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/ConnectCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Commands/DefineVarCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/DefineVarCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/DefineVarCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/DefineVarCommand.cpp > CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/DefineVarCommand.cpp > CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/DefineVarCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/DefineVarCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o: ../Commands/IfCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/IfCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/IfCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/IfCommand.cpp > CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/IfCommand.cpp > CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/IfCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/IfCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o: ../Commands/LoopCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/LoopCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/LoopCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/LoopCommand.cpp > CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/LoopCommand.cpp > CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/LoopCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/LoopCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Commands/PrintCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/PrintCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/PrintCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/PrintCommand.cpp > CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/PrintCommand.cpp > CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/PrintCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/PrintCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Commands/SleepCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/SleepCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/SleepCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/SleepCommand.cpp > CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/SleepCommand.cpp > CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/SleepCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/SleepCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Commands/AssignCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/AssignCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/AssignCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/AssignCommand.cpp > CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/AssignCommand.cpp > CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/AssignCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/AssignCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o: ../Commands/OpenServerCommand.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Commands/OpenServerCommand.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o -c /home/guy/CLionProjects/FlightGear/Commands/OpenServerCommand.cpp
 
 CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Commands/OpenServerCommand.cpp > CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Commands/OpenServerCommand.cpp > CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.i
 
 CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Commands/OpenServerCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Commands/OpenServerCommand.cpp -o CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.s
 
 CMakeFiles/Milstone1.dir/VarInfo.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/VarInfo.cpp.o: ../VarInfo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Milstone1.dir/VarInfo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/VarInfo.cpp.o -c /home/tom5012/CLionProjects/Milestone1/VarInfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Milstone1.dir/VarInfo.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/VarInfo.cpp.o -c /home/guy/CLionProjects/FlightGear/VarInfo.cpp
 
 CMakeFiles/Milstone1.dir/VarInfo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/VarInfo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/VarInfo.cpp > CMakeFiles/Milstone1.dir/VarInfo.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/VarInfo.cpp > CMakeFiles/Milstone1.dir/VarInfo.cpp.i
 
 CMakeFiles/Milstone1.dir/VarInfo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/VarInfo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/VarInfo.cpp -o CMakeFiles/Milstone1.dir/VarInfo.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/VarInfo.cpp -o CMakeFiles/Milstone1.dir/VarInfo.cpp.s
 
 CMakeFiles/Milstone1.dir/Data.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Data.cpp.o: ../Data.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Milstone1.dir/Data.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Data.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Milstone1.dir/Data.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Data.cpp.o -c /home/guy/CLionProjects/FlightGear/Data.cpp
 
 CMakeFiles/Milstone1.dir/Data.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Data.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Data.cpp > CMakeFiles/Milstone1.dir/Data.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Data.cpp > CMakeFiles/Milstone1.dir/Data.cpp.i
 
 CMakeFiles/Milstone1.dir/Data.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Data.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Data.cpp -o CMakeFiles/Milstone1.dir/Data.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Data.cpp -o CMakeFiles/Milstone1.dir/Data.cpp.s
 
 CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o: CMakeFiles/Milstone1.dir/flags.make
 CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o: ../Expressions/Calculator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o -c /home/tom5012/CLionProjects/Milestone1/Expressions/Calculator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o -c /home/guy/CLionProjects/FlightGear/Expressions/Calculator.cpp
 
 CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/tom5012/CLionProjects/Milestone1/Expressions/Calculator.cpp > CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/guy/CLionProjects/FlightGear/Expressions/Calculator.cpp > CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.i
 
 CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/tom5012/CLionProjects/Milestone1/Expressions/Calculator.cpp -o CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/guy/CLionProjects/FlightGear/Expressions/Calculator.cpp -o CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.s
 
 # Object files for target Milstone1
 Milstone1_OBJECTS = \
@@ -275,7 +275,7 @@ Milstone1: CMakeFiles/Milstone1.dir/Data.cpp.o
 Milstone1: CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o
 Milstone1: CMakeFiles/Milstone1.dir/build.make
 Milstone1: CMakeFiles/Milstone1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Milstone1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable Milstone1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Milstone1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -288,6 +288,6 @@ CMakeFiles/Milstone1.dir/clean:
 .PHONY : CMakeFiles/Milstone1.dir/clean
 
 CMakeFiles/Milstone1.dir/depend:
-	cd /home/tom5012/CLionProjects/Milestone1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/tom5012/CLionProjects/Milestone1 /home/tom5012/CLionProjects/Milestone1 /home/tom5012/CLionProjects/Milestone1/cmake-build-debug /home/tom5012/CLionProjects/Milestone1/cmake-build-debug /home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles/Milstone1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/guy/CLionProjects/FlightGear/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/guy/CLionProjects/FlightGear /home/guy/CLionProjects/FlightGear /home/guy/CLionProjects/FlightGear/cmake-build-debug /home/guy/CLionProjects/FlightGear/cmake-build-debug /home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles/Milstone1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Milstone1.dir/depend
 
