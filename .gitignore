@@ -1,12 +1,4 @@
 *.o
 /home/guy/CLionProjects/Milstone1/.idea/dictionaries/guy.xml
 /home/guy/CLionProjects/Milstone1/.idea/inspectionProfiles/Project_Default.xml
-/cmake-build-debug/Milstone1
-/cmake-build-debug/CMakeFiles/Milstone1.dir/depend.internal
-/cmake-build-debug/CMakeFiles/Milstone1.dir/CXX.includecache
-/cmake-build-debug/CMakeFiles/clion-log.txt
-/cmake-build-debug/CMakeFiles/Makefile.cmake
-/cmake-build-debug/FlightGear.cbp
-/cmake-build-debug/CMakeCache.txt
-/cmake-build-debug/cmake_install.cmake
 /cmake-build-debug/
