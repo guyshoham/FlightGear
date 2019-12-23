@@ -1,3 +1,0 @@
-/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles/Milstone1.dir
-/home/guy/CLionProjects/FlightGear/cmake-build-debug/CMakeFiles/edit_cache.dir
