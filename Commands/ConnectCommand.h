@@ -3,7 +3,9 @@
 //
 
 #ifndef MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
+
 #include "Command.h"
+
 #define MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
 
 class ConnectCommand : public Command {
@@ -13,6 +15,8 @@ class ConnectCommand : public Command {
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,
               unordered_map<string, VarInfo*>& symTableSimulator) override;
+  
+  static void openClientServer(const char *ip,int port);
 };
 
 #endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
