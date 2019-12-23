@@ -50,6 +50,6 @@ void ConnectCommand::openClientServer(const char *ip, int port) {
     if (is_connect == -1) {
         throw "Could not connect to host server";
     } else {
-        std::cout<<"Client is now connected to server" <<std::endl;
+        cout<<"Client is now connected to server" <<endl;
     }
 }

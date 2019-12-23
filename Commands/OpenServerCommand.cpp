@@ -59,11 +59,13 @@ int OpenServerCommand::execute(string* textArr,
 
   //todo: check port num as an expression
   int portNum = stoi(textArr[_index + 1]);
-  try { openServer(portNum, symTableSimulator); } catch (string message) { cout << message << endl; }
+  try { openServer(portNum, symTableUser, symTableSimulator); } catch (string message) { cout << message << endl; }
   return 2;
 }
 
-void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> symTableSimulator) {
+void OpenServerCommand::openServer(int portNum,
+                                   unordered_map<string, VarInfo*> symTableUser,
+                                   unordered_map<string, VarInfo*> symTableSimulator) {
   //create socket
   int socketfd = socket(AF_INET, SOCK_STREAM, 0);
   if (socketfd == -1) {
@@ -85,7 +87,7 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
   if (listen(socketfd, 1) == -1) { //can also set to SOMAXCON (max connections)
     throw "ERROR: cannot make socket listen to the port";
   } else {
-    std::cout << "Server is now listening ..." << std::endl;
+    cout << "Server is now listening ..." << endl;
   }
 
   // accepting a client
@@ -99,30 +101,39 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
   close(socketfd); //closing the listening socket
 
   //reading from client
-  thread newServer(runningServer, client_socket, symTableSimulator);
-  newServer.join();
+  thread newServer(runningServer, client_socket, symTableUser, symTableSimulator);
+  newServer.detach();
 }
 
-void OpenServerCommand::runningServer(int client_socket, unordered_map<string, VarInfo*> symTableSimulator) {
+void OpenServerCommand::runningServer(int client_socket,
+                                      unordered_map<string, VarInfo*> symTableUser,
+                                      unordered_map<string, VarInfo*> symTableSimulator) {
   while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
     cout << buffer << endl;
-    parseSimulatorInput(buffer, symTableSimulator);
+    parseSimulatorInput(buffer, symTableUser, symTableSimulator);
   }
 }
 
-void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symTableSimulator) {
+void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symTableUser,
+                                            unordered_map<string, VarInfo*> symTableSimulator) {
   const char* delimiter = ",";
   char* element;
 
   element = strtok(buffer, delimiter);
   VarInfo* v = symTableSimulator.at(vars[0]);
   v->setValue(stod(element));
+  if (v->getDirection() == 0) {
+    symTableUser.at(v->getSecondName())->setValue(stod(element));
+  }
 
   for (int i = 1; i < XML_SIZE; i++) {
     element = strtok(nullptr, delimiter);
     v = symTableSimulator.at(vars[i]);
     v->setValue(stod(element));
+    if (v->getDirection() == 0) {
+      symTableUser.at(v->getSecondName())->setValue(stod(element));
+    }
   }
 }

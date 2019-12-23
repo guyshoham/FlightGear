@@ -45,148 +45,88 @@ void initCommandTable(Data* data) {
 void initSymTableSimulator(Data* data) {
   //todo: make function more generic (in case the xml will be changed)
   data->addVariable("airspeed-indicator_indicated-speed-kt",
-                    false,
+                    1,
                     "/instrumentation/airspeed-indicator/indicated-speed-kt");
 
-  data->addVariable("time_warp",
-                    false,
-                    "/sim/time/warp");
+  data->addVariable("time_warp", 1, "/sim/time/warp");
 
-  data->addVariable("switches_magnetos",
-                    false,
-                    "/controls/switches/magnetos");
+  data->addVariable("switches_magnetos", 1, "/controls/switches/magnetos");
 
-  data->addVariable("heading-indicator_offset-deg",
-                    false,
-                    "//instrumentation/heading-indicator/offset-deg");
+  data->addVariable("heading-indicator_offset-deg", 1, "//instrumentation/heading-indicator/offset-deg");
 
-  data->addVariable("altimeter_indicated-altitude-ft",
-                    false,
-                    "/instrumentation/altimeter/indicated-altitude-ft");
+  data->addVariable("altimeter_indicated-altitude-ft", 1, "/instrumentation/altimeter/indicated-altitude-ft");
 
-  data->addVariable("altimeter_pressure-alt-ft",
-                    false,
-                    "/instrumentation/altimeter/pressure-alt-ft");
+  data->addVariable("altimeter_pressure-alt-ft", 1, "/instrumentation/altimeter/pressure-alt-ft");
 
   data->addVariable("attitude-indicator_indicated-pitch-deg",
-                    false,
+                    1,
                     "/instrumentation/attitude-indicator/indicated-pitch-deg");
 
   data->addVariable("attitude-indicator_indicated-roll-deg",
-                    false,
+                    1,
                     "/instrumentation/attitude-indicator/indicated-roll-deg");
 
   data->addVariable("attitude-indicator_internal-pitch-deg",
-                    false,
+                    1,
                     "/instrumentation/attitude-indicator/internal-pitch-deg");
 
-  data->addVariable("attitude-indicator_internal-roll-deg",
-                    false,
-                    "/instrumentation/attitude-indicator/internal-roll-deg");
+  data->addVariable("attitude-indicator_internal-roll-deg", 1, "/instrumentation/attitude-indicator/internal-roll-deg");
 
-  data->addVariable("encoder_indicated-altitude-ft",
-                    false,
-                    "/instrumentation/encoder/indicated-altitude-ft");
+  data->addVariable("encoder_indicated-altitude-ft", 1, "/instrumentation/encoder/indicated-altitude-ft");
 
-  data->addVariable("encoder_pressure-alt-ft",
-                    false,
-                    "/instrumentation/encoder/pressure-alt-ft");
+  data->addVariable("encoder_pressure-alt-ft", 1, "/instrumentation/encoder/pressure-alt-ft");
 
-  data->addVariable("gps_indicated-altitude-ft",
-                    false,
-                    "/instrumentation/gps/indicated-altitude-ft");
+  data->addVariable("gps_indicated-altitude-ft", 1, "/instrumentation/gps/indicated-altitude-ft");
 
-  data->addVariable("gps_indicated-ground-speed-kt",
-                    false,
-                    "/instrumentation/gps/indicated-ground-speed-kt");
+  data->addVariable("gps_indicated-ground-speed-kt", 1, "/instrumentation/gps/indicated-ground-speed-kt");
 
-  data->addVariable("gps_indicated-vertical-speed",
-                    false,
-                    "/instrumentation/gps/indicated-vertical-speed");
+  data->addVariable("gps_indicated-vertical-speed", 1, "/instrumentation/gps/indicated-vertical-speed");
 
-  data->addVariable("indicated-heading-deg",
-                    false,
-                    "/instrumentation/heading-indicator/indicated-heading-deg");
+  data->addVariable("indicated-heading-deg", 1, "/instrumentation/heading-indicator/indicated-heading-deg");
 
   data->addVariable("magnetic-compass_indicated-heading-deg",
-                    false,
+                    1,
                     "/instrumentation/magnetic-compass/indicated-heading-deg");
 
-  data->addVariable("slip-skid-ball_indicated-slip-skid",
-                    false,
-                    "/instrumentation/slip-skid-ball/indicated-slip-skid");
+  data->addVariable("slip-skid-ball_indicated-slip-skid", 1, "/instrumentation/slip-skid-ball/indicated-slip-skid");
 
-  data->addVariable("turn-indicator_indicated-turn-rate",
-                    false,
-                    "/instrumentation/turn-indicator/indicated-turn-rate");
+  data->addVariable("turn-indicator_indicated-turn-rate", 1, "/instrumentation/turn-indicator/indicated-turn-rate");
 
   data->addVariable("vertical-speed-indicator_indicated-speed-fpm",
-                    false,
+                    1,
                     "/instrumentation/vertical-speed-indicator/indicated-speed-fpm");
 
-  data->addVariable("flight_aileron",
-                    false,
-                    "/controls/flight/aileron");
+  data->addVariable("flight_aileron", 1, "/controls/flight/aileron");
 
-  data->addVariable("flight_elevator",
-                    false,
-                    "/controls/flight/elevator");
+  data->addVariable("flight_elevator", 1, "/controls/flight/elevator");
 
-  data->addVariable("flight_rudder",
-                    false,
-                    "/controls/flight/rudder");
+  data->addVariable("flight_rudder", 1, "/controls/flight/rudder");
 
-  data->addVariable("flight_flaps",
-                    false,
-                    "/controls/flight/flaps");
+  data->addVariable("flight_flaps", 1, "/controls/flight/flaps");
 
-  data->addVariable("engine_throttle",
-                    false,
-                    "/controls/engines/engine/throttle");
+  data->addVariable("engine_throttle", 1, "/controls/engines/engine/throttle");
 
-  data->addVariable("current-engine_throttle",
-                    false,
-                    "/controls/engines/current-engine/throttle");
+  data->addVariable("current-engine_throttle", 1, "/controls/engines/current-engine/throttle");
 
-  data->addVariable("switches_master-avionics",
-                    false,
-                    "/controls/switches/master-avionics");
+  data->addVariable("switches_master-avionics", 1, "/controls/switches/master-avionics");
 
-  data->addVariable("switches_starter",
-                    false,
-                    "/controls/switches/starter");
+  data->addVariable("switches_starter", 1, "/controls/switches/starter");
 
-  data->addVariable("active-engine_auto-start",
-                    false,
-                    "/engines/active-engine/auto-start");
+  data->addVariable("active-engine_auto-start", 1, "/engines/active-engine/auto-start");
 
-  data->addVariable("flight_speedbrake",
-                    false,
-                    "/controls/flight/speedbrake");
+  data->addVariable("flight_speedbrake", 1, "/controls/flight/speedbrake");
 
-  data->addVariable("c172p_brake-parking",
-                    false,
-                    "/sim/model/c172p/brake-parking");
+  data->addVariable("c172p_brake-parking", 1, "/sim/model/c172p/brake-parking");
 
-  data->addVariable("engine_primer",
-                    false,
-                    "/controls/engines/engine/primer");
+  data->addVariable("engine_primer", 1, "/controls/engines/engine/primer");
 
-  data->addVariable("current-engine_mixture",
-                    false,
-                    "/controls/engines/current-engine/mixture");
+  data->addVariable("current-engine_mixture", 1, "/controls/engines/current-engine/mixture");
 
-  data->addVariable("switches_master-bat",
-                    false,
-                    "/controls/switches/master-bat");
+  data->addVariable("switches_master-bat", 1, "/controls/switches/master-bat");
 
-  data->addVariable("switches_master-alt",
-                    false,
-                    "/controls/switches/master-alt");
+  data->addVariable("switches_master-alt", 1, "/controls/switches/master-alt");
 
-  data->addVariable("engine_rpm",
-                    false,
-                    "/engines/engine/rpm");
+  data->addVariable("engine_rpm", 1, "/engines/engine/rpm");
 
 }
 
@@ -242,8 +182,8 @@ string* lexer(string fileName, Data* data) {
     if ((position1 = word.find('(', 0)) != -1) {
       position2 = word.find(')', position1);
       strList.push_back(tempWord.erase(position1, position2));
-      argument1 = word.erase(0, position1 + 1);
-      argument1 = argument1.erase(argument1.length() - 1, argument1.length());
+      argument1 = word.erase(0, position1 + 2);
+      argument1 = argument1.erase(argument1.length() - 2, argument1.length());
       //if there is more than one argument1, we cut the string to 2 pieces
       // an put them in the list in the right order.
       if ((position1 = argument1.find(',', 0)) != -1) {

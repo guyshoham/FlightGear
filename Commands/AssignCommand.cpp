@@ -30,10 +30,19 @@ int AssignCommand::execute(string* textArr,
   expression = interpreter->interpret(value);
 
   double newValue = expression->calculate();
-  symTableUser.at(key)->setValue(newValue);
+  VarInfo* v = symTableUser.at(key);
+  v->setValue(newValue);
 
   delete expression;
   delete interpreter;
+
+  if (v->getDirection() == 1) {
+    ostringstream temp;
+    temp << v->getValue();
+    string valueToSend = temp.str();
+    string commandToSend = "set " + v->getPath() + " " + valueToSend;
+    //todo: update simulator - send 'commandToSend'
+  }
 
   return 3;
 }
