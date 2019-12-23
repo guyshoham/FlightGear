@@ -11,8 +11,44 @@
 #include <cstring>
 #define XML_SIZE 36
 
-typedef int i;
 using namespace std;
+string vars[] = {"airspeed-indicator_indicated-speed-kt",
+                 "time_warp",
+                 "switches_magnetos",
+                 "heading-indicator_offset-deg",
+                 "altimeter_indicated-altitude-ft",
+                 "altimeter_pressure-alt-ft",
+                 "attitude-indicator_indicated-pitch-deg",
+                 "attitude-indicator_indicated-roll-deg",
+                 "attitude-indicator_internal-pitch-deg",
+                 "attitude-indicator_internal-roll-deg",
+                 "encoder_indicated-altitude-ft",
+                 "encoder_pressure-alt-ft",
+                 "gps_indicated-altitude-ft",
+                 "gps_indicated-ground-speed-kt",
+                 "gps_indicated-vertical-speed",
+                 "indicated-heading-deg",
+                 "magnetic-compass_indicated-heading-deg",
+                 "slip-skid-ball_indicated-slip-skid",
+                 "turn-indicator_indicated-turn-rate",
+                 "vertical-speed-indicator_indicated-speed-fpm",
+                 "flight_aileron",
+                 "flight_elevator",
+                 "flight_rudder",
+                 "flight_flaps",
+                 "engine_throttle",
+                 "current-engine_throttle",
+                 "switches_master-avionics",
+                 "switches_starter",
+                 "active-engine_auto-start",
+                 "flight_speedbrake",
+                 "c172p_brake-parking",
+                 "engine_primer",
+                 "current-engine_mixture",
+                 "switches_master-bat",
+                 "switches_master-alt",
+                 "engine_rpm",
+};
 
 OpenServerCommand::OpenServerCommand() = default;
 
@@ -20,16 +56,10 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
                                unordered_map<string, VarInfo*>& symTableUser,
                                unordered_map<string, VarInfo*>& symTableSimulator) {
-  textArr++;
-  int portNum = stoi(*textArr);
-  textArr--;
-  try {
-    thread newServer(openServer, portNum, symTableSimulator);
-    newServer.join();
-  } catch (string message) {
-    cout << message << endl;
-  }
-  //todo: implement OpenServerCommand::execute
+
+  //todo: check port num as an expression
+  int portNum = stoi(textArr[_index + 1]);
+  try { openServer(portNum, symTableSimulator); } catch (string message) { cout << message << endl; }
   return 2;
 }
 
@@ -69,62 +99,30 @@ void OpenServerCommand::openServer(int portNum, unordered_map<string, VarInfo*> 
   close(socketfd); //closing the listening socket
 
   //reading from client
+  thread newServer(runningServer, client_socket, symTableSimulator);
+  newServer.join();
+}
 
-    while (true) {
+void OpenServerCommand::runningServer(int client_socket, unordered_map<string, VarInfo*> symTableSimulator) {
+  while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
     cout << buffer << endl;
     parseSimulatorInput(buffer, symTableSimulator);
   }
 }
-void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symtableSimulator) {
+
+void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symTableSimulator) {
   const char* delimiter = ",";
   char* element;
-  string vars[] = {"airspeed-indicator_indicated-speed-kt",
-                   "time_warp",
-                   "switches_magnetos",
-                   "heading-indicator_offset-deg",
-                   "altimeter_indicated-altitude-ft",
-                   "altimeter_pressure-alt-ft",
-                   "attitude-indicator_indicated-pitch-deg",
-                   "attitude-indicator_indicated-roll-deg",
-                   "attitude-indicator_internal-pitch-deg",
-                   "attitude-indicator_internal-roll-deg",
-                   "encoder_indicated-altitude-ft",
-                   "encoder_pressure-alt-ft",
-                   "gps_indicated-altitude-ft",
-                   "gps_indicated-ground-speed-kt",
-                   "gps_indicated-vertical-speed",
-                   "indicated-heading-deg",
-                   "magnetic-compass_indicated-heading-deg",
-                   "slip-skid-ball_indicated-slip-skid",
-                   "turn-indicator_indicated-turn-rate",
-                   "vertical-speed-indicator_indicated-speed-fpm",
-                   "flight_aileron",
-                   "flight_elevator",
-                   "flight_rudder",
-                   "flight_flaps",
-                   "engine_throttle",
-                   "current-engine_throttle",
-                   "switches_master-avionics",
-                   "switches_starter",
-                   "active-engine_auto-start",
-                   "flight_speedbrake",
-                   "c172p_brake-parking",
-                   "engine_primer",
-                   "current-engine_mixture",
-                   "switches_master-bat",
-                   "switches_master-alt",
-                   "engine_rpm",
-  };
 
   element = strtok(buffer, delimiter);
-  VarInfo* v = symtableSimulator.at(vars[0]);
+  VarInfo* v = symTableSimulator.at(vars[0]);
   v->setValue(stod(element));
 
   for (int i = 1; i < XML_SIZE; i++) {
     element = strtok(nullptr, delimiter);
-    v = symtableSimulator.at(vars[i]);
+    v = symTableSimulator.at(vars[i]);
     v->setValue(stod(element));
   }
 }
