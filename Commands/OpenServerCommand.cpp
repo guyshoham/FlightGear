@@ -2,13 +2,16 @@
 // Created by guy on 13/12/2019.
 //
 
-#include "OpenServerCommand.h"
 #include <thread>
 #include <sys/socket.h>
 #include <iostream>
 #include <unistd.h>
 #include <netinet/in.h>
 #include <cstring>
+#include <sstream>
+#include "OpenServerCommand.h"
+#include "../Expressions/Expression.h"
+#include "../Expressions/Calculator.h"
 
 #define XML_SIZE 36
 
@@ -58,8 +61,26 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, VarInfo*>& symTableUser,
                                unordered_map<string, VarInfo*>& symTableSimulator) {
 
-  //todo: check port num as an expression
-  int portNum = stoi(textArr[_index + 1]);
+  //calculating port number as an expression
+
+  string value = textArr[_index + 1];
+  int portNum;
+
+  auto* interpreter = new Interpreter();
+  Expression* expression = nullptr;
+
+  for (pair<string, VarInfo*> element : symTableUser) {
+    ostringstream temp;
+    temp << element.second->getValue();
+    string valueStr = temp.str();
+    interpreter->setVariables(element.second->getName() + "=" + valueStr);
+  }
+
+  expression = interpreter->interpret(value);
+  portNum = (int) expression->calculate();
+  delete expression;
+  delete interpreter;
+
   try { openServer(portNum, symTableUser, symTableSimulator); } catch (string message) { cout << message << endl; }
   return 2;
 }
