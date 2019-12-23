@@ -182,8 +182,8 @@ string* lexer(string fileName, Data* data) {
     if ((position1 = word.find('(', 0)) != -1) {
       position2 = word.find(')', position1);
       strList.push_back(tempWord.erase(position1, position2));
-      argument1 = word.erase(0, position1 + 2);
-      argument1 = argument1.erase(argument1.length() - 2, argument1.length());
+      argument1 = word.erase(0, position1 + 1);
+      argument1 = argument1.erase(argument1.length() - 1, argument1.length());
       //if there is more than one argument1, we cut the string to 2 pieces
       // an put them in the list in the right order.
       if ((position1 = argument1.find(',', 0)) != -1) {

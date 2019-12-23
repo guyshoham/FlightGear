@@ -43,6 +43,7 @@ int DefineVarCommand::execute(string* textArr,
         //setting second name for both values
         element.second->setSecondName(name);
         symTableUser[name]->setSecondName(element.second->getName());
+        break;
       }
     }
 

@@ -9,13 +9,11 @@
 
 ConditionParser::ConditionParser() { _condition = false; }
 
-//todo: implement ConditionParser::execute
 int ConditionParser::execute(string* textArr,
                              unordered_map<string, Command*>& commandTable,
                              unordered_map<string, VarInfo*>& symTableUser,
                              unordered_map<string, VarInfo*>& symTableSimulator) { return 5 + (_end - _start + 1); }
 
-//todo: implement ConditionParser::updateCondition
 void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser) {
 
   string leftStr = textArr[_index + 1];

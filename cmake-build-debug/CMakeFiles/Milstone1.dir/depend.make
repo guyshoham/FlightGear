@@ -15,6 +15,8 @@ CMakeFiles/Milstone1.dir/Commands/Command.cpp.o: ../VarInfo.h
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Commands/Command.h
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Commands/ConditionParser.cpp
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Commands/ConditionParser.h
+CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../Expressions/Expression.h
 CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o: ../VarInfo.h
 
 CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o: ../Commands/Command.h
@@ -26,6 +28,8 @@ CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Commands/AssignComm
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Commands/Command.h
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Commands/DefineVarCommand.cpp
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Commands/DefineVarCommand.h
+CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../Expressions/Expression.h
 CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o: ../VarInfo.h
 
 CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o: ../Commands/Command.h

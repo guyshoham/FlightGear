@@ -15,7 +15,7 @@ int AssignCommand::execute(string* textArr,
                            unordered_map<string, VarInfo*>& symTableSimulator) {
 
   string key = textArr[_index];
-  string value = textArr[_index + 1];
+  string value = textArr[_index + 2];
 
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
@@ -41,6 +41,7 @@ int AssignCommand::execute(string* textArr,
     temp << v->getValue();
     string valueToSend = temp.str();
     string commandToSend = "set " + v->getPath() + " " + valueToSend;
+    cout << commandToSend << endl;
     //todo: update simulator - send 'commandToSend'
   }
 
