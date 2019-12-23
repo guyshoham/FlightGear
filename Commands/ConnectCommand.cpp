@@ -6,25 +6,21 @@
 #include <sys/socket.h>
 #include <string>
 #include <iostream>
-#include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <thread>
+
 
 ConnectCommand::ConnectCommand() = default;
 
 int ConnectCommand::execute(string *textArr,
                             unordered_map<string, Command *> &commandTable,
                             unordered_map<string, VarInfo *> &symTable,
-                             unordered_map<string, VarInfo*> &symTableSimulator) {
-    textArr++;
-    const char *ip = (*textArr).c_str();
-    textArr++;
-    int port = stoi(*textArr);
-    textArr -= 2;
+                            unordered_map<string, VarInfo *> &symTableSimulator) {
+    const char *ip = textArr[_index + 1].c_str();
+    int port = stoi(textArr[_index + 2]);
     try {
-        thread newServer(openClientServer, ip, port);
-        newServer.join();
+        openClientServer(ip, port);
     } catch (string message) {
         cout << message << endl;
     }
@@ -46,10 +42,17 @@ void ConnectCommand::openClientServer(const char *ip, int port) {
     address.sin_port = htons(port);
 
     // Requesting a connection with the server on local host with port 5402
-    int is_connect = connect(client_socket, (struct sockaddr *)&address, sizeof(address));
+    socklen_t size = sizeof(address);
+    int is_connect = connect(client_socket, (struct sockaddr *) &address, size);
     if (is_connect == -1) {
         throw "Could not connect to host server";
     } else {
-        std::cout<<"Client is now connected to server" <<std::endl;
+        std::cout << "Client is now connected to server" << std::endl;
+        thread clientServer(runningClientServer, client_socket);
+        clientServer.detach();
     }
+}
+
+void ConnectCommand::runningClientServer(int client_socket) {
+
 }
