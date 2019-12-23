@@ -212,7 +212,7 @@ string* lexer(string fileName, Data* data) {
 
 void parser(Data* data) {
   int index = 0;
-  while (index < data->arrSize) {
+  while (index < data->arrSize - 1) {
     Command* c;
     c = data->commandTable.at(data->textArr[index]);
     if (c != nullptr) {
