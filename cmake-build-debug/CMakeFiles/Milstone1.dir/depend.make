@@ -4,6 +4,8 @@
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Commands/AssignCommand.cpp
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Commands/AssignCommand.h
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Commands/Command.h
+CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../Expressions/Expression.h
 CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o: ../VarInfo.h
 
 CMakeFiles/Milstone1.dir/Commands/Command.cpp.o: ../Commands/Command.cpp
@@ -46,17 +48,25 @@ CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o: ../VarInfo.h
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Commands/Command.h
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Commands/PrintCommand.cpp
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Commands/PrintCommand.h
+CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../Expressions/Expression.h
 CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o: ../VarInfo.h
 
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Commands/Command.h
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Commands/SleepCommand.cpp
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Commands/SleepCommand.h
+CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../Expressions/Expression.h
 CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o: ../VarInfo.h
 
 CMakeFiles/Milstone1.dir/Data.cpp.o: ../Commands/Command.h
 CMakeFiles/Milstone1.dir/Data.cpp.o: ../Data.cpp
 CMakeFiles/Milstone1.dir/Data.cpp.o: ../Data.h
 CMakeFiles/Milstone1.dir/Data.cpp.o: ../VarInfo.h
+
+CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o: ../Expressions/Calculator.cpp
+CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o: ../Expressions/Calculator.h
+CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o: ../Expressions/Expression.h
 
 CMakeFiles/Milstone1.dir/VarInfo.cpp.o: ../VarInfo.cpp
 CMakeFiles/Milstone1.dir/VarInfo.cpp.o: ../VarInfo.h

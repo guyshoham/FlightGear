@@ -56,6 +56,7 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
                                unordered_map<string, VarInfo*>& symTableUser,
                                unordered_map<string, VarInfo*>& symTableSimulator) {
+
   //todo: check port num as an expression
   int portNum = stoi(textArr[_index + 1]);
   try { openServer(portNum, symTableSimulator); } catch (string message) { cout << message << endl; }
