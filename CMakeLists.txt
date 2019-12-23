@@ -4,7 +4,7 @@ project(FlightGear)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_FLAGS -pthread)
 
-add_executable(Milstone1 main.cpp
+add_executable(FlightGear main.cpp
         Commands/Command.h
         Commands/Command.cpp
         Commands/ConditionParser.h

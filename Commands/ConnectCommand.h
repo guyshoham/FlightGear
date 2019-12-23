@@ -2,11 +2,11 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_CONNECTCOMMAND_H_
 
 #include "Command.h"
 
-#define MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_CONNECTCOMMAND_H_
 
 class ConnectCommand : public Command {
  public:
@@ -20,4 +20,4 @@ class ConnectCommand : public Command {
   static void runningClientServer(int client_socket);
 };
 
-#endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_CONNECTCOMMAND_H_

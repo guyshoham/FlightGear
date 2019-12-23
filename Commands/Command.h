@@ -2,11 +2,11 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_COMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_COMMAND_H_
 #include <string>
 #include <unordered_map>
 #include "../VarInfo.h"
-#define MILSTONE1_COMMANDS_COMMAND_H_
+#define FLIGHTGEAR_COMMANDS_COMMAND_H_
 
 using namespace std;
 
@@ -23,4 +23,4 @@ class Command {
   virtual ~Command();
 };
 
-#endif //MILSTONE1_COMMANDS_COMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_COMMAND_H_

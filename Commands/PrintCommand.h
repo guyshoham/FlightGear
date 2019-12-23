@@ -2,9 +2,9 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_PRINTCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_PRINTCOMMAND_H_
 #include "Command.h"
-#define MILSTONE1_COMMANDS_PRINTCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_PRINTCOMMAND_H_
 
 class PrintCommand : public Command {
  public:
@@ -15,4 +15,4 @@ class PrintCommand : public Command {
               unordered_map<string, VarInfo*>& symTableSimulator) override;
 
 };
-#endif //MILSTONE1_COMMANDS_PRINTCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_PRINTCOMMAND_H_

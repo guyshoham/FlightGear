@@ -2,12 +2,12 @@
 // Created by guy on 16/12/2019.
 //
 
-#ifndef MILSTONE1__DATA_H_
+#ifndef FLIGHTGEAR__DATA_H_
 #include <unordered_map>
 #include <string>
 #include "Commands/Command.h"
 #include "VarInfo.h"
-#define MILSTONE1__DATA_H_
+#define FLIGHTGEAR__DATA_H_
 
 using namespace std;
 
@@ -36,4 +36,4 @@ class Data {
 
 };
 
-#endif //MILSTONE1__DATA_H_
+#endif //FLIGHTGEAR__DATA_H_

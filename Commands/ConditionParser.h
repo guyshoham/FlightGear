@@ -2,10 +2,10 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_CONDITIONPARSER_H_
+#ifndef FLIGHTGEAR_COMMANDS_CONDITIONPARSER_H_
 #include <list>
 #include "Command.h"
-#define MILSTONE1_COMMANDS_CONDITIONPARSER_H_
+#define FLIGHTGEAR_COMMANDS_CONDITIONPARSER_H_
 
 using namespace std;
 class ConditionParser : public Command {
@@ -22,4 +22,4 @@ class ConditionParser : public Command {
   virtual void setStart(int index);
   virtual void setEnd(int index);
 };
-#endif //MILSTONE1_COMMANDS_CONDITIONPARSER_H_
+#endif //FLIGHTGEAR_COMMANDS_CONDITIONPARSER_H_

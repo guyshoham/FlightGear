@@ -2,9 +2,9 @@
 // Created by guy on 16/12/2019.
 //
 
-#ifndef MILSTONE1__VARINFO_H_
+#ifndef FLIGHTGEAR__VARINFO_H_
 #include <string>
-#define MILSTONE1__VARINFO_H_
+#define FLIGHTGEAR__VARINFO_H_
 
 using namespace std;
 
@@ -29,4 +29,4 @@ class VarInfo {
 
 };
 
-#endif //MILSTONE1__VARINFO_H_
+#endif //FLIGHTGEAR__VARINFO_H_

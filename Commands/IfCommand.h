@@ -2,9 +2,9 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_IFCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_IFCOMMAND_H_
 #include "ConditionParser.h"
-#define MILSTONE1_COMMANDS_IFCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_IFCOMMAND_H_
 
 class IfCommand : public ConditionParser {
  public:
@@ -14,4 +14,4 @@ class IfCommand : public ConditionParser {
               unordered_map<string, VarInfo*>& symTableTable,
               unordered_map<string, VarInfo*>& symTableSimulator) override;
 };
-#endif //MILSTONE1_COMMANDS_IFCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_IFCOMMAND_H_

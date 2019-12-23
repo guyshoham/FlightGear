@@ -2,8 +2,8 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_ASSIGNCOMMAND_H_
-#define MILSTONE1_COMMANDS_ASSIGNCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_ASSIGNCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_ASSIGNCOMMAND_H_
 
 #include "Command.h"
 class AssignCommand : public Command {
@@ -15,4 +15,4 @@ class AssignCommand : public Command {
               unordered_map<string, VarInfo*>& symTableSimulator) override;
 
 };
-#endif //MILSTONE1_COMMANDS_ASSIGNCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_ASSIGNCOMMAND_H_

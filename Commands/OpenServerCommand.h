@@ -2,9 +2,9 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_OPENSERVERCOMMAND_H_
 #include "Command.h"
-#define MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_OPENSERVERCOMMAND_H_
 
 class OpenServerCommand : public Command {
  public:
@@ -24,4 +24,4 @@ class OpenServerCommand : public Command {
                                   unordered_map<string, VarInfo*> symTableSimulator);
 };
 
-#endif //MILSTONE1_COMMANDS_OPENSERVERCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_OPENSERVERCOMMAND_H_

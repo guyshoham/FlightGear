@@ -1,4 +1,4 @@
 *.o
-/home/guy/CLionProjects/Milstone1/.idea/dictionaries/guy.xml
-/home/guy/CLionProjects/Milstone1/.idea/inspectionProfiles/Project_Default.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/dictionaries/
 /cmake-build-debug/

@@ -2,8 +2,8 @@
 // Created by guy on 13/12/2019.
 //
 
-#ifndef MILSTONE1_COMMANDS_LOOPCOMMAND_H_
-#define MILSTONE1_COMMANDS_LOOPCOMMAND_H_
+#ifndef FLIGHTGEAR_COMMANDS_LOOPCOMMAND_H_
+#define FLIGHTGEAR_COMMANDS_LOOPCOMMAND_H_
 
 #include "ConditionParser.h"
 class LoopCommand : public ConditionParser {
@@ -14,4 +14,4 @@ class LoopCommand : public ConditionParser {
               unordered_map<string, VarInfo*>& symTableTable,
               unordered_map<string, VarInfo*>& symTableSimulator) override;
 };
-#endif //MILSTONE1_COMMANDS_LOOPCOMMAND_H_
+#endif //FLIGHTGEAR_COMMANDS_LOOPCOMMAND_H_
