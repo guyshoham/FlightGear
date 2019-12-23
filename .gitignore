@@ -1,4 +1,9 @@
 *.o
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/dictionaries/
-/cmake-build-debug/
+/cmake-build-debug/CMakeFiles/
+/cmake-build-debug/cmake_install.cmake
+/cmake-build-debug/CMakeCache.txt
+/cmake-build-debug/FlightGear
+/cmake-build-debug/FlightGear.cbp
+/cmake-build-debug/Makefile
