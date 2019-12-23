@@ -4,7 +4,7 @@
 
 #include "VarInfo.h"
 
-VarInfo::VarInfo(string name, bool direction, string sim) {
+VarInfo::VarInfo(string name, int direction, string sim) {
   _name = name;
   _direction = direction;
   _path = sim;
@@ -22,6 +22,15 @@ string VarInfo::getName() {
 string VarInfo::getPath() {
   return _path;
 }
-bool VarInfo::getDirection() {
+int VarInfo::getDirection() {
   return _direction;
+}
+void VarInfo::setDirection(int direction) {
+  _direction = direction;
+}
+void VarInfo::setSecondName(string secondName) {
+  _secondName = secondName;
+}
+string VarInfo::getSecondName() {
+  return _secondName;
 }

@@ -23,7 +23,7 @@ int SleepCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-    for (pair<std::string, VarInfo*> element : symTableUser) {
+    for (pair<string, VarInfo*> element : symTableUser) {
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();
