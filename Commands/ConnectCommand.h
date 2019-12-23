@@ -16,7 +16,8 @@ class ConnectCommand : public Command {
               unordered_map<string, VarInfo*>& symTableUser,
               unordered_map<string, VarInfo*>& symTableSimulator) override;
   
-  static void openClientServer(const char *ip,int port);
+  void openClientServer(const char *ip,int port);
+  static void runningClientServer(int client_socket);
 };
 
 #endif //MILSTONE1_COMMANDS_CONNECTCOMMAND_H_
