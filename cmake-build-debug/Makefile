@@ -48,10 +48,10 @@ RM = /opt/clion-2019.2.5/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/guy/CLionProjects/Milstone1
+CMAKE_SOURCE_DIR = /home/tom5012/CLionProjects/Milestone1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/guy/CLionProjects/Milstone1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/tom5012/CLionProjects/Milestone1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles /home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles /home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,357 @@ Milstone1/fast:
 	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/build
 .PHONY : Milstone1/fast
 
+Commands/AssignCommand.o: Commands/AssignCommand.cpp.o
+
+.PHONY : Commands/AssignCommand.o
+
+# target to build an object file
+Commands/AssignCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.o
+.PHONY : Commands/AssignCommand.cpp.o
+
+Commands/AssignCommand.i: Commands/AssignCommand.cpp.i
+
+.PHONY : Commands/AssignCommand.i
+
+# target to preprocess a source file
+Commands/AssignCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.i
+.PHONY : Commands/AssignCommand.cpp.i
+
+Commands/AssignCommand.s: Commands/AssignCommand.cpp.s
+
+.PHONY : Commands/AssignCommand.s
+
+# target to generate assembly for a file
+Commands/AssignCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/AssignCommand.cpp.s
+.PHONY : Commands/AssignCommand.cpp.s
+
+Commands/Command.o: Commands/Command.cpp.o
+
+.PHONY : Commands/Command.o
+
+# target to build an object file
+Commands/Command.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/Command.cpp.o
+.PHONY : Commands/Command.cpp.o
+
+Commands/Command.i: Commands/Command.cpp.i
+
+.PHONY : Commands/Command.i
+
+# target to preprocess a source file
+Commands/Command.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/Command.cpp.i
+.PHONY : Commands/Command.cpp.i
+
+Commands/Command.s: Commands/Command.cpp.s
+
+.PHONY : Commands/Command.s
+
+# target to generate assembly for a file
+Commands/Command.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/Command.cpp.s
+.PHONY : Commands/Command.cpp.s
+
+Commands/ConditionParser.o: Commands/ConditionParser.cpp.o
+
+.PHONY : Commands/ConditionParser.o
+
+# target to build an object file
+Commands/ConditionParser.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.o
+.PHONY : Commands/ConditionParser.cpp.o
+
+Commands/ConditionParser.i: Commands/ConditionParser.cpp.i
+
+.PHONY : Commands/ConditionParser.i
+
+# target to preprocess a source file
+Commands/ConditionParser.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.i
+.PHONY : Commands/ConditionParser.cpp.i
+
+Commands/ConditionParser.s: Commands/ConditionParser.cpp.s
+
+.PHONY : Commands/ConditionParser.s
+
+# target to generate assembly for a file
+Commands/ConditionParser.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConditionParser.cpp.s
+.PHONY : Commands/ConditionParser.cpp.s
+
+Commands/ConnectCommand.o: Commands/ConnectCommand.cpp.o
+
+.PHONY : Commands/ConnectCommand.o
+
+# target to build an object file
+Commands/ConnectCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.o
+.PHONY : Commands/ConnectCommand.cpp.o
+
+Commands/ConnectCommand.i: Commands/ConnectCommand.cpp.i
+
+.PHONY : Commands/ConnectCommand.i
+
+# target to preprocess a source file
+Commands/ConnectCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.i
+.PHONY : Commands/ConnectCommand.cpp.i
+
+Commands/ConnectCommand.s: Commands/ConnectCommand.cpp.s
+
+.PHONY : Commands/ConnectCommand.s
+
+# target to generate assembly for a file
+Commands/ConnectCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/ConnectCommand.cpp.s
+.PHONY : Commands/ConnectCommand.cpp.s
+
+Commands/DefineVarCommand.o: Commands/DefineVarCommand.cpp.o
+
+.PHONY : Commands/DefineVarCommand.o
+
+# target to build an object file
+Commands/DefineVarCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.o
+.PHONY : Commands/DefineVarCommand.cpp.o
+
+Commands/DefineVarCommand.i: Commands/DefineVarCommand.cpp.i
+
+.PHONY : Commands/DefineVarCommand.i
+
+# target to preprocess a source file
+Commands/DefineVarCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.i
+.PHONY : Commands/DefineVarCommand.cpp.i
+
+Commands/DefineVarCommand.s: Commands/DefineVarCommand.cpp.s
+
+.PHONY : Commands/DefineVarCommand.s
+
+# target to generate assembly for a file
+Commands/DefineVarCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/DefineVarCommand.cpp.s
+.PHONY : Commands/DefineVarCommand.cpp.s
+
+Commands/IfCommand.o: Commands/IfCommand.cpp.o
+
+.PHONY : Commands/IfCommand.o
+
+# target to build an object file
+Commands/IfCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.o
+.PHONY : Commands/IfCommand.cpp.o
+
+Commands/IfCommand.i: Commands/IfCommand.cpp.i
+
+.PHONY : Commands/IfCommand.i
+
+# target to preprocess a source file
+Commands/IfCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.i
+.PHONY : Commands/IfCommand.cpp.i
+
+Commands/IfCommand.s: Commands/IfCommand.cpp.s
+
+.PHONY : Commands/IfCommand.s
+
+# target to generate assembly for a file
+Commands/IfCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/IfCommand.cpp.s
+.PHONY : Commands/IfCommand.cpp.s
+
+Commands/LoopCommand.o: Commands/LoopCommand.cpp.o
+
+.PHONY : Commands/LoopCommand.o
+
+# target to build an object file
+Commands/LoopCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.o
+.PHONY : Commands/LoopCommand.cpp.o
+
+Commands/LoopCommand.i: Commands/LoopCommand.cpp.i
+
+.PHONY : Commands/LoopCommand.i
+
+# target to preprocess a source file
+Commands/LoopCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.i
+.PHONY : Commands/LoopCommand.cpp.i
+
+Commands/LoopCommand.s: Commands/LoopCommand.cpp.s
+
+.PHONY : Commands/LoopCommand.s
+
+# target to generate assembly for a file
+Commands/LoopCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/LoopCommand.cpp.s
+.PHONY : Commands/LoopCommand.cpp.s
+
+Commands/OpenServerCommand.o: Commands/OpenServerCommand.cpp.o
+
+.PHONY : Commands/OpenServerCommand.o
+
+# target to build an object file
+Commands/OpenServerCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.o
+.PHONY : Commands/OpenServerCommand.cpp.o
+
+Commands/OpenServerCommand.i: Commands/OpenServerCommand.cpp.i
+
+.PHONY : Commands/OpenServerCommand.i
+
+# target to preprocess a source file
+Commands/OpenServerCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.i
+.PHONY : Commands/OpenServerCommand.cpp.i
+
+Commands/OpenServerCommand.s: Commands/OpenServerCommand.cpp.s
+
+.PHONY : Commands/OpenServerCommand.s
+
+# target to generate assembly for a file
+Commands/OpenServerCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/OpenServerCommand.cpp.s
+.PHONY : Commands/OpenServerCommand.cpp.s
+
+Commands/PrintCommand.o: Commands/PrintCommand.cpp.o
+
+.PHONY : Commands/PrintCommand.o
+
+# target to build an object file
+Commands/PrintCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.o
+.PHONY : Commands/PrintCommand.cpp.o
+
+Commands/PrintCommand.i: Commands/PrintCommand.cpp.i
+
+.PHONY : Commands/PrintCommand.i
+
+# target to preprocess a source file
+Commands/PrintCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.i
+.PHONY : Commands/PrintCommand.cpp.i
+
+Commands/PrintCommand.s: Commands/PrintCommand.cpp.s
+
+.PHONY : Commands/PrintCommand.s
+
+# target to generate assembly for a file
+Commands/PrintCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/PrintCommand.cpp.s
+.PHONY : Commands/PrintCommand.cpp.s
+
+Commands/SleepCommand.o: Commands/SleepCommand.cpp.o
+
+.PHONY : Commands/SleepCommand.o
+
+# target to build an object file
+Commands/SleepCommand.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.o
+.PHONY : Commands/SleepCommand.cpp.o
+
+Commands/SleepCommand.i: Commands/SleepCommand.cpp.i
+
+.PHONY : Commands/SleepCommand.i
+
+# target to preprocess a source file
+Commands/SleepCommand.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.i
+.PHONY : Commands/SleepCommand.cpp.i
+
+Commands/SleepCommand.s: Commands/SleepCommand.cpp.s
+
+.PHONY : Commands/SleepCommand.s
+
+# target to generate assembly for a file
+Commands/SleepCommand.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Commands/SleepCommand.cpp.s
+.PHONY : Commands/SleepCommand.cpp.s
+
+Data.o: Data.cpp.o
+
+.PHONY : Data.o
+
+# target to build an object file
+Data.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Data.cpp.o
+.PHONY : Data.cpp.o
+
+Data.i: Data.cpp.i
+
+.PHONY : Data.i
+
+# target to preprocess a source file
+Data.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Data.cpp.i
+.PHONY : Data.cpp.i
+
+Data.s: Data.cpp.s
+
+.PHONY : Data.s
+
+# target to generate assembly for a file
+Data.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Data.cpp.s
+.PHONY : Data.cpp.s
+
+Expressions/Calculator.o: Expressions/Calculator.cpp.o
+
+.PHONY : Expressions/Calculator.o
+
+# target to build an object file
+Expressions/Calculator.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.o
+.PHONY : Expressions/Calculator.cpp.o
+
+Expressions/Calculator.i: Expressions/Calculator.cpp.i
+
+.PHONY : Expressions/Calculator.i
+
+# target to preprocess a source file
+Expressions/Calculator.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.i
+.PHONY : Expressions/Calculator.cpp.i
+
+Expressions/Calculator.s: Expressions/Calculator.cpp.s
+
+.PHONY : Expressions/Calculator.s
+
+# target to generate assembly for a file
+Expressions/Calculator.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/Expressions/Calculator.cpp.s
+.PHONY : Expressions/Calculator.cpp.s
+
+VarInfo.o: VarInfo.cpp.o
+
+.PHONY : VarInfo.o
+
+# target to build an object file
+VarInfo.cpp.o:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/VarInfo.cpp.o
+.PHONY : VarInfo.cpp.o
+
+VarInfo.i: VarInfo.cpp.i
+
+.PHONY : VarInfo.i
+
+# target to preprocess a source file
+VarInfo.cpp.i:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/VarInfo.cpp.i
+.PHONY : VarInfo.cpp.i
+
+VarInfo.s: VarInfo.cpp.s
+
+.PHONY : VarInfo.s
+
+# target to generate assembly for a file
+VarInfo.cpp.s:
+	$(MAKE) -f CMakeFiles/Milstone1.dir/build.make CMakeFiles/Milstone1.dir/VarInfo.cpp.s
+.PHONY : VarInfo.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -159,6 +510,45 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Milstone1"
 	@echo "... edit_cache"
+	@echo "... Commands/AssignCommand.o"
+	@echo "... Commands/AssignCommand.i"
+	@echo "... Commands/AssignCommand.s"
+	@echo "... Commands/Command.o"
+	@echo "... Commands/Command.i"
+	@echo "... Commands/Command.s"
+	@echo "... Commands/ConditionParser.o"
+	@echo "... Commands/ConditionParser.i"
+	@echo "... Commands/ConditionParser.s"
+	@echo "... Commands/ConnectCommand.o"
+	@echo "... Commands/ConnectCommand.i"
+	@echo "... Commands/ConnectCommand.s"
+	@echo "... Commands/DefineVarCommand.o"
+	@echo "... Commands/DefineVarCommand.i"
+	@echo "... Commands/DefineVarCommand.s"
+	@echo "... Commands/IfCommand.o"
+	@echo "... Commands/IfCommand.i"
+	@echo "... Commands/IfCommand.s"
+	@echo "... Commands/LoopCommand.o"
+	@echo "... Commands/LoopCommand.i"
+	@echo "... Commands/LoopCommand.s"
+	@echo "... Commands/OpenServerCommand.o"
+	@echo "... Commands/OpenServerCommand.i"
+	@echo "... Commands/OpenServerCommand.s"
+	@echo "... Commands/PrintCommand.o"
+	@echo "... Commands/PrintCommand.i"
+	@echo "... Commands/PrintCommand.s"
+	@echo "... Commands/SleepCommand.o"
+	@echo "... Commands/SleepCommand.i"
+	@echo "... Commands/SleepCommand.s"
+	@echo "... Data.o"
+	@echo "... Data.i"
+	@echo "... Data.s"
+	@echo "... Expressions/Calculator.o"
+	@echo "... Expressions/Calculator.i"
+	@echo "... Expressions/Calculator.s"
+	@echo "... VarInfo.o"
+	@echo "... VarInfo.i"
+	@echo "... VarInfo.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

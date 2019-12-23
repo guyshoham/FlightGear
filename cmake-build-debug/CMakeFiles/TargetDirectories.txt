@@ -1,3 +1,3 @@
-/home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles/Milstone1.dir
-/home/guy/CLionProjects/Milstone1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles/Milstone1.dir
+/home/tom5012/CLionProjects/Milestone1/cmake-build-debug/CMakeFiles/edit_cache.dir
