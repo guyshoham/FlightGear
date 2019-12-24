@@ -59,7 +59,8 @@ OpenServerCommand::OpenServerCommand() = default;
 int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
                                unordered_map<string, VarInfo*>& symTableUser,
-                               unordered_map<string, VarInfo*>& symTableSimulator) {
+                               unordered_map<string, VarInfo*>& symTableSimulator,
+                               queue<const char*>  commandsToSimulator) {
 
   //calculating port number as an expression
 
@@ -133,7 +134,7 @@ void OpenServerCommand::runningServer(int client_socket,
   while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
-    cout << buffer << endl;
+    //cout << buffer << endl;
     parseSimulatorInput(buffer, symTableUser, symTableSimulator);
   }
 }

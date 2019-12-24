@@ -17,7 +17,8 @@ DefineVarCommand::DefineVarCommand() = default;
 int DefineVarCommand::execute(string* textArr,
                               unordered_map<string, Command*>& commandTable,
                               unordered_map<string, VarInfo*>& symTableUser,
-                              unordered_map<string, VarInfo*>& symTableSimulator) {
+                              unordered_map<string, VarInfo*>& symTableSimulator,
+                              queue<const char*>  commandsToSimulator) {
   string name = textArr[_index + 1];
   string arrow = textArr[_index + 2];
 

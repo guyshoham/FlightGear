@@ -4,6 +4,7 @@
 
 #ifndef FLIGHTGEAR__DATA_H_
 #include <unordered_map>
+#include <queue>
 #include <string>
 #include "Commands/Command.h"
 #include "VarInfo.h"
@@ -18,6 +19,7 @@ class Data {
   unordered_map<string, Command*> commandTable;
   unordered_map<string, VarInfo*> symTableUser;
   unordered_map<string, VarInfo*> symTableSimulator;
+  queue<const char*>  commandsToSimulator;
   ~Data() = default;
   Data() = default;
   void addCommand(string key, Command* value) {

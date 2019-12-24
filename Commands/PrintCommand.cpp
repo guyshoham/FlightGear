@@ -11,7 +11,8 @@ PrintCommand::PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
                           unordered_map<string, VarInfo*>& symTableUser,
-                          unordered_map<string, VarInfo*>& symTableSimulator) {
+                          unordered_map<string, VarInfo*>& symTableSimulator,
+                          queue<const char*>  commandsToSimulator) {
 
   string value = textArr[_index + 1];
 

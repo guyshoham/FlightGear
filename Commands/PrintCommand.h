@@ -12,7 +12,8 @@ class PrintCommand : public Command {
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,
-              unordered_map<string, VarInfo*>& symTableSimulator) override;
+              unordered_map<string, VarInfo*>& symTableSimulator,
+              queue<const char*>  commandsToSimulator) override;
 
 };
 #endif //FLIGHTGEAR_COMMANDS_PRINTCOMMAND_H_

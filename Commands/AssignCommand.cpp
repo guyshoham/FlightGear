@@ -12,7 +12,8 @@ AssignCommand::AssignCommand() = default;
 int AssignCommand::execute(string* textArr,
                            unordered_map<string, Command*>& commandTable,
                            unordered_map<string, VarInfo*>& symTableUser,
-                           unordered_map<string, VarInfo*>& symTableSimulator) {
+                           unordered_map<string, VarInfo*>& symTableSimulator,
+                           queue<const char*> commandsToSimulator) {
 
   string key = textArr[_index];
   string value = textArr[_index + 2];
@@ -43,6 +44,10 @@ int AssignCommand::execute(string* textArr,
     string commandToSend = "set " + v->getPath() + " " + valueToSend;
     cout << commandToSend << endl;
     //todo: update simulator - send 'commandToSend'
+    char* msg = new char[commandToSend.size() + 1];
+    copy(commandToSend.begin(), commandToSend.end(), msg);
+    msg[commandToSend.size()] = '\0';
+    commandsToSimulator.push(msg);
   }
 
   return 3;

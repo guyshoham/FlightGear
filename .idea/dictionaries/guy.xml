@@ -4,11 +4,15 @@
       <w>autostart</w>
       <w>brakeparking</w>
       <w>conditionparser</w>
+      <w>connectcommand</w>
       <w>definevarcommand</w>
+      <w>flightgear</w>
       <w>masteravionics</w>
       <w>masterbat</w>
       <w>masterlat</w>
       <w>milstone</w>
+      <w>sleepcommand</w>
+      <w>sockaddr</w>
       <w>socketfd</w>
       <w>speedbrake</w>
     </words>

@@ -14,10 +14,11 @@ class ConnectCommand : public Command {
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,
-              unordered_map<string, VarInfo*>& symTableSimulator) override;
+              unordered_map<string, VarInfo*>& symTableSimulator,
+              queue<const char*>  commandsToSimulator) override;
 
-  void openClientServer(const char* ip, int port);
-  static void runningClientServer(int client_socket);
+  void openClientServer(const char* ip, int port, queue<const char*>  commandsToSimulator);
+  static void runningClientServer(int client_socket, queue<const char*>  commandsToSimulator);
 };
 
 #endif //FLIGHTGEAR_COMMANDS_CONNECTCOMMAND_H_

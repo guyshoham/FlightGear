@@ -12,7 +12,8 @@ ConditionParser::ConditionParser() { _condition = false; }
 int ConditionParser::execute(string* textArr,
                              unordered_map<string, Command*>& commandTable,
                              unordered_map<string, VarInfo*>& symTableUser,
-                             unordered_map<string, VarInfo*>& symTableSimulator) { return 5 + (_end - _start + 1); }
+                             unordered_map<string, VarInfo*>& symTableSimulator,
+                             queue<const char*>  commandsToSimulator) { return 5 + (_end - _start + 1); }
 
 void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser) {
 

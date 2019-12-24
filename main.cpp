@@ -236,10 +236,17 @@ void parser(Data* data) {
   int index = 0;
   while (index < data->arrSize - 1) {
     Command* c;
+
+    //todo: delete this code after fixing lexer
+    if (data->textArr[index] == "5402") {
+      index++;
+    }
+
     c = data->commandTable.at(data->textArr[index]);
     if (c != nullptr) {
       c->setIndex(index);
-      index += c->execute(data->textArr, data->commandTable, data->symTableUser, data->symTableSimulator);
+      index += c->execute(data->textArr, data->commandTable, data->symTableUser, data->symTableSimulator,
+                          data->commandsToSimulator);
     }
   }
 }

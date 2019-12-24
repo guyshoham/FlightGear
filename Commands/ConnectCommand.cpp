@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <thread>
 #include <sstream>
+#include <cstring>
 #include "ConnectCommand.h"
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
@@ -18,7 +19,8 @@ ConnectCommand::ConnectCommand() = default;
 int ConnectCommand::execute(string* textArr,
                             unordered_map<string, Command*>& commandTable,
                             unordered_map<string, VarInfo*>& symTableUser,
-                            unordered_map<string, VarInfo*>& symTableSimulator) {
+                            unordered_map<string, VarInfo*>& symTableSimulator,
+                            queue<const char*> commandsToSimulator) {
   const char* ip = textArr[_index + 1].c_str();
 
   //calculating port as an expression
@@ -40,11 +42,11 @@ int ConnectCommand::execute(string* textArr,
   delete expression;
   delete interpreter;
 
-  try { openClientServer(ip, portNum); } catch (string message) { cout << message << endl; }
+  try { openClientServer(ip, portNum, commandsToSimulator); } catch (string message) { cout << message << endl; }
   return 3;
 }
 
-void ConnectCommand::openClientServer(const char* ip, int port) {
+void ConnectCommand::openClientServer(const char* ip, int port, queue<const char*> commandsToSimulator) {
   //create socket
   int client_socket = socket(AF_INET, SOCK_STREAM, 0);
   if (client_socket == -1) {
@@ -65,11 +67,20 @@ void ConnectCommand::openClientServer(const char* ip, int port) {
     throw "Could not connect to host server";
   } else {
     cout << "Client is now connected to server" << endl;
-    thread clientServer(runningClientServer, client_socket);
+    thread clientServer(runningClientServer, client_socket, commandsToSimulator);
     clientServer.detach();
   }
 }
 
-void ConnectCommand::runningClientServer(int client_socket) {
+void ConnectCommand::runningClientServer(int client_socket, queue<const char*> commandsToSimulator) {
+
+  while (true) {
+    if (!commandsToSimulator.empty()) {
+      const char* msg;
+      msg = commandsToSimulator.front();
+      int is_sent = send(client_socket, msg, strlen(msg), 0);
+      commandsToSimulator.pop();
+    }
+  }
 
 }
