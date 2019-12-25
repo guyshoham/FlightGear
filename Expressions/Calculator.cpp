@@ -176,7 +176,7 @@ void Interpreter::setVariables(string expression) {
     test.erase(0, pos + 1);
   }
   string variablesStrings[numDelimiter + 1];
-  //todo if there is only one parameter
+
   if (numDelimiter > 0) {
     for (int i = 0; i < numDelimiter + 1; i++) {
       variablesStrings[i] = expression.substr(0, expression.find(delimiter));

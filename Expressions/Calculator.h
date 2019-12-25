@@ -115,7 +115,7 @@ public:
 };
 
 class Interpreter {
-    Variable* variables[10];
+    Variable* variables[500];
     int size;
 public:
     Interpreter();

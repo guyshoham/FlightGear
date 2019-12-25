@@ -74,13 +74,13 @@ void ConnectCommand::openClientServer(const char* ip, int port, queue<const char
 
 void ConnectCommand::runningClientServer(int client_socket, queue<const char*> commandsToSimulator) {
 
-  /*while (true) {
+  while (true) {
     if (!commandsToSimulator.empty()) {
       const char* msg;
       msg = commandsToSimulator.front();
       int is_sent = send(client_socket, msg, strlen(msg), 0);
       commandsToSimulator.pop();
     }
-  }*/
+  }
 
 }
