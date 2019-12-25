@@ -11,34 +11,36 @@
 
 SleepCommand::SleepCommand() = default;
 
-int SleepCommand::execute(string *textArr,
-                          unordered_map<string, Command *> &commandTable,
-                          unordered_map<string, VarInfo *> &symTableUser,
-                          unordered_map<string, VarInfo *> &symTableSimulator,
-                          queue<const char *> commandsToSimulator) {
+int SleepCommand::execute(string* textArr,
+                          unordered_map<string, Command*>& commandTable,
+                          unordered_map<string, VarInfo*>& symTableUser,
+                          unordered_map<string, VarInfo*>& symTableSimulator,
+                          queue<const char*> commandsToSimulator) {
 
-    string value = textArr[_index + 1];
+  string value = textArr[_index + 1];
 
-    //checks if the argument is a string or not
-    if (value.at(0) == '\"') {
-        usleep(stod(value) * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
-    } else {
-        auto *interpreter = new Interpreter();
-        Expression *expression = nullptr;
-        ostringstream temp;
-        string valueStr;
-        for (pair<string, VarInfo *> element : symTableUser) {
-
-            temp << element.second->getValue();
-            valueStr = temp.str();
-            interpreter->setVariables(element.second->getName() + "=" + valueStr);
-        }
-
-        expression = interpreter->interpret(value);
-        usleep(expression->calculate() * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
-        delete expression;
-        delete interpreter;
+  //checks if the argument is a string or not
+  if (value.at(0) == '\"') {
+    usleep(stod(value) * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
+  } else {
+    auto* interpreter = new Interpreter();
+    Expression* expression = nullptr;
+    ostringstream temp;
+    string valueStr;
+    for (pair<string, VarInfo*> element : symTableUser) {
+      temp << element.second->getValue();
+      valueStr = temp.str();
+      temp.str("");
+      temp.clear();
+      string variable = element.second->getName() + "=" + valueStr;
+      interpreter->setVariables(variable);
     }
 
-    return 2;
+    expression = interpreter->interpret(value);
+    usleep(expression->calculate() * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
+    delete expression;
+    delete interpreter;
+  }
+
+  return 2;
 }
