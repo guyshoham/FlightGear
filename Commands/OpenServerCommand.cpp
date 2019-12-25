@@ -4,9 +4,9 @@
 
 #include <thread>
 #include <sys/socket.h>
+#include <netinet/in.h>
 #include <iostream>
 #include <unistd.h>
-#include <netinet/in.h>
 #include <cstring>
 #include <sstream>
 #include "OpenServerCommand.h"
@@ -60,7 +60,7 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
                                unordered_map<string, VarInfo*>& symTableUser,
                                unordered_map<string, VarInfo*>& symTableSimulator,
-                               queue<const char*>  commandsToSimulator) {
+                               queue<const char*> commandsToSimulator) {
 
   //calculating port number as an expression
 
@@ -87,8 +87,8 @@ int OpenServerCommand::execute(string* textArr,
 }
 
 void OpenServerCommand::openServer(int portNum,
-                                   unordered_map<string, VarInfo*> symTableUser,
-                                   unordered_map<string, VarInfo*> symTableSimulator) {
+                                   unordered_map<string, VarInfo*>& symTableUser,
+                                   unordered_map<string, VarInfo*>& symTableSimulator) {
   //create socket
   int socketfd = socket(AF_INET, SOCK_STREAM, 0);
   if (socketfd == -1) {
@@ -124,13 +124,13 @@ void OpenServerCommand::openServer(int portNum,
   close(socketfd); //closing the listening socket
 
   //reading from client
-  thread newServer(runningServer, client_socket, symTableUser, symTableSimulator);
+  thread newServer(runningServer, client_socket, ref(symTableUser), ref(symTableSimulator));
   newServer.detach();
 }
 
 void OpenServerCommand::runningServer(int client_socket,
-                                      unordered_map<string, VarInfo*> symTableUser,
-                                      unordered_map<string, VarInfo*> symTableSimulator) {
+                                      unordered_map<string, VarInfo*>& symTableUser,
+                                      unordered_map<string, VarInfo*>& symTableSimulator) {
   while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
@@ -139,8 +139,8 @@ void OpenServerCommand::runningServer(int client_socket,
   }
 }
 
-void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symTableUser,
-                                            unordered_map<string, VarInfo*> symTableSimulator) {
+void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*>& symTableUser,
+                                            unordered_map<string, VarInfo*>& symTableSimulator) {
   const char* delimiter = ",";
   char* element;
 
@@ -148,7 +148,15 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
   VarInfo* v = symTableSimulator.at(vars[0]);
   v->setValue(stod(element));
   if (v->getDirection() == 0) {
-    symTableUser.at(v->getSecondName())->setValue(stod(element));
+    double newValue = stod(element);
+    string secondName = v->getSecondName();
+
+    for (pair<string, VarInfo*> var : symTableUser) {
+      if (var.second->getName() == secondName) {
+        var.second->setValue(newValue);
+        break;
+      }
+    }
   }
 
   for (int i = 1; i < XML_SIZE; i++) {
@@ -156,7 +164,15 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
     v = symTableSimulator.at(vars[i]);
     v->setValue(stod(element));
     if (v->getDirection() == 0) {
-      symTableUser.at(v->getSecondName())->setValue(stod(element));
+      double newValue = stod(element);
+      string secondName = v->getSecondName();
+
+      for (pair<string, VarInfo*> var : symTableUser) {
+        if (var.second->getName() == secondName) {
+          var.second->setValue(newValue);
+          break;
+        }
+      }
     }
   }
 }
