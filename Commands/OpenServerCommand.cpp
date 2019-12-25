@@ -131,12 +131,12 @@ void OpenServerCommand::openServer(int portNum,
 void OpenServerCommand::runningServer(int client_socket,
                                       unordered_map<string, VarInfo*> symTableUser,
                                       unordered_map<string, VarInfo*> symTableSimulator) {
-  while (true) {
+ /* while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
     //cout << buffer << endl;
     parseSimulatorInput(buffer, symTableUser, symTableSimulator);
-  }
+  }*/
 }
 
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*> symTableUser,
