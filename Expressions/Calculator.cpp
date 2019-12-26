@@ -208,7 +208,7 @@ string Interpreter::switchVariables(string expression) {
     delimiter = this->variables[i]->getName();
     value = this->variables[i]->getValue();
     strValue = to_string(value);
-    strValue = strValue.substr(0, strValue.find('0'));
+    //strValue = strValue.substr(0, strValue.find('0'));
     if ((pos = expression.find(delimiter)) != -1) {
       expression.replace(pos, delimiter.length(), strValue);
     }

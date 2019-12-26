@@ -2,13 +2,11 @@
 // Created by guy on 13/12/2019.
 //
 
-#include "DefineVarCommand.h"
-#include "AssignCommand.h"
-#include "../VarInfo.h"
 #include <string>
-
-#include <iostream>
 #include <sstream>
+#include "AssignCommand.h"
+#include "DefineVarCommand.h"
+#include "../VarInfo.h"
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
 using namespace std;
@@ -59,7 +57,10 @@ int DefineVarCommand::execute(string* textArr,
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();
-      interpreter->setVariables(element.second->getName() + "=" + valueStr);
+      if (value.find(element.second->getName()) != string::npos) {
+        string variable = element.second->getName() + "=" + valueStr;
+        interpreter->setVariables(variable);
+      }
     }
 
     expression = interpreter->interpret(value);

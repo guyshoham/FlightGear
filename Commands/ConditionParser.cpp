@@ -13,7 +13,7 @@ int ConditionParser::execute(string* textArr,
                              unordered_map<string, Command*>& commandTable,
                              unordered_map<string, VarInfo*>& symTableUser,
                              unordered_map<string, VarInfo*>& symTableSimulator,
-                             queue<const char*>&  commandsToSimulator) { return 5 + (_end - _start + 1); }
+                             queue<const char*>& commandsToSimulator) { return 5 + (_end - _start + 1); }
 
 void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser) {
 
@@ -30,7 +30,10 @@ void ConditionParser::updateCondition(string* textArr, unordered_map<string, Var
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
-    interpreter->setVariables(element.second->getName() + "=" + valueStr);
+    if (leftStr.find(element.second->getName()) != string::npos || rightStr.find(element.second->getName()) != string::npos) {
+      string variable = element.second->getName() + "=" + valueStr;
+      interpreter->setVariables(variable);
+    }
   }
 
   left = interpreter->interpret(leftStr);

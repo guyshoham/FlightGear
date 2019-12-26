@@ -2,7 +2,6 @@
 // Created by guy on 13/12/2019.
 //
 
-#include <iostream>
 #include <sstream>
 #include <unistd.h>
 #include "SleepCommand.h"
@@ -32,8 +31,10 @@ int SleepCommand::execute(string* textArr,
       valueStr = temp.str();
       temp.str("");
       temp.clear();
-      string variable = element.second->getName() + "=" + valueStr;
-      interpreter->setVariables(variable);
+      if (value.find(element.second->getName()) != string::npos) {
+        string variable = element.second->getName() + "=" + valueStr;
+        interpreter->setVariables(variable);
+      }
     }
 
     expression = interpreter->interpret(value);

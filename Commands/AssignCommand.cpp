@@ -25,7 +25,10 @@ int AssignCommand::execute(string* textArr,
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
-    interpreter->setVariables(element.second->getName() + "=" + valueStr);
+    if (value.find(element.second->getName()) != string::npos) {
+      string variable = element.second->getName() + "=" + valueStr;
+      interpreter->setVariables(variable);
+    }
   }
 
   expression = interpreter->interpret(value);

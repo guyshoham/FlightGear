@@ -74,7 +74,10 @@ int OpenServerCommand::execute(string* textArr,
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
-    interpreter->setVariables(element.second->getName() + "=" + valueStr);
+    if (value.find(element.second->getName()) != string::npos) {
+      string variable = element.second->getName() + "=" + valueStr;
+      interpreter->setVariables(variable);
+    }
   }
 
   expression = interpreter->interpret(value);
@@ -82,7 +85,7 @@ int OpenServerCommand::execute(string* textArr,
   delete expression;
   delete interpreter;
 
-  try { openServer(portNum, symTableUser, symTableSimulator); } catch (string message) { cout << message << endl; }
+  try { openServer(portNum, symTableUser, symTableSimulator); } catch (const char* message) { cout << message << endl; }
   return 2;
 }
 
@@ -134,8 +137,10 @@ void OpenServerCommand::runningServer(int client_socket,
   while (true) {
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
-    //cout << buffer << endl;
-    parseSimulatorInput(buffer, symTableUser, symTableSimulator);
+    if (valRead != 0 && valRead != -1) {
+      //cout << buffer << endl;
+      parseSimulatorInput(buffer, symTableUser, symTableSimulator);
+    }
   }
 }
 
@@ -143,34 +148,35 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
                                             unordered_map<string, VarInfo*>& symTableSimulator) {
   const char* delimiter = ",";
   char* element;
+  VarInfo* simVar;
+  double newValue;
 
-  element = strtok(buffer, delimiter);
-  VarInfo* v = symTableSimulator.at(vars[0]);
-  v->setValue(stod(element));
-  if (v->getDirection() == 0) {
-    double newValue = stod(element);
-    string secondName = v->getSecondName();
-
-    for (pair<string, VarInfo*> var : symTableUser) {
-      if (var.second->getName() == secondName) {
-        var.second->setValue(newValue);
-        break;
-      }
+  for (int i = 0; i < XML_SIZE; i++) {
+    if (i == 0) {
+      element = strtok(buffer, delimiter);
+    } else {
+      element = strtok(nullptr, delimiter);
     }
-  }
+    simVar = symTableSimulator.at(vars[i]);
 
-  for (int i = 1; i < XML_SIZE; i++) {
-    element = strtok(nullptr, delimiter);
-    v = symTableSimulator.at(vars[i]);
-    v->setValue(stod(element));
-    if (v->getDirection() == 0) {
-      double newValue = stod(element);
-      string secondName = v->getSecondName();
+    if (element != NULL) {
+      newValue = stod(element);
+      if (simVar->getValue() != newValue) {
+        simVar->setValue(newValue);
+      }
 
-      for (pair<string, VarInfo*> var : symTableUser) {
-        if (var.second->getName() == secondName) {
-          var.second->setValue(newValue);
-          break;
+      if (simVar->getDirection() == 0) {
+        string secondName = simVar->getSecondName();
+
+        for (pair<string, VarInfo*> userVar : symTableUser) {
+          if (userVar.second->getName() == secondName) {
+            if (userVar.second->getValue() != newValue) {
+              cout << "parseSimulatorInput: " << secondName
+                   << "(" << newValue << " <- " << userVar.second->getValue() << ")" << endl;
+              userVar.second->setValue(newValue);
+            }
+            break;
+          }
         }
       }
     }

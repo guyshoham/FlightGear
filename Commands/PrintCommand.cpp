@@ -12,7 +12,7 @@ int PrintCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
                           unordered_map<string, VarInfo*>& symTableUser,
                           unordered_map<string, VarInfo*>& symTableSimulator,
-                          queue<const char*>&  commandsToSimulator) {
+                          queue<const char*>& commandsToSimulator) {
 
   string value = textArr[_index + 1];
 
@@ -27,13 +27,22 @@ int PrintCommand::execute(string* textArr,
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();
-      interpreter->setVariables(element.second->getName() + "=" + valueStr);
+      if (value.find(element.second->getName()) != string::npos) {
+        string variable = element.second->getName() + "=" + valueStr;
+        interpreter->setVariables(variable);
+      }
     }
 
-    expression = interpreter->interpret(value);
-    cout << expression->calculate() << endl;
-    delete expression;
-    delete interpreter;
+    try {
+      expression = interpreter->interpret(value);
+      cout << expression->calculate() << endl;
+      delete expression;
+      delete interpreter;
+    } catch (const char* message) {
+      cout << message << endl;
+      delete expression;
+      delete interpreter;
+    }
   }
 
   return 2;

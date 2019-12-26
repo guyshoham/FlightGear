@@ -34,7 +34,10 @@ int ConnectCommand::execute(string* textArr,
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
-    interpreter->setVariables(element.second->getName() + "=" + valueStr);
+    if (value.find(element.second->getName()) != string::npos) {
+      string variable = element.second->getName() + "=" + valueStr;
+      interpreter->setVariables(variable);
+    }
   }
 
   expression = interpreter->interpret(value);
@@ -42,7 +45,7 @@ int ConnectCommand::execute(string* textArr,
   delete expression;
   delete interpreter;
 
-  try { openClientServer(ip, portNum, commandsToSimulator); } catch (string message) { cout << message << endl; }
+  try { openClientServer(ip, portNum, commandsToSimulator); } catch (const char* message) { cout << message << endl; }
   return 3;
 }
 
@@ -87,5 +90,4 @@ void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& 
       commandsToSimulator.pop();
     }
   }
-
 }

@@ -4,12 +4,14 @@
 
 #ifndef FLIGHTGEAR__VARINFO_H_
 #include <string>
+#include <mutex>
 #define FLIGHTGEAR__VARINFO_H_
 
 using namespace std;
 
 class VarInfo {
   string _name, _secondName, _path;
+  mutex m_lock;
   int _direction;
   // "<-": 0
   // "->": 1
