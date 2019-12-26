@@ -3,6 +3,7 @@
 //
 
 #include <sys/socket.h>
+#include <mutex>
 #include <string>
 #include <iostream>
 #include <netinet/in.h>
@@ -14,6 +15,7 @@
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
 
+mutex m_send;
 ConnectCommand::ConnectCommand() = default;
 
 int ConnectCommand::execute(string* textArr,
@@ -85,9 +87,10 @@ void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& 
       if (is_sent == -1) {
         cout << "Error sending message: " << msg << endl;
       } else {
-        cout << "sent: " << msg << endl;
+        cout << msg << "(is_sent = " << is_sent << ")" << endl;
       }
       commandsToSimulator.pop();
+      //this_thread::sleep_for(0.3s);
     }
   }
 }

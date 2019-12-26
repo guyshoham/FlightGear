@@ -44,8 +44,9 @@ int AssignCommand::execute(string* textArr,
     ostringstream temp;
     temp << v->getValue();
     string valueToSend = temp.str();
-    string commandToSend = "set " + v->getPath() + " " + valueToSend;
-   // cout << commandToSend << endl;
+    string path = v->getPath();
+    //path.erase(0, 1);
+    string commandToSend = "setd " + path + " " + valueToSend + "\\r\\n";
 
     //update simulator - send 'commandToSend'
     char* msg = new char[commandToSend.size() + 1];

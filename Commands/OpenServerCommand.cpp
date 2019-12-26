@@ -171,8 +171,8 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
         for (pair<string, VarInfo*> userVar : symTableUser) {
           if (userVar.second->getName() == secondName) {
             if (userVar.second->getValue() != newValue) {
-              cout << "parseSimulatorInput: " << secondName
-                   << "(" << newValue << " <- " << userVar.second->getValue() << ")" << endl;
+//              cout << "parseSimulatorInput: " << secondName
+//                   << "(" << newValue << " <- " << userVar.second->getValue() << ")" << endl;
               userVar.second->setValue(newValue);
             }
             break;
