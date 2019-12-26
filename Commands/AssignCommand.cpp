@@ -46,7 +46,7 @@ int AssignCommand::execute(string* textArr,
     string valueToSend = temp.str();
     string path = v->getPath();
     //path.erase(0, 1);
-    string commandToSend = "setd " + path + " " + valueToSend + "\\r\\n";
+    string commandToSend = "setd " + path + " " + valueToSend + "\r\n";
 
     //update simulator - send 'commandToSend'
     char* msg = new char[commandToSend.size() + 1];

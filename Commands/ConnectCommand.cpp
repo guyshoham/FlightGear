@@ -87,7 +87,7 @@ void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& 
       if (is_sent == -1) {
         cout << "Error sending message: " << msg << endl;
       } else {
-        cout << msg << "(is_sent = " << is_sent << ")" << endl;
+        cout << "sent: " << msg << " (is_sent = " << is_sent << ")" << endl;
       }
       commandsToSimulator.pop();
       //this_thread::sleep_for(0.3s);
