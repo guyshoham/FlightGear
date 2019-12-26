@@ -7,11 +7,14 @@
       <w>connectcommand</w>
       <w>definevarcommand</w>
       <w>flightgear</w>
+      <w>ifcommand</w>
+      <w>loopcommand</w>
       <w>masteravionics</w>
       <w>masterbat</w>
       <w>masterlat</w>
       <w>milstone</w>
       <w>openservercommand</w>
+      <w>printcommand</w>
       <w>sleepcommand</w>
       <w>sockaddr</w>
       <w>socketfd</w>
