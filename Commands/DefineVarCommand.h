@@ -13,7 +13,7 @@ class DefineVarCommand : public Command {
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,
               unordered_map<string, VarInfo*>& symTableSimulator,
-              queue<const char*>  commandsToSimulator) override;
+              queue<const char*>&  commandsToSimulator) override;
 };
 
 #endif //FLIGHTGEAR_COMMANDS_DEFINEVARCOMMAND_H_

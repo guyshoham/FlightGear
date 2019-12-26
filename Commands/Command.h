@@ -20,7 +20,7 @@ class Command {
                       unordered_map<string, Command*>& commandTable,
                       unordered_map<string, VarInfo*>& symTableUser,
                       unordered_map<string, VarInfo*>& symTableSimulator,
-                      queue<const char*>  commandsToSimulator) = 0;
+                      queue<const char*>&  commandsToSimulator) = 0;
   virtual void setIndex(int index);
   virtual ~Command();
 };

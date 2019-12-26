@@ -13,7 +13,7 @@ int AssignCommand::execute(string* textArr,
                            unordered_map<string, Command*>& commandTable,
                            unordered_map<string, VarInfo*>& symTableUser,
                            unordered_map<string, VarInfo*>& symTableSimulator,
-                           queue<const char*> commandsToSimulator) {
+                           queue<const char*>& commandsToSimulator) {
 
   string key = textArr[_index];
   string value = textArr[_index + 2];
