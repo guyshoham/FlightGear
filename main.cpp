@@ -223,7 +223,20 @@ string* lexer(string fileName, Data* data) {
         strList.push_back(argument1);
       }
     } else {
-      strList.push_back(word);
+        if (strList.back()=="if"||strList.back()=="while"){
+            getline(stream, tempWord);
+            strList.push_back(word);
+            word=tempWord;
+            word.erase(0,1);
+            position1 = word.find(' ',0);
+            strList.push_back(word.erase(position1,word.length()));
+            tempWord.erase(0,position1+1);
+            strList.push_back(tempWord.erase(tempWord.length()-1,1));
+            strList.push_back("{");
+        } else{
+            strList.push_back(word);
+        }
+
     }
   }
 
