@@ -120,15 +120,15 @@ double Plus::calculate() {
   return right->calculate() + left->calculate();
 }
 
-Minus::Minus(Expression* rValue, Expression* lValue) : BinaryOperator(rValue, lValue) {
-  right = rValue;
+Minus::Minus(Expression* lValue, Expression* rValue) : BinaryOperator(lValue, rValue) {
   left = lValue;
+  right = rValue;
 }
 
 Minus::~Minus() = default;
 
 double Minus::calculate() {
-  return right->calculate() - left->calculate();
+  return left->calculate() - right->calculate();
 }
 
 Mul::Mul(Expression* rValue, Expression* lValue) : BinaryOperator(rValue, lValue) {
@@ -208,9 +208,11 @@ string Interpreter::switchVariables(string expression) {
     delimiter = this->variables[i]->getName();
     value = this->variables[i]->getValue();
     strValue = to_string(value);
+    string newExp = "( " + strValue + ")";
+
     //strValue = strValue.substr(0, strValue.find('0'));
     if ((pos = expression.find(delimiter)) != -1) {
-      expression.replace(pos, delimiter.length(), strValue);
+      expression.replace(pos, delimiter.length(), newExp);
     }
   }
 
