@@ -5,7 +5,9 @@
       <w>brakeparking</w>
       <w>conditionparser</w>
       <w>connectcommand</w>
+      <w>cout</w>
       <w>definevarcommand</w>
+      <w>endl</w>
       <w>flightgear</w>
       <w>ifcommand</w>
       <w>loopcommand</w>
@@ -15,6 +17,7 @@
       <w>milstone</w>
       <w>openservercommand</w>
       <w>printcommand</w>
+      <w>setd</w>
       <w>sleepcommand</w>
       <w>sockaddr</w>
       <w>socketfd</w>

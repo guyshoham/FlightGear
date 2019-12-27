@@ -7,6 +7,8 @@
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
 
+using namespace std;
+
 ConditionParser::ConditionParser() { _condition = false; }
 
 int ConditionParser::execute(string* textArr,
