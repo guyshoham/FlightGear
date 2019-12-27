@@ -150,10 +150,10 @@ Div::Div(Expression* rValue, Expression* lValue) : BinaryOperator(rValue, lValue
 Div::~Div() = default;
 
 double Div::calculate() {
-  if (left->calculate() == 0) {
+  if (right->calculate() == 0) {
     throw "division by zero";
   }
-  return right->calculate() / left->calculate();
+  return left->calculate() / right->calculate();
 }
 
 Interpreter::Interpreter() {
