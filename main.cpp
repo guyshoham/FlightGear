@@ -186,6 +186,11 @@ string* lexer(string fileName, Data* data) {
     }
     //finds if there are variables we need to add to the list
     if ((position1 = word.find('(', 0)) != -1) {
+        if ((position2 = word.find(')', 0)) == -1){
+            getline(stream, tempWord);
+            word+=tempWord;
+            tempWord=word;
+        }
       position2 = word.find(')', position1);
       strList.push_back(tempWord.erase(position1, position2));
       argument1 = word.erase(0, position1 + 1);
