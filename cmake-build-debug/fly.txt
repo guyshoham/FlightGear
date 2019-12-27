@@ -33,11 +33,11 @@ throttle = 0.2
 if throttle == 0.9 - 0.7{
 rudder = 1
 Sleep(500)
-rudder =- 1
+rudder = - 1
 Sleep(500)
 rudder = 2 - 1
 Sleep(500)
-rudder= warp - 32000
+rudder = warp - 32000
 }
 mixture = 0.949
 masterbat = 1
@@ -62,9 +62,9 @@ while alt < 1000 {
   aileron = -roll / 70
   Print(aileron)
   elevator = pitch / 50
-  blc=1
+  blc = 1
   Sleep(50)
-  blc=0
+  blc = 0
   Sleep(250)
 }
 Print("done")
