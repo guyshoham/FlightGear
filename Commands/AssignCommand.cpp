@@ -31,29 +31,31 @@ int AssignCommand::execute(string* textArr,
     }
   }
 
-  expression = interpreter->interpret(value);
+  try {
+    expression = interpreter->interpret(value);
+    double newValue = expression->calculate();
+    VarInfo* v = symTableUser.at(key);
+    v->setValue(newValue);
+    if (v->getDirection() == 1) {
+      ostringstream temp;
+      temp << v->getValue();
+      string valueToSend = temp.str();
+      string path = v->getPath();
+      //path.erase(0, 1);
+      string commandToSend = "setd " + path + " " + valueToSend + "\r\n";
 
-  double newValue = expression->calculate();
-  VarInfo* v = symTableUser.at(key);
-  v->setValue(newValue);
-
-  delete expression;
-  delete interpreter;
-
-  if (v->getDirection() == 1) {
-    ostringstream temp;
-    temp << v->getValue();
-    string valueToSend = temp.str();
-    string path = v->getPath();
-    //path.erase(0, 1);
-    string commandToSend = "setd " + path + " " + valueToSend + "\r\n";
-
-    //update simulator - send 'commandToSend'
-    char* msg = new char[commandToSend.size() + 1];
-    copy(commandToSend.begin(), commandToSend.end(), msg);
-    msg[commandToSend.size()] = '\0';
-    commandsToSimulator.push(msg);
+      //update simulator - send 'commandToSend'
+      char* msg = new char[commandToSend.size() + 1];
+      copy(commandToSend.begin(), commandToSend.end(), msg);
+      msg[commandToSend.size()] = '\0';
+      commandsToSimulator.push(msg);
+    }
+    delete expression;
+    delete interpreter;
+  } catch (const char* message) {
+    cout << message << endl;
+    delete expression;
+    delete interpreter;
   }
-
   return 3;
 }

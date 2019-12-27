@@ -30,24 +30,32 @@ void ConditionParser::updateCondition(string* textArr, unordered_map<string, Var
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
-    if (leftStr.find(element.second->getName()) != string::npos || rightStr.find(element.second->getName()) != string::npos) {
+    if (leftStr.find(element.second->getName()) != string::npos
+        || rightStr.find(element.second->getName()) != string::npos) {
       string variable = element.second->getName() + "=" + valueStr;
       interpreter->setVariables(variable);
     }
   }
 
-  left = interpreter->interpret(leftStr);
-  right = interpreter->interpret(rightStr);
-
-  double leftValue = left->calculate();
-  double rightValue = right->calculate();
-
-  if (symbol == "<") _condition = leftValue < rightValue;
-  else if (symbol == ">") _condition = leftValue > rightValue;
-  else if (symbol == "<=") _condition = leftValue <= rightValue;
-  else if (symbol == ">=") _condition = leftValue >= rightValue;
-  else if (symbol == "==") _condition = leftValue == rightValue;
-
+  try {
+    left = interpreter->interpret(leftStr);
+    right = interpreter->interpret(rightStr);
+    double leftValue = left->calculate();
+    double rightValue = right->calculate();
+    if (symbol == "<") _condition = leftValue < rightValue;
+    else if (symbol == ">") _condition = leftValue > rightValue;
+    else if (symbol == "<=") _condition = leftValue <= rightValue;
+    else if (symbol == ">=") _condition = leftValue >= rightValue;
+    else if (symbol == "==") _condition = leftValue == rightValue;
+    delete left;
+    delete right;
+    delete interpreter;
+  } catch (const char* message) {
+    cout << message << endl;
+    delete left;
+    delete right;
+    delete interpreter;
+  }
 }
 void ConditionParser::setStart(int index) { _start = index; }
 void ConditionParser::setEnd(int index) { _end = index; }

@@ -63,18 +63,21 @@ int DefineVarCommand::execute(string* textArr,
       }
     }
 
-    expression = interpreter->interpret(value);
-    auto* info = new VarInfo(name, 2, "");
-    info->setValue(expression->calculate());
-
-    //adding variable to commandTable
-    commandTable[name] = new AssignCommand();
-
-    //adding variable to symTableUser
-    symTableUser[name] = info;
-
-    delete expression;
-    delete interpreter;
+    try {
+      expression = interpreter->interpret(value);
+      auto* info = new VarInfo(name, 2, "");
+      info->setValue(expression->calculate());
+      //adding variable to commandTable
+      commandTable[name] = new AssignCommand();
+      //adding variable to symTableUser
+      symTableUser[name] = info;
+      delete expression;
+      delete interpreter;
+    } catch (const char* message) {
+      cout << message << endl;
+      delete expression;
+      delete interpreter;
+    }
     return 4;
   }
 }

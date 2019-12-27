@@ -25,6 +25,7 @@ int SleepCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
     ostringstream temp;
+
     string valueStr;
     for (pair<string, VarInfo*> element : symTableUser) {
       temp << element.second->getValue();
@@ -37,10 +38,16 @@ int SleepCommand::execute(string* textArr,
       }
     }
 
-    expression = interpreter->interpret(value);
-    usleep(expression->calculate() * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
-    delete expression;
-    delete interpreter;
+    try {
+      expression = interpreter->interpret(value);
+      usleep(expression->calculate() * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
+      delete expression;
+      delete interpreter;
+    } catch (const char* message) {
+      cout << message << endl;
+      delete expression;
+      delete interpreter;
+    }
   }
 
   return 2;

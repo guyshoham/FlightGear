@@ -42,10 +42,16 @@ int ConnectCommand::execute(string* textArr,
     }
   }
 
-  expression = interpreter->interpret(value);
-  portNum = (int) expression->calculate();
-  delete expression;
-  delete interpreter;
+  try {
+    expression = interpreter->interpret(value);
+    portNum = (int) expression->calculate();
+    delete expression;
+    delete interpreter;
+  } catch (const char* message) {
+    cout << message << endl;
+    delete expression;
+    delete interpreter;
+  }
 
   try { openClientServer(ip, portNum, commandsToSimulator); } catch (const char* message) { cout << message << endl; }
   return 3;
