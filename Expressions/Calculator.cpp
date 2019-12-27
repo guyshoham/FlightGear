@@ -230,6 +230,7 @@ string Interpreter::switchVariables(string expression) {
 
 Expression* Interpreter::interpret(string expression) {
   expression = switchVariables(expression);
+  replaceAll(expression, " ", "");
   int lastDigit = 0;
   stack<char> stack1;
   string postfix = "", num;
@@ -358,4 +359,12 @@ bool Interpreter::IsOperand(char C) {
   return C >= 'A' && C <= 'Z';
 }
 
-
+void Interpreter::replaceAll(string& str, const string& from, const string& to) {
+  if (from.empty())
+    return;
+  size_t start_pos = 0;
+  while ((start_pos = str.find(from, start_pos)) != string::npos) {
+    str.replace(start_pos, from.length(), to);
+    start_pos += to.length();
+  }
+}

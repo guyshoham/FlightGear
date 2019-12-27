@@ -27,7 +27,8 @@ int main() {
   initCommandTable(data);
   initSymTableSimulator(data);
 
-  cout << "Starting Flightgear..." << endl;
+  //cout << "Starting Flightgear..." << endl;
+
   //a pointer to the array.
   data->textArr = lexer("fly.txt", data);
   parser(data);
