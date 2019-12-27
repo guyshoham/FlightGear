@@ -3,7 +3,8 @@
 //
 
 #include <sstream>
-#include <unistd.h>
+#include <thread>
+#include <chrono>
 #include "SleepCommand.h"
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
@@ -20,7 +21,8 @@ int SleepCommand::execute(string* textArr,
 
   //checks if the argument is a string or not
   if (value.at(0) == '\"') {
-    usleep(stod(value) * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
+    int time = stoi(value);
+    this_thread::sleep_for(chrono::seconds(time));
   } else {
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
@@ -40,7 +42,7 @@ int SleepCommand::execute(string* textArr,
 
     try {
       expression = interpreter->interpret(value);
-      usleep(expression->calculate() * 1000); // function is using microseconds (1 millisecond = 1000 microseconds)
+      this_thread::sleep_for(chrono::seconds((int) expression->calculate()));
       delete expression;
       delete interpreter;
     } catch (const char* message) {
