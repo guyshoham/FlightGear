@@ -22,7 +22,7 @@ int SleepCommand::execute(string* textArr,
   //checks if the argument is a string or not
   if (value.at(0) == '\"') {
     int time = stoi(value);
-    this_thread::sleep_for(chrono::seconds(time));
+    this_thread::sleep_for(chrono::milliseconds(time));
   } else {
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
@@ -42,7 +42,7 @@ int SleepCommand::execute(string* textArr,
 
     try {
       expression = interpreter->interpret(value);
-      this_thread::sleep_for(chrono::seconds((int) expression->calculate()));
+      this_thread::sleep_for(chrono::milliseconds((int) expression->calculate()));
       delete expression;
       delete interpreter;
     } catch (const char* message) {
