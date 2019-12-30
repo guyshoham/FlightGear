@@ -47,7 +47,7 @@ void ConditionParser::updateCondition(string* textArr, unordered_map<string, Var
     double rightValue = right->calculate();
 
     float leftRound = roundf(leftValue * 100) / 100;
-    float rightRound = roundf(leftValue * 100) / 100;
+    float rightRound = roundf(rightValue * 100) / 100;
 
     if (symbol == "<") _condition = leftRound < rightRound;
     else if (symbol == ">") _condition = leftRound > rightRound;
