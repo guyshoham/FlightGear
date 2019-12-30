@@ -3,6 +3,7 @@
 //
 
 #include <sstream>
+#include <math.h>
 #include "ConditionParser.h"
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
@@ -44,11 +45,15 @@ void ConditionParser::updateCondition(string* textArr, unordered_map<string, Var
     right = interpreter->interpret(rightStr);
     double leftValue = left->calculate();
     double rightValue = right->calculate();
-    if (symbol == "<") _condition = leftValue < rightValue;
-    else if (symbol == ">") _condition = leftValue > rightValue;
-    else if (symbol == "<=") _condition = leftValue <= rightValue;
-    else if (symbol == ">=") _condition = leftValue >= rightValue;
-    else if (symbol == "==") _condition = leftValue == rightValue;
+
+    float leftRound = roundf(leftValue * 100) / 100;
+    float rightRound = roundf(leftValue * 100) / 100;
+
+    if (symbol == "<") _condition = leftRound < rightRound;
+    else if (symbol == ">") _condition = leftRound > rightRound;
+    else if (symbol == "<=") _condition = leftRound <= rightRound;
+    else if (symbol == ">=") _condition = leftRound >= rightRound;
+    else if (symbol == "==") _condition = leftRound == rightRound;
     delete left;
     delete right;
     delete interpreter;
