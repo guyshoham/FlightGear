@@ -178,7 +178,9 @@ string *lexer(string fileName, Data *data) {
         }
         if ((position1 = tempWord.find('=')) != -1) {
             if (position1 == 0) {
+                getline(stream, word);
                 tempWord.erase(0, 1);
+                tempWord+=word;
                 strList.push_back("=");
                 if (tempWord.length() > 0) {
                     strList.push_back(tempWord);
