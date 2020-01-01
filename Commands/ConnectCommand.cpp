@@ -23,6 +23,9 @@ int ConnectCommand::execute(string* textArr,
                             unordered_map<string, VarInfo*>& symTableUser,
                             unordered_map<string, VarInfo*>& symTableSimulator,
                             queue<const char*>& commandsToSimulator) {
+  commandTable = commandTable;
+  symTableSimulator = symTableSimulator;
+
   const char* ip = textArr[_index + 1].c_str();
 
   //calculating port as an expression

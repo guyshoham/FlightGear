@@ -17,6 +17,8 @@ int DefineVarCommand::execute(string* textArr,
                               unordered_map<string, VarInfo*>& symTableUser,
                               unordered_map<string, VarInfo*>& symTableSimulator,
                               queue<const char*>&  commandsToSimulator) {
+  commandsToSimulator = commandsToSimulator;
+
   string name = textArr[_index + 1];
   string arrow = textArr[_index + 2];
 

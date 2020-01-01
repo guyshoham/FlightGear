@@ -186,7 +186,7 @@ Value* Interpreter::getWholeValue(string input, int pos, int* posAfter) {
   }
 
   int originalPos = pos;
-  while (pos < input.length() && (isOperand(input.at(pos)) || input.at(pos) == '.')) {
+  while (pos < (signed) input.length() && (isOperand(input.at(pos)) || input.at(pos) == '.')) {
     pos++;
   }
   string str = input.substr(originalPos, pos);
