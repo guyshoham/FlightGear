@@ -22,7 +22,7 @@ void initSymTableSimulator(Data *data);
 
 void initCommandTable(Data *data);
 
-int main() {
+int main(int argc, char* argv[]) {
     Data *data = new Data();
     initCommandTable(data);
     initSymTableSimulator(data);
@@ -30,7 +30,7 @@ int main() {
     //cout << "Starting Flightgear..." << endl;
 
     //a pointer to the array.
-    data->textArr = lexer("fly.txt", data);
+    data->textArr = lexer(argv[1], data);
     parser(data);
 
     return 0;
