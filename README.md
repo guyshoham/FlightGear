@@ -11,7 +11,7 @@ git clone https://github.com/guyshoham/FlightGear.git
 
 2. Download and install [Flightgear](http://home.flightgear.org) to your computer
 
-## Introducing the flight simulator
+## Introducing to flight simulator
 We would like to write an interpreter for UAV control.
 
 Our plane will fly in the virtual space of the flight simulator **FlightGear**
@@ -31,6 +31,10 @@ Among other things, this simulator is also a server that can be connected as a c
 --telnet=socket,in,10,127.0.0.1,5402,tcp=8080
 --generic=socket,out,10,127.0.0.1,5400,tcp,generic_small
 ```
+
+## Set generic_small.xml 
+The sampled values are defined in a file called **generic_small.xml** that is attached to the project.
+The file should be added in the location where you installed **FlightGear** in the **/data/protocol** folder.
 
 ## Run
 
