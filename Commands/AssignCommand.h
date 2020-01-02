@@ -9,6 +9,7 @@
 class AssignCommand : public Command {
  public:
   AssignCommand();
+  ~AssignCommand() override;
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,

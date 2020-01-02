@@ -3,7 +3,6 @@
 //
 
 #include <sys/socket.h>
-#include <mutex>
 #include <string>
 #include <iostream>
 #include <netinet/in.h>
@@ -15,9 +14,8 @@
 #include "../Expressions/Expression.h"
 #include "../Expressions/Calculator.h"
 
-mutex m_send;
 ConnectCommand::ConnectCommand() = default;
-
+ConnectCommand::~ConnectCommand() = default;
 int ConnectCommand::execute(string* textArr,
                             unordered_map<string, Command*>& commandTable,
                             unordered_map<string, VarInfo*>& symTableUser,
@@ -59,7 +57,6 @@ int ConnectCommand::execute(string* textArr,
   try { openClientServer(ip, portNum, commandsToSimulator); } catch (const char* message) { cout << message << endl; }
   return 3;
 }
-
 void ConnectCommand::openClientServer(const char* ip, int port, queue<const char*>& commandsToSimulator) {
   //create socket
   int client_socket = socket(AF_INET, SOCK_STREAM, 0);
@@ -85,7 +82,6 @@ void ConnectCommand::openClientServer(const char* ip, int port, queue<const char
     clientServer.detach();
   }
 }
-
 void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& commandsToSimulator) {
 
   while (true) {
@@ -99,7 +95,6 @@ void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& 
         //cout << "sent: " << msg << endl;
       }
       commandsToSimulator.pop();
-      //this_thread::sleep_for(0.3s);
     }
   }
 }

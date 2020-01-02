@@ -14,6 +14,7 @@ class ConditionParser : public Command {
   int _start, _end; //start and end indexes, represent sub-array of commands inside '{}'
  public:
   ConditionParser();
+  ~ConditionParser() override;
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,

@@ -9,6 +9,7 @@
 class DefineVarCommand : public Command {
  public:
   DefineVarCommand();
+  ~DefineVarCommand() override;
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,

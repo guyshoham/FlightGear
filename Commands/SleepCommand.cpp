@@ -10,7 +10,7 @@
 #include "../Expressions/Calculator.h"
 
 SleepCommand::SleepCommand() = default;
-
+SleepCommand::~SleepCommand() = default;
 int SleepCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
                           unordered_map<string, VarInfo*>& symTableUser,

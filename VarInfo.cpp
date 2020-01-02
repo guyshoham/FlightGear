@@ -2,7 +2,6 @@
 // Created by guy on 16/12/2019.
 //
 
-#include <iostream>
 #include "VarInfo.h"
 
 VarInfo::VarInfo(string name, int direction, string sim) {

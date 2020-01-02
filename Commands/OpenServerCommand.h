@@ -9,6 +9,7 @@
 class OpenServerCommand : public Command {
  public:
   OpenServerCommand();
+  ~OpenServerCommand() override;
   int execute(string* textArr,
               unordered_map<string, Command*>& commandTable,
               unordered_map<string, VarInfo*>& symTableUser,

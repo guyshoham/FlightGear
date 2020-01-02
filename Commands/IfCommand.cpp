@@ -4,6 +4,7 @@
 
 #include "IfCommand.h"
 IfCommand::IfCommand() = default;
+IfCommand::~IfCommand() = default;
 int IfCommand::execute(string* textArr,
                        unordered_map<string, Command*>& commandTable,
                        unordered_map<string, VarInfo*>& symTableUser,

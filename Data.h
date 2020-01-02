@@ -29,18 +29,11 @@ class Data {
     commandTable[key] = value;
   }
 
-  void addVariable(string key, string name, bool direction, string path) {
-    lock_guard<mutex> lock(m);
-    auto* v = new VarInfo(name, direction, path);
-    symTableUser[key] = v;
-  }
-
   void addVariable(string key, bool direction, string path) {
     lock_guard<std::mutex> lock(m);
     auto* v = new VarInfo(key, direction, path);
     symTableSimulator[key] = v;
   }
-
 };
 
 #endif //FLIGHTGEAR__DATA_H_

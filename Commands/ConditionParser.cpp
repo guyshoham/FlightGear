@@ -11,7 +11,7 @@
 using namespace std;
 
 ConditionParser::ConditionParser() { _condition = false; }
-
+ConditionParser::~ConditionParser() = default;
 int ConditionParser::execute(string* textArr,
                              unordered_map<string, Command*>& commandTable,
                              unordered_map<string, VarInfo*>& symTableUser,
@@ -24,7 +24,6 @@ int ConditionParser::execute(string* textArr,
   commandsToSimulator = commandsToSimulator;
   return 5 + (_end - _start + 1);
 }
-
 void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser) {
 
   string leftStr = textArr[_index + 1];

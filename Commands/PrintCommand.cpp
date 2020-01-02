@@ -8,6 +8,7 @@
 #include "../Expressions/Calculator.h"
 
 PrintCommand::PrintCommand() = default;
+PrintCommand::~PrintCommand() = default;
 int PrintCommand::execute(string* textArr,
                           unordered_map<string, Command*>& commandTable,
                           unordered_map<string, VarInfo*>& symTableUser,

@@ -9,6 +9,7 @@
 #include "../Expressions/Calculator.h"
 
 AssignCommand::AssignCommand() = default;
+AssignCommand::~AssignCommand() = default;
 int AssignCommand::execute(string* textArr,
                            unordered_map<string, Command*>& commandTable,
                            unordered_map<string, VarInfo*>& symTableUser,

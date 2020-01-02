@@ -13,14 +13,11 @@
 #include "Data.h"
 
 using namespace std;
-
 string* lexer(string fileName, Data* data);
-
 void parser(Data* data);
-
 void initSymTableSimulator(Data* data);
-
 void initCommandTable(Data* data);
+void freeData(Data* data);
 
 int main(int argc, char* argv[]) {
   Data* data = new Data();
@@ -33,11 +30,24 @@ int main(int argc, char* argv[]) {
   if (argc > 0) {
     data->textArr = lexer(argv[1], data);
     parser(data);
+    freeData(data);
   } else {
     cout << "error: no file name argument" << endl;
   }
 
   return 0;
+}
+
+void freeData(Data* data) {
+  for (pair<string, Command*> element : data->commandTable) {
+    delete element.second;
+  }
+  for (pair<string, VarInfo*> element : data->symTableUser) {
+    delete element.second;
+  }
+  for (pair<string, VarInfo*> element : data->symTableSimulator) {
+    delete element.second;
+  }
 }
 
 void initCommandTable(Data* data) {
@@ -286,7 +296,6 @@ void parser(Data* data) {
   int index = 0;
   while (index < data->arrSize - 1) {
     Command* c;
-
     c = data->commandTable.at(data->textArr[index]);
     if (c != nullptr) {
       c->setIndex(index);

@@ -55,7 +55,7 @@ string vars[] = {"airspeed-indicator_indicated-speed-kt",
 };
 
 OpenServerCommand::OpenServerCommand() = default;
-
+OpenServerCommand::~OpenServerCommand() = default;
 int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, Command*>& commandTable,
                                unordered_map<string, VarInfo*>& symTableUser,
@@ -96,7 +96,6 @@ int OpenServerCommand::execute(string* textArr,
   try { openServer(portNum, symTableUser, symTableSimulator); } catch (const char* message) { cout << message << endl; }
   return 2;
 }
-
 void OpenServerCommand::openServer(int portNum,
                                    unordered_map<string, VarInfo*>& symTableUser,
                                    unordered_map<string, VarInfo*>& symTableSimulator) {
@@ -138,7 +137,6 @@ void OpenServerCommand::openServer(int portNum,
   thread newServer(runningServer, client_socket, ref(symTableUser), ref(symTableSimulator));
   newServer.detach();
 }
-
 void OpenServerCommand::runningServer(int client_socket,
                                       unordered_map<string, VarInfo*>& symTableUser,
                                       unordered_map<string, VarInfo*>& symTableSimulator) {
@@ -151,9 +149,8 @@ void OpenServerCommand::runningServer(int client_socket,
     }
   }
 }
-
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*>& symTableUser,
-                                            unordered_map<string, VarInfo*>& symTableSimulator) {
+    unordered_map<string, VarInfo*>& symTableSimulator) {
   const char* delimiter = ",";
   char* element;
   VarInfo* simVar;

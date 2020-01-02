@@ -12,6 +12,7 @@
 using namespace std;
 
 DefineVarCommand::DefineVarCommand() = default;
+DefineVarCommand::~DefineVarCommand() = default;
 int DefineVarCommand::execute(string* textArr,
                               unordered_map<string, Command*>& commandTable,
                               unordered_map<string, VarInfo*>& symTableUser,

@@ -4,6 +4,7 @@
 
 #include "LoopCommand.h"
 LoopCommand::LoopCommand() = default;
+LoopCommand::~LoopCommand() = default;
 int LoopCommand::execute(string* textArr,
                          unordered_map<string, Command*>& commandTable,
                          unordered_map<string, VarInfo*>& symTableUser,
