@@ -50,7 +50,7 @@ The file should be added in the location where you installed **FlightGear** in t
 Open terminal in project directory and type:
 
 ```bash
-sudo g++ -std=c++14 main.cpp Commands/Command.h Commands/Command.cpp Commands/ConditionParser.h Commands/ConditionParser.cpp Commands/ConnectCommand.h Commands/ConnectCommand.cpp Commands/DefineVarCommand.h Commands/DefineVarCommand.cpp Commands/IfCommand.h Commands/IfCommand.cpp Commands/LoopCommand.h Commands/LoopCommand.cpp Commands/PrintCommand.h Commands/PrintCommand.cpp Commands/SleepCommand.h Commands/SleepCommand.cpp Commands/AssignCommand.h Commands/AssignCommand.cpp Commands/OpenServerCommand.h Commands/OpenServerCommand.cpp VarInfo.cpp VarInfo.h Data.cpp Data.h Expressions/Expression.h Expressions/Calculator.h Expressions/Calculator.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.out -pthread```
+sudo g++ -std=c++14 main.cpp Commands/Command.h Commands/Command.cpp Commands/ConditionParser.h Commands/ConditionParser.cpp Commands/ConnectCommand.h Commands/ConnectCommand.cpp Commands/DefineVarCommand.h Commands/DefineVarCommand.cpp Commands/IfCommand.h Commands/IfCommand.cpp Commands/LoopCommand.h Commands/LoopCommand.cpp Commands/PrintCommand.h Commands/PrintCommand.cpp Commands/SleepCommand.h Commands/SleepCommand.cpp Commands/AssignCommand.h Commands/AssignCommand.cpp Commands/OpenServerCommand.h Commands/OpenServerCommand.cpp VarInfo.cpp VarInfo.h Data.cpp Data.h Expressions/Expression.h Expressions/Calculator.h Expressions/Calculator.cpp -Wall -Wextra -Wshadow -Wnon-virtual-dtor -pedantic -o a.out -pthread
 ```
 After the compilation process has done, type:
 ```bash
