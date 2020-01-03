@@ -12,25 +12,21 @@ using namespace std;
 
 ConditionParser::ConditionParser() { _condition = false; }
 ConditionParser::~ConditionParser() = default;
-int ConditionParser::execute(string* textArr,
-                             unordered_map<string, Command*>& commandTable,
-                             unordered_map<string, VarInfo*>& symTableUser,
-                             unordered_map<string, VarInfo*>& symTableSimulator,
-                             queue<const char*>& commandsToSimulator) {
+int ConditionParser::execute(Data* data) {
   return 5 + (_end - _start + 1);
 }
-void ConditionParser::updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser) {
+void ConditionParser::updateCondition(Data* data) {
 
-  string leftStr = textArr[_index + 1];
-  string symbol = textArr[_index + 2];
-  string rightStr = textArr[_index + 3];
+  string leftStr = data->getTextArr()[_index + 1];
+  string symbol = data->getTextArr()[_index + 2];
+  string rightStr = data->getTextArr()[_index + 3];
 
   auto* interpreter = new Interpreter();
   Expression* left = nullptr;
   Expression* right = nullptr;
 
   //set variables
-  for (pair<string, VarInfo*> element : symTableUser) {
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();

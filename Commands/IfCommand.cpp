@@ -5,28 +5,24 @@
 #include "IfCommand.h"
 IfCommand::IfCommand() = default;
 IfCommand::~IfCommand() = default;
-int IfCommand::execute(string* textArr,
-                       unordered_map<string, Command*>& commandTable,
-                       unordered_map<string, VarInfo*>& symTableUser,
-                       unordered_map<string, VarInfo*>& symTableSimulator,
-                       queue<const char*>&  commandsToSimulator) {
+int IfCommand::execute(Data* data) {
   //set _start and _end
   setStart(_index + 5);
   int temp = _index;
-  while (textArr[temp] != "}") {
+  while (data->getTextArr()[temp] != "}") {
     temp++;
   }
   setEnd(temp - 1);
 
-  updateCondition(textArr, symTableUser);
+  updateCondition(data);
   if (_condition) {
     int index = _start;
     while (index < _end) {
       Command* c;
-      c = commandTable.at(textArr[index]);
+      c = data->getCommandTable().at(data->getTextArr()[index]);
       if (c != nullptr) {
         c->setIndex(index);
-        index += c->execute(textArr, commandTable, symTableUser, symTableSimulator, commandsToSimulator);
+        index += c->execute(data);
       }
     }
   }

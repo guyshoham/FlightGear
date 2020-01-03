@@ -9,16 +9,8 @@
 
 PrintCommand::PrintCommand() = default;
 PrintCommand::~PrintCommand() = default;
-int PrintCommand::execute(string* textArr,
-                          unordered_map<string, Command*>& commandTable,
-                          unordered_map<string, VarInfo*>& symTableUser,
-                          unordered_map<string, VarInfo*>& symTableSimulator,
-                          queue<const char*>& commandsToSimulator) {
-  commandTable = commandTable;
-  symTableSimulator = symTableSimulator;
-  commandsToSimulator = commandsToSimulator;
-
-  string value = textArr[_index + 1];
+int PrintCommand::execute(Data* data) {
+  string value = data->getTextArr()[_index + 1];
 
   //checks if the argument is a string or not
   if (value.at(0) == '\"') {
@@ -27,7 +19,7 @@ int PrintCommand::execute(string* textArr,
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-    for (pair<string, VarInfo*> element : symTableUser) {
+    for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();

@@ -15,12 +15,8 @@ class ConditionParser : public Command {
  public:
   ConditionParser();
   ~ConditionParser() override;
-  int execute(string* textArr,
-              unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTableUser,
-              unordered_map<string, VarInfo*>& symTableSimulator,
-              queue<const char*>&  commandsToSimulator) override;
-  virtual void updateCondition(string* textArr, unordered_map<string, VarInfo*>& symTableUser);
+  int execute(Data* data) override;
+  virtual void updateCondition(Data* data);
   virtual void setStart(int index);
   virtual void setEnd(int index);
 };

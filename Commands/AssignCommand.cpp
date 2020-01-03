@@ -10,18 +10,14 @@
 
 AssignCommand::AssignCommand() = default;
 AssignCommand::~AssignCommand() = default;
-int AssignCommand::execute(string* textArr,
-                           unordered_map<string, Command*>& commandTable,
-                           unordered_map<string, VarInfo*>& symTableUser,
-                           unordered_map<string, VarInfo*>& symTableSimulator,
-                           queue<const char*>& commandsToSimulator) {
-  string key = textArr[_index];
-  string value = textArr[_index + 2];
+int AssignCommand::execute(Data* data) {
+  string key = data->getTextArr()[_index];
+  string value = data->getTextArr()[_index + 2];
 
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
-  for (pair<string, VarInfo*> element : symTableUser) {
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
@@ -34,7 +30,7 @@ int AssignCommand::execute(string* textArr,
   try {
     expression = interpreter->interpret(value);
     double newValue = expression->calculate();
-    VarInfo* v = symTableUser.at(key);
+    VarInfo* v = data->getSymTableUser().at(key);
     v->setValue(newValue);
     if (v->getDirection() == 1) {
       ostringstream temp;
@@ -48,7 +44,7 @@ int AssignCommand::execute(string* textArr,
       char* msg = new char[commandToSend.size() + 1];
       copy(commandToSend.begin(), commandToSend.end(), msg);
       msg[commandToSend.size()] = '\0';
-      commandsToSimulator.push(msg);
+      data->getCommandsToSimulator().push(msg);
     }
     delete expression;
     delete interpreter;

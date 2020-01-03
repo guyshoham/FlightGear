@@ -11,12 +11,8 @@
 
 SleepCommand::SleepCommand() = default;
 SleepCommand::~SleepCommand() = default;
-int SleepCommand::execute(string* textArr,
-                          unordered_map<string, Command*>& commandTable,
-                          unordered_map<string, VarInfo*>& symTableUser,
-                          unordered_map<string, VarInfo*>& symTableSimulator,
-                          queue<const char*>& commandsToSimulator) {
-  string value = textArr[_index + 1];
+int SleepCommand::execute(Data* data) {
+  string value = data->getTextArr()[_index + 1];
 
   //checks if the argument is a string or not
   if (value.at(0) == '\"') {
@@ -28,7 +24,7 @@ int SleepCommand::execute(string* textArr,
     ostringstream temp;
 
     string valueStr;
-    for (pair<string, VarInfo*> element : symTableUser) {
+    for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       temp << element.second->getValue();
       valueStr = temp.str();
       temp.str("");

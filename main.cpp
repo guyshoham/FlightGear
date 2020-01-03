@@ -297,8 +297,7 @@ void parser(Data* data) {
     c = data->getCommandTable().at(data->getTextArr()[index]);
     if (c != nullptr) {
       c->setIndex(index);
-      index += c->execute(data->getTextArr(), data->getCommandTable(), data->getSymTableUser(),
-                          data->getSymTableSimulator(), data->getCommandsToSimulator());
+      index += c->execute(data);
     }
   }
 }

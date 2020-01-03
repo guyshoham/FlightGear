@@ -56,19 +56,15 @@ string vars[] = {"airspeed-indicator_indicated-speed-kt",
 
 OpenServerCommand::OpenServerCommand() = default;
 OpenServerCommand::~OpenServerCommand() = default;
-int OpenServerCommand::execute(string* textArr,
-                               unordered_map<string, Command*>& commandTable,
-                               unordered_map<string, VarInfo*>& symTableUser,
-                               unordered_map<string, VarInfo*>& symTableSimulator,
-                               queue<const char*>& commandsToSimulator) {
+int OpenServerCommand::execute(Data* data) {
   //calculating port number as an expression
-  string value = textArr[_index + 1];
+  string value = data->getTextArr()[_index + 1];
   int portNum;
 
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
-  for (pair<string, VarInfo*> element : symTableUser) {
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
@@ -89,7 +85,9 @@ int OpenServerCommand::execute(string* textArr,
     delete interpreter;
   }
 
-  try { openServer(portNum, symTableUser, symTableSimulator); } catch (const char* message) { cout << message << endl; }
+  try { openServer(portNum, data->getSymTableUser(), data->getSymTableSimulator()); } catch (const char* message) {
+    cout << message << endl;
+  }
   return 2;
 }
 void OpenServerCommand::openServer(int portNum,
@@ -146,7 +144,7 @@ void OpenServerCommand::runningServer(int client_socket,
   }
 }
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*>& symTableUser,
-    unordered_map<string, VarInfo*>& symTableSimulator) {
+                                            unordered_map<string, VarInfo*>& symTableSimulator) {
   const char* delimiter = ",";
   char* element;
   VarInfo* simVar;

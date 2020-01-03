@@ -7,11 +7,12 @@
 #include <mutex>
 #include <queue>
 #include <string>
-#include "Commands/Command.h"
 #include "VarInfo.h"
 #define FLIGHTGEAR__DATA_H_
 
 using namespace std;
+
+class Command;
 
 class Data {
   static Data* _instance;

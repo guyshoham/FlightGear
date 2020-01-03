@@ -16,21 +16,17 @@
 
 ConnectCommand::ConnectCommand() = default;
 ConnectCommand::~ConnectCommand() = default;
-int ConnectCommand::execute(string* textArr,
-                            unordered_map<string, Command*>& commandTable,
-                            unordered_map<string, VarInfo*>& symTableUser,
-                            unordered_map<string, VarInfo*>& symTableSimulator,
-                            queue<const char*>& commandsToSimulator) {
-  const char* ip = textArr[_index + 1].c_str();
+int ConnectCommand::execute(Data* data) {
+  const char* ip = data->getTextArr()[_index + 1].c_str();
 
   //calculating port as an expression
-  string value = textArr[_index + 2];
+  string value = data->getTextArr()[_index + 2];
   int portNum;
 
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
-  for (pair<string, VarInfo*> element : symTableUser) {
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
     string valueStr = temp.str();
@@ -51,7 +47,9 @@ int ConnectCommand::execute(string* textArr,
     delete interpreter;
   }
 
-  try { openClientServer(ip, portNum, commandsToSimulator); } catch (const char* message) { cout << message << endl; }
+  try { openClientServer(ip, portNum, data->getCommandsToSimulator()); } catch (const char* message) {
+    cout << message << endl;
+  }
   return 3;
 }
 void ConnectCommand::openClientServer(const char* ip, int port, queue<const char*>& commandsToSimulator) {

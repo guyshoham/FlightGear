@@ -10,10 +10,6 @@ class LoopCommand : public ConditionParser {
  public:
   LoopCommand();
   ~LoopCommand() override;
-  int execute(string* textArr,
-              unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTableUser,
-              unordered_map<string, VarInfo*>& symTableSimulator,
-              queue<const char*>&  commandsToSimulator) override;
+  int execute(Data* data) override;
 };
 #endif //FLIGHTGEAR_COMMANDS_LOOPCOMMAND_H_

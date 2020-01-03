@@ -10,11 +10,7 @@ class AssignCommand : public Command {
  public:
   AssignCommand();
   ~AssignCommand() override;
-  int execute(string* textArr,
-              unordered_map<string, Command*>& commandTable,
-              unordered_map<string, VarInfo*>& symTableUser,
-              unordered_map<string, VarInfo*>& symTableSimulator,
-              queue<const char*>&  commandsToSimulator) override;
+  int execute(Data* data) override;
 
 };
 #endif //FLIGHTGEAR_COMMANDS_ASSIGNCOMMAND_H_

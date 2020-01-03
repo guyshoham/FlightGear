@@ -13,48 +13,44 @@ using namespace std;
 
 DefineVarCommand::DefineVarCommand() = default;
 DefineVarCommand::~DefineVarCommand() = default;
-int DefineVarCommand::execute(string* textArr,
-                              unordered_map<string, Command*>& commandTable,
-                              unordered_map<string, VarInfo*>& symTableUser,
-                              unordered_map<string, VarInfo*>& symTableSimulator,
-                              queue<const char*>&  commandsToSimulator) {
-  string name = textArr[_index + 1];
-  string arrow = textArr[_index + 2];
+int DefineVarCommand::execute(Data* data) {
+  string name = data->getTextArr()[_index + 1];
+  string arrow = data->getTextArr()[_index + 2];
 
-  if (textArr[_index + 3] == "sim") {
-    string path = textArr[_index + 4];
+  if (data->getTextArr()[_index + 3] == "sim") {
+    string path = data->getTextArr()[_index + 4];
 
     int direction;
     direction = arrow == "->" ? 1 : 0;
     auto* info = new VarInfo(name, direction, path);
 
     //adding variable to commandTable
-    commandTable[name] = new AssignCommand();
+    data->getCommandTable()[name] = new AssignCommand();
 
     //adding variable to symTableUser
-    symTableUser[name] = info;
+    data->getSymTableUser()[name] = info;
 
     //iterating over symTableSimulator to find the "twin"
-    for (pair<string, VarInfo*> element : symTableSimulator) {
+    for (pair<string, VarInfo*> element : data->getSymTableSimulator()) {
       if (path == element.second->getPath()) {
         //found twin. setting direction of twin
         element.second->setDirection(direction);
 
         //setting second name for both values
         element.second->setSecondName(name);
-        symTableUser[name]->setSecondName(element.second->getName());
+        data->getSymTableUser()[name]->setSecondName(element.second->getName());
         break;
       }
     }
 
     return 5;
   } else {
-    string value = textArr[_index + 3];
+    string value = data->getTextArr()[_index + 3];
 
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
-    for (pair<string, VarInfo*> element : symTableUser) {
+    for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       ostringstream temp;
       temp << element.second->getValue();
       string valueStr = temp.str();
@@ -69,9 +65,9 @@ int DefineVarCommand::execute(string* textArr,
       auto* info = new VarInfo(name, 2, "");
       info->setValue(expression->calculate());
       //adding variable to commandTable
-      commandTable[name] = new AssignCommand();
+      data->getCommandTable()[name] = new AssignCommand();
       //adding variable to symTableUser
-      symTableUser[name] = info;
+      data->getSymTableUser()[name] = info;
       delete expression;
       delete interpreter;
     } catch (const char* message) {
