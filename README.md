@@ -54,7 +54,7 @@ sudo g++ -std=c++14 main.cpp Commands/Command.h Commands/Command.cpp Commands/Co
 ```
 After the compilation process has done, type:
 ```bash
-./a.out
+./a.out fly.txt
 ```
 After the program is running, open the simulator and click **Fly!**
 
