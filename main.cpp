@@ -20,15 +20,13 @@ void initCommandTable(Data* data);
 void freeData(Data* data);
 
 int main(int argc, char* argv[]) {
-  Data* data = new Data();
+  Data* data = Data::getInstance();
   initCommandTable(data);
   initSymTableSimulator(data);
 
-  //cout << "Starting Flightgear..." << endl;
-
   //a pointer to the array.
   if (argc > 0) {
-    data->textArr = lexer(argv[1], data);
+    data->setTextArr(lexer(argv[1], data));
     parser(data);
     freeData(data);
   } else {
@@ -39,13 +37,13 @@ int main(int argc, char* argv[]) {
 }
 
 void freeData(Data* data) {
-  for (pair<string, Command*> element : data->commandTable) {
+  for (pair<string, Command*> element : data->getCommandTable()) {
     delete element.second;
   }
-  for (pair<string, VarInfo*> element : data->symTableUser) {
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     delete element.second;
   }
-  for (pair<string, VarInfo*> element : data->symTableSimulator) {
+  for (pair<string, VarInfo*> element : data->getSymTableSimulator()) {
     delete element.second;
   }
 }
@@ -288,19 +286,19 @@ string* lexer(string fileName, Data* data) {
     strArray[i] = *iterator;
     iterator++;
   }
-  data->arrSize = strList.size();
+  data->setArrSize(strList.size());
   return strArray;
 }
 
 void parser(Data* data) {
   int index = 0;
-  while (index < data->arrSize - 1) {
+  while (index < data->getArrSize() - 1) {
     Command* c;
-    c = data->commandTable.at(data->textArr[index]);
+    c = data->getCommandTable().at(data->getTextArr()[index]);
     if (c != nullptr) {
       c->setIndex(index);
-      index += c->execute(data->textArr, data->commandTable, data->symTableUser, data->symTableSimulator,
-                          data->commandsToSimulator);
+      index += c->execute(data->getTextArr(), data->getCommandTable(), data->getSymTableUser(),
+                          data->getSymTableSimulator(), data->getCommandsToSimulator());
     }
   }
 }

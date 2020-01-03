@@ -14,7 +14,7 @@
 using namespace std;
 
 class Data {
- public:
+  static Data* _instance;
   mutex m;
   string* textArr;
   int arrSize;
@@ -22,13 +22,29 @@ class Data {
   unordered_map<string, VarInfo*> symTableUser;
   unordered_map<string, VarInfo*> symTableSimulator;
   queue<const char*> commandsToSimulator;
-  ~Data() = default;
+
   Data() = default;
+  ~Data() = default;
+
+ public:
+  static Data* getInstance() {
+    if (_instance == nullptr) {
+      _instance = new Data();
+    }
+    return _instance;
+  }
+  string* getTextArr() { return textArr; }
+  void setTextArr(string* arr) { textArr = arr; }
+  int getArrSize() { return arrSize; }
+  void setArrSize(int size) { arrSize = size; }
+  unordered_map<string, Command*>& getCommandTable() { return commandTable; }
+  unordered_map<string, VarInfo*>& getSymTableUser() { return symTableUser; }
+  unordered_map<string, VarInfo*>& getSymTableSimulator() { return symTableSimulator; }
+  queue<const char*>& getCommandsToSimulator() { return commandsToSimulator; }
   void addCommand(string key, Command* value) {
     lock_guard<std::mutex> lock(m);
     commandTable[key] = value;
   }
-
   void addVariable(string key, bool direction, string path) {
     lock_guard<std::mutex> lock(m);
     auto* v = new VarInfo(key, direction, path);

@@ -3,3 +3,4 @@
 //
 
 #include "Data.h"
+Data* Data::_instance;
