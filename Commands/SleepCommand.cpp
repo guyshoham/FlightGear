@@ -16,11 +16,6 @@ int SleepCommand::execute(string* textArr,
                           unordered_map<string, VarInfo*>& symTableUser,
                           unordered_map<string, VarInfo*>& symTableSimulator,
                           queue<const char*>& commandsToSimulator) {
-  commandTable = commandTable;
-  symTableUser = symTableUser;
-  symTableSimulator = symTableSimulator;
-  commandsToSimulator = commandsToSimulator;
-
   string value = textArr[_index + 1];
 
   //checks if the argument is a string or not

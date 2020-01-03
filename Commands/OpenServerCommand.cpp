@@ -61,10 +61,6 @@ int OpenServerCommand::execute(string* textArr,
                                unordered_map<string, VarInfo*>& symTableUser,
                                unordered_map<string, VarInfo*>& symTableSimulator,
                                queue<const char*>& commandsToSimulator) {
-
-  commandTable = commandTable;
-  commandsToSimulator = commandsToSimulator;
-
   //calculating port number as an expression
   string value = textArr[_index + 1];
   int portNum;
