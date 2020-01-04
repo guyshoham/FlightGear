@@ -64,6 +64,7 @@ int OpenServerCommand::execute(Data* data) {
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
+  //setting variables for interpreter
   for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
@@ -85,9 +86,9 @@ int OpenServerCommand::execute(Data* data) {
     delete interpreter;
   }
 
-  try { openServer(portNum, data->getSymTableUser(), data->getSymTableSimulator()); } catch (const char* message) {
-    cout << message << endl;
-  }
+  try {
+    openServer(portNum, data->getSymTableUser(), data->getSymTableSimulator());
+  } catch (const char* message) { cout << message << endl; }
   return 2;
 }
 void OpenServerCommand::openServer(int portNum,
@@ -95,10 +96,7 @@ void OpenServerCommand::openServer(int portNum,
                                    unordered_map<string, VarInfo*>& symTableSimulator) {
   //create socket
   int socketfd = socket(AF_INET, SOCK_STREAM, 0);
-  if (socketfd == -1) {
-    //error
-    throw "ERROR: cannot create a socket";
-  }
+  if (socketfd == -1) { throw "ERROR: cannot create a socket"; }
   //bind socket to IP address
   sockaddr_in address; //in means IP4
   address.sin_family = AF_INET;
@@ -113,17 +111,13 @@ void OpenServerCommand::openServer(int portNum,
   //making socket listen to the port
   if (listen(socketfd, 1) == -1) { //can also set to SOMAXCON (max connections)
     throw "ERROR: cannot make socket listen to the port";
-  } else {
-    cout << "Server is now listening ..." << endl;
-  }
+  } else { cout << "Server is now listening ..." << endl; }
 
   // accepting a client
   socklen_t size = sizeof(address);
   int client_socket = accept(socketfd, (struct sockaddr*) &address, &size);
 
-  if (client_socket == -1) {
-    throw "ERROR: cannot accept client";
-  }
+  if (client_socket == -1) { throw "ERROR: cannot accept client"; }
 
   close(socketfd); //closing the listening socket
 
@@ -135,12 +129,10 @@ void OpenServerCommand::runningServer(int client_socket,
                                       unordered_map<string, VarInfo*>& symTableUser,
                                       unordered_map<string, VarInfo*>& symTableSimulator) {
   while (true) {
+    //reading buffer and sent it to a parse function
     char buffer[1024] = {0};
     int valRead = read(client_socket, buffer, 1024);
-    if (valRead != 0 && valRead != -1) {
-      //cout << buffer << endl;
-      parseSimulatorInput(buffer, symTableUser, symTableSimulator);
-    }
+    if (valRead != 0 && valRead != -1) { parseSimulatorInput(buffer, symTableUser, symTableSimulator); }
   }
 }
 void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, VarInfo*>& symTableUser,
@@ -150,31 +142,28 @@ void OpenServerCommand::parseSimulatorInput(char* buffer, unordered_map<string, 
   VarInfo* simVar;
   double newValue;
 
+  //iterating over all vars, in the XML file order, and updating values
   for (int i = 0; i < XML_SIZE; i++) {
-    if (i == 0) {
-      element = strtok(buffer, delimiter);
-    } else {
-      element = strtok(nullptr, delimiter);
-    }
+    if (i == 0) { element = strtok(buffer, delimiter); }
+    else { element = strtok(nullptr, delimiter); }
     simVar = symTableSimulator.at(vars[i]);
 
     if (element != NULL) {
       newValue = stod(element);
+      //we update the value only if it's different from the old value
       if (simVar->getValue() != newValue) {
         simVar->setValue(newValue);
-      }
 
-      if (simVar->getDirection() == 0) {
-        string secondName = simVar->getSecondName();
+        //if direction is <-, we update the second map
+        if (simVar->getDirection() == 0) {
+          string secondName = simVar->getSecondName();
 
-        for (pair<string, VarInfo*> userVar : symTableUser) {
-          if (userVar.second->getName() == secondName) {
-            if (userVar.second->getValue() != newValue) {
-//              cout << "parseSimulatorInput: " << secondName
-//                   << "(" << newValue << " <- " << userVar.second->getValue() << ")" << endl;
+          //iterating second map to find the twin
+          for (pair<string, VarInfo*> userVar : symTableUser) {
+            if (userVar.second->getName() == secondName) {
               userVar.second->setValue(newValue);
+              break;
             }
-            break;
           }
         }
       }

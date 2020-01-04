@@ -16,8 +16,8 @@ class ConditionParser : public Command {
   ConditionParser();
   ~ConditionParser() override;
   int execute(Data* data) override;
-  virtual void updateCondition(Data* data);
   virtual void setStart(int index);
   virtual void setEnd(int index);
+  virtual void updateCondition(Data* data);
 };
 #endif //FLIGHTGEAR_COMMANDS_CONDITIONPARSER_H_

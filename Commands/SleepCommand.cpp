@@ -21,8 +21,9 @@ int SleepCommand::execute(Data* data) {
   } else {
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
-    ostringstream temp;
 
+    //setting variables for interpreter
+    ostringstream temp;
     string valueStr;
     for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       temp << element.second->getValue();
@@ -46,6 +47,5 @@ int SleepCommand::execute(Data* data) {
       delete interpreter;
     }
   }
-
   return 2;
 }

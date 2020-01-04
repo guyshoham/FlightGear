@@ -131,11 +131,15 @@ class Interpreter {
   static bool hasHigherPrec(const char& top, const char& c);
   static bool isOpeningParentheses(const char c);
   static bool isClosingParentheses(const char c);
-  void addToArr(Variable* variable);
+  void addVarToArr(Variable* variable);
   static void replaceAll(string& str, const string& from, const string& to);
+  /**getWholeValue: given the first pos of a number string, return a Value contains the whole number.
+  *For instance: num=5400, pos points to '5' but we want the whole value (5400).**/
   static Value* getWholeValue(string input, int pos, int* posAfter);
+  /**createExpressionFromStack: pop stack.top and create Expression out of it.**/
   static Expression* createExpressionFromStack(stack<char>* stack);
   queue<Expression*> infixToPostfix(string input);
+  /**integrateExpressions: return a wide Expression, from the postfix output.**/
   static Expression* integrateExpressions(queue<Expression*> output);
   static bool validateMathExpression(const string expression);
   static bool validateVariableExpression(const string expression, const char symbol);

@@ -46,7 +46,7 @@ class Data {
     lock_guard<std::mutex> lock(m);
     commandTable[key] = value;
   }
-  void addVariable(string key, bool direction, string path) {
+  void addVariableSimulator(string key, int direction, string path) {
     lock_guard<std::mutex> lock(m);
     auto* v = new VarInfo(key, direction, path);
     symTableSimulator[key] = v;

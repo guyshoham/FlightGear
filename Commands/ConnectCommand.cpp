@@ -26,6 +26,7 @@ int ConnectCommand::execute(Data* data) {
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
+  //setting variables for interpreter
   for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
@@ -47,18 +48,15 @@ int ConnectCommand::execute(Data* data) {
     delete interpreter;
   }
 
-  try { openClientServer(ip, portNum, data->getCommandsToSimulator()); } catch (const char* message) {
-    cout << message << endl;
-  }
+  try {
+    openClientServer(ip, portNum, data->getCommandsToSimulator());
+  } catch (const char* message) { cout << message << endl; }
   return 3;
 }
 void ConnectCommand::openClientServer(const char* ip, int port, queue<const char*>& commandsToSimulator) {
   //create socket
   int client_socket = socket(AF_INET, SOCK_STREAM, 0);
-  if (client_socket == -1) {
-    //error
-    throw "Could not create a socket";
-  }
+  if (client_socket == -1) { throw "Could not create a socket"; }
 
   //We need to create a sockaddr obj to hold address of server
   sockaddr_in address; //in means IP4
@@ -69,26 +67,21 @@ void ConnectCommand::openClientServer(const char* ip, int port, queue<const char
   // Requesting a connection with the server on local host with port 5402
   socklen_t size = sizeof(address);
   int is_connect = connect(client_socket, (struct sockaddr*) &address, size);
-  if (is_connect == -1) {
-    throw "Could not connect to host server";
-  } else {
+  if (is_connect == -1) { throw "Could not connect to host server"; }
+  else {
     cout << "Client is now connected to server" << endl;
     thread clientServer(runningClientServer, client_socket, ref(commandsToSimulator));
     clientServer.detach();
   }
 }
 void ConnectCommand::runningClientServer(int client_socket, queue<const char*>& commandsToSimulator) {
-
   while (true) {
     if (!commandsToSimulator.empty()) {
+      //if queue is not empty, we pop the commands out of it, and sent to Simulator
       const char* msg;
       msg = commandsToSimulator.front();
       int is_sent = send(client_socket, msg, strlen(msg), 0);
-      if (is_sent == -1) {
-        cout << "Error sending message: " << msg << endl;
-      } else {
-        //cout << "sent: " << msg << endl;
-      }
+      if (is_sent == -1) { cout << "Error sending message: " << msg << endl; }
       commandsToSimulator.pop();
     }
   }

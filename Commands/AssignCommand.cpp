@@ -17,6 +17,7 @@ int AssignCommand::execute(Data* data) {
   auto* interpreter = new Interpreter();
   Expression* expression = nullptr;
 
+  //setting variables for interpreter
   for (pair<string, VarInfo*> element : data->getSymTableUser()) {
     ostringstream temp;
     temp << element.second->getValue();
@@ -30,6 +31,7 @@ int AssignCommand::execute(Data* data) {
   try {
     expression = interpreter->interpret(value);
     double newValue = expression->calculate();
+    //getting the VarInfo and updating value
     VarInfo* v = data->getSymTableUser().at(key);
     v->setValue(newValue);
     if (v->getDirection() == 1) {
@@ -37,10 +39,9 @@ int AssignCommand::execute(Data* data) {
       temp << v->getValue();
       string valueToSend = temp.str();
       string path = v->getPath();
-      //path.erase(0, 1);
       string commandToSend = "setd " + path + " " + valueToSend + "\r\n";
 
-      //update simulator - send 'commandToSend'
+      //pushing command string to Data queue
       char* msg = new char[commandToSend.size() + 1];
       copy(commandToSend.begin(), commandToSend.end(), msg);
       msg[commandToSend.size()] = '\0';

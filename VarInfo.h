@@ -13,13 +13,14 @@ class VarInfo {
   string _name, _secondName, _path;
   mutex m_lock;
   int _direction;
-  // "<-": 0
-  // "->": 1
-  // "=": 2
+  /** direction values:
+   * "<-": 0
+   * "->": 1
+   * "=": 2 **/
   double _value;
 
  public:
-  VarInfo(string name, int direction, string sim);
+  VarInfo(string name, int direction, string path);
   double getValue();
   void setValue(double value);
   string getSecondName();

@@ -13,12 +13,12 @@ int PrintCommand::execute(Data* data) {
   string value = data->getTextArr()[_index + 1];
 
   //checks if the argument is a string or not
-  if (value.at(0) == '\"') {
-    cout << value << endl;
-  } else {
+  if (value.at(0) == '\"') { cout << value << endl; }
+  else {
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
+    //setting variables for interpreter
     for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       ostringstream temp;
       temp << element.second->getValue();
@@ -40,6 +40,5 @@ int PrintCommand::execute(Data* data) {
       delete interpreter;
     }
   }
-
   return 2;
 }

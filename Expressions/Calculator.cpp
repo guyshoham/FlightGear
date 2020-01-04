@@ -124,7 +124,7 @@ void Interpreter::setVariables(string input) {
     }
 
     Variable* variable = new Variable(name, (stod(value)));
-    addToArr(variable);
+    addVarToArr(variable);
   }
   token = input.substr(0, pos);
   input.erase(0, pos + delimiter.length());
@@ -136,7 +136,7 @@ void Interpreter::setVariables(string input) {
   }
 
   Variable* variable = new Variable(name, (stod(value)));
-  addToArr(variable);
+  addVarToArr(variable);
 }
 Expression* Interpreter::interpret(string input) {
   queue<Expression*> output;
@@ -155,7 +155,7 @@ bool Interpreter::hasHigherPrec(const char& top, const char& c) {
 }
 bool Interpreter::isOpeningParentheses(const char c) { return c == '('; }
 bool Interpreter::isClosingParentheses(const char c) { return c == ')'; }
-void Interpreter::addToArr(Variable* variable) {
+void Interpreter::addVarToArr(Variable* variable) {
   int pos = 0;
   for (Variable* ptr : this->_variables) {
     if (ptr == nullptr) { break; }

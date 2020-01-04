@@ -36,18 +36,6 @@ int main(int argc, char* argv[]) {
   return 0;
 }
 
-void freeData(Data* data) {
-  for (pair<string, Command*> element : data->getCommandTable()) {
-    delete element.second;
-  }
-  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
-    delete element.second;
-  }
-  for (pair<string, VarInfo*> element : data->getSymTableSimulator()) {
-    delete element.second;
-  }
-}
-
 void initCommandTable(Data* data) {
   data->addCommand("openDataServer", new OpenServerCommand());
   data->addCommand("connectControlClient", new ConnectCommand());
@@ -59,92 +47,108 @@ void initCommandTable(Data* data) {
 }
 
 void initSymTableSimulator(Data* data) {
-  //todo: make function more generic (in case the xml will be changed)
-  data->addVariable("airspeed-indicator_indicated-speed-kt",
-                    1,
-                    "/instrumentation/airspeed-indicator/indicated-speed-kt");
+  //adding constant variables from the XML list
+  data->addVariableSimulator("airspeed-indicator_indicated-speed-kt",
+                             1,
+                             "/instrumentation/airspeed-indicator/indicated-speed-kt");
 
-  data->addVariable("time_warp", 1, "/sim/time/warp");
+  data->addVariableSimulator("time_warp", 1, "/sim/time/warp");
 
-  data->addVariable("switches_magnetos", 1, "/controls/switches/magnetos");
+  data->addVariableSimulator("switches_magnetos", 1, "/controls/switches/magnetos");
 
-  data->addVariable("heading-indicator_offset-deg", 1, "//instrumentation/heading-indicator/offset-deg");
+  data->addVariableSimulator("heading-indicator_offset-deg", 1, "//instrumentation/heading-indicator/offset-deg");
 
-  data->addVariable("altimeter_indicated-altitude-ft", 1, "/instrumentation/altimeter/indicated-altitude-ft");
+  data->addVariableSimulator("altimeter_indicated-altitude-ft", 1, "/instrumentation/altimeter/indicated-altitude-ft");
 
-  data->addVariable("altimeter_pressure-alt-ft", 1, "/instrumentation/altimeter/pressure-alt-ft");
+  data->addVariableSimulator("altimeter_pressure-alt-ft", 1, "/instrumentation/altimeter/pressure-alt-ft");
 
-  data->addVariable("attitude-indicator_indicated-pitch-deg",
-                    1,
-                    "/instrumentation/attitude-indicator/indicated-pitch-deg");
+  data->addVariableSimulator("attitude-indicator_indicated-pitch-deg",
+                             1,
+                             "/instrumentation/attitude-indicator/indicated-pitch-deg");
 
-  data->addVariable("attitude-indicator_indicated-roll-deg",
-                    1,
-                    "/instrumentation/attitude-indicator/indicated-roll-deg");
+  data->addVariableSimulator("attitude-indicator_indicated-roll-deg",
+                             1,
+                             "/instrumentation/attitude-indicator/indicated-roll-deg");
 
-  data->addVariable("attitude-indicator_internal-pitch-deg",
-                    1,
-                    "/instrumentation/attitude-indicator/internal-pitch-deg");
+  data->addVariableSimulator("attitude-indicator_internal-pitch-deg",
+                             1,
+                             "/instrumentation/attitude-indicator/internal-pitch-deg");
 
-  data->addVariable("attitude-indicator_internal-roll-deg", 1,
-                    "/instrumentation/attitude-indicator/internal-roll-deg");
+  data->addVariableSimulator("attitude-indicator_internal-roll-deg", 1,
+                             "/instrumentation/attitude-indicator/internal-roll-deg");
 
-  data->addVariable("encoder_indicated-altitude-ft", 1, "/instrumentation/encoder/indicated-altitude-ft");
+  data->addVariableSimulator("encoder_indicated-altitude-ft", 1, "/instrumentation/encoder/indicated-altitude-ft");
 
-  data->addVariable("encoder_pressure-alt-ft", 1, "/instrumentation/encoder/pressure-alt-ft");
+  data->addVariableSimulator("encoder_pressure-alt-ft", 1, "/instrumentation/encoder/pressure-alt-ft");
 
-  data->addVariable("gps_indicated-altitude-ft", 1, "/instrumentation/gps/indicated-altitude-ft");
+  data->addVariableSimulator("gps_indicated-altitude-ft", 1, "/instrumentation/gps/indicated-altitude-ft");
 
-  data->addVariable("gps_indicated-ground-speed-kt", 1, "/instrumentation/gps/indicated-ground-speed-kt");
+  data->addVariableSimulator("gps_indicated-ground-speed-kt", 1, "/instrumentation/gps/indicated-ground-speed-kt");
 
-  data->addVariable("gps_indicated-vertical-speed", 1, "/instrumentation/gps/indicated-vertical-speed");
+  data->addVariableSimulator("gps_indicated-vertical-speed", 1, "/instrumentation/gps/indicated-vertical-speed");
 
-  data->addVariable("indicated-heading-deg", 1, "/instrumentation/heading-indicator/indicated-heading-deg");
+  data->addVariableSimulator("indicated-heading-deg", 1, "/instrumentation/heading-indicator/indicated-heading-deg");
 
-  data->addVariable("magnetic-compass_indicated-heading-deg",
-                    1,
-                    "/instrumentation/magnetic-compass/indicated-heading-deg");
+  data->addVariableSimulator("magnetic-compass_indicated-heading-deg",
+                             1,
+                             "/instrumentation/magnetic-compass/indicated-heading-deg");
 
-  data->addVariable("slip-skid-ball_indicated-slip-skid", 1, "/instrumentation/slip-skid-ball/indicated-slip-skid");
+  data->addVariableSimulator("slip-skid-ball_indicated-slip-skid",
+                             1,
+                             "/instrumentation/slip-skid-ball/indicated-slip-skid");
 
-  data->addVariable("turn-indicator_indicated-turn-rate", 1, "/instrumentation/turn-indicator/indicated-turn-rate");
+  data->addVariableSimulator("turn-indicator_indicated-turn-rate",
+                             1,
+                             "/instrumentation/turn-indicator/indicated-turn-rate");
 
-  data->addVariable("vertical-speed-indicator_indicated-speed-fpm",
-                    1,
-                    "/instrumentation/vertical-speed-indicator/indicated-speed-fpm");
+  data->addVariableSimulator("vertical-speed-indicator_indicated-speed-fpm",
+                             1,
+                             "/instrumentation/vertical-speed-indicator/indicated-speed-fpm");
 
-  data->addVariable("flight_aileron", 1, "/controls/flight/aileron");
+  data->addVariableSimulator("flight_aileron", 1, "/controls/flight/aileron");
 
-  data->addVariable("flight_elevator", 1, "/controls/flight/elevator");
+  data->addVariableSimulator("flight_elevator", 1, "/controls/flight/elevator");
 
-  data->addVariable("flight_rudder", 1, "/controls/flight/rudder");
+  data->addVariableSimulator("flight_rudder", 1, "/controls/flight/rudder");
 
-  data->addVariable("flight_flaps", 1, "/controls/flight/flaps");
+  data->addVariableSimulator("flight_flaps", 1, "/controls/flight/flaps");
 
-  data->addVariable("engine_throttle", 1, "/controls/engines/engine/throttle");
+  data->addVariableSimulator("engine_throttle", 1, "/controls/engines/engine/throttle");
 
-  data->addVariable("current-engine_throttle", 1, "/controls/engines/current-engine/throttle");
+  data->addVariableSimulator("current-engine_throttle", 1, "/controls/engines/current-engine/throttle");
 
-  data->addVariable("switches_master-avionics", 1, "/controls/switches/master-avionics");
+  data->addVariableSimulator("switches_master-avionics", 1, "/controls/switches/master-avionics");
 
-  data->addVariable("switches_starter", 1, "/controls/switches/starter");
+  data->addVariableSimulator("switches_starter", 1, "/controls/switches/starter");
 
-  data->addVariable("active-engine_auto-start", 1, "/engines/active-engine/auto-start");
+  data->addVariableSimulator("active-engine_auto-start", 1, "/engines/active-engine/auto-start");
 
-  data->addVariable("flight_speedbrake", 1, "/controls/flight/speedbrake");
+  data->addVariableSimulator("flight_speedbrake", 1, "/controls/flight/speedbrake");
 
-  data->addVariable("c172p_brake-parking", 1, "/sim/model/c172p/brake-parking");
+  data->addVariableSimulator("c172p_brake-parking", 1, "/sim/model/c172p/brake-parking");
 
-  data->addVariable("engine_primer", 1, "/controls/engines/engine/primer");
+  data->addVariableSimulator("engine_primer", 1, "/controls/engines/engine/primer");
 
-  data->addVariable("current-engine_mixture", 1, "/controls/engines/current-engine/mixture");
+  data->addVariableSimulator("current-engine_mixture", 1, "/controls/engines/current-engine/mixture");
 
-  data->addVariable("switches_master-bat", 1, "/controls/switches/master-bat");
+  data->addVariableSimulator("switches_master-bat", 1, "/controls/switches/master-bat");
 
-  data->addVariable("switches_master-alt", 1, "/controls/switches/master-alt");
+  data->addVariableSimulator("switches_master-alt", 1, "/controls/switches/master-alt");
 
-  data->addVariable("engine_rpm", 1, "/engines/engine/rpm");
+  data->addVariableSimulator("engine_rpm", 1, "/engines/engine/rpm");
 
+}
+
+void freeData(Data* data) {
+  for (pair<string, Command*> element : data->getCommandTable()) {
+    delete element.second;
+  }
+  for (pair<string, VarInfo*> element : data->getSymTableUser()) {
+    delete element.second;
+  }
+  for (pair<string, VarInfo*> element : data->getSymTableSimulator()) {
+    delete element.second;
+  }
 }
 
 string* lexer(string fileName, Data* data) {

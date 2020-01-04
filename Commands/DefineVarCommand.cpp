@@ -17,7 +17,7 @@ int DefineVarCommand::execute(Data* data) {
   string name = data->getTextArr()[_index + 1];
   string arrow = data->getTextArr()[_index + 2];
 
-  if (data->getTextArr()[_index + 3] == "sim") {
+  if (data->getTextArr()[_index + 3] == "sim") { //if command using Sim function
     string path = data->getTextArr()[_index + 4];
 
     int direction;
@@ -42,7 +42,6 @@ int DefineVarCommand::execute(Data* data) {
         break;
       }
     }
-
     return 5;
   } else {
     string value = data->getTextArr()[_index + 3];
@@ -50,6 +49,7 @@ int DefineVarCommand::execute(Data* data) {
     auto* interpreter = new Interpreter();
     Expression* expression = nullptr;
 
+    //setting variables for interpreter
     for (pair<string, VarInfo*> element : data->getSymTableUser()) {
       ostringstream temp;
       temp << element.second->getValue();
